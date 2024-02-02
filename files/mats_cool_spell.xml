@@ -1,0 +1,21 @@
+<Materials>
+
+  <!--gives metal dust a use!-->
+    <Reaction probability="90" 
+	input_cell1="metal_sand" 		input_cell2="el_aqua_regia"
+	output_cell1="overcast_oxidizing_dust" 		output_cell2="smoke">
+  </Reaction> 
+  
+    <!--allows you to get toxic gold without beating the game, interesting i do say, sir!-->
+    <Reaction probability="90" 
+	input_cell1="el_electrum" 		input_cell2="el_electrum"  input_cell3="overcast_magic_liquid_mystery" 
+	output_cell1="gold_radioactive" 		output_cell2="brass" output_cell3="smoke">
+  </Reaction> 
+  
+
+</Materials>
+
+
+
+
+

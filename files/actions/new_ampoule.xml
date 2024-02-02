@@ -1,0 +1,41 @@
+<Entity> <!--I looked at the way the bottler spell from overcast worked, it was helpful for understanding.
+this is a far simpler version, though. for better or for worse.-->
+	
+  <GameAreaEffectComponent
+      radius="32"
+    />
+	<MaterialSuckerComponent
+		num_cells_sucked_per_frame="500" <!--has to fill a lot more since it won't suck after-->
+		randomized_position.min_x="-13"
+		randomized_position.max_x="13"
+		randomized_position.min_y="-13"
+		randomized_position.max_y="13"
+		material_type="0"
+		barrel_size="500"
+		>
+	</MaterialSuckerComponent>
+	
+	<MaterialInventoryComponent
+		drop_as_item="0"
+		on_death_spill="0"
+		>
+	</MaterialInventoryComponent>	
+
+	<LuaComponent
+		script_source_file="mods/Electrum/files/actions/new_ampoule.lua"
+		execute_on_removed=1,
+		execute_every_n_frame=-1,
+		>
+	</LuaComponent>
+	
+	<Base file="data/entities/projectiles/deck/base_field.xml">
+
+		<ProjectileComponent 
+			damage_game_effect_entities=""
+			lifetime="4"
+			>
+		</ProjectileComponent>
+	</Base>
+
+</Entity>
+

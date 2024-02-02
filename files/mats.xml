@@ -1,0 +1,531 @@
+<Materials>
+
+	<!--
+  <CellData
+	name="el_indestructium"
+	ui_name="indestructium"
+  	tags=""
+	wang_color="CF010101"
+	cell_type="solid"
+	electrical_conductivity="0"
+	hp="1000000"
+	show_in_creative_mode="1"
+	density="5"
+	durability="1000000"
+	solid_static_type="1"
+	crackability="0"
+		
+	generates_smoke="0"
+	durability="1000000"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="0"
+	>
+	<Graphics 
+	color="FF010101"> 
+    </Graphics>
+  </CellData>
+	-->
+
+  <CellData
+	name="el_indestructium"
+	ui_name="indestructium"
+	tags=""
+	burnable="0"
+	density="5"
+	cell_type="liquid"
+	wang_color="CF010101"
+	electrical_conductivity="0"
+	hp="1000000000000"
+	show_in_creative_mode="1"
+	durability="1000000000"
+	liquid_sand="1"
+	liquid_static="1"
+	>
+	<Graphics 
+	color="FF010101"> 
+    </Graphics>
+  </CellData>
+ 
+	<!--this shit is confusing as hell, wtf?-->
+   <CellData
+	name="el_indestructium_box2d"
+	ui_name="indestructium"
+	tags="[box2d]"
+	burnable="0"
+	density="5"
+	cell_type="solid"
+	wang_color="CF010100"
+	generates_smoke="0"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="50"
+	autoignition_temperature="999999"
+	solid_friction="0.7"
+	solid_static_type="0"
+	hp="1000000000000"
+	electrical_conductivity="0"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+	<Graphics
+		color="FF010100"
+	>
+	</Graphics>
+  </CellData>
+  
+  
+  
+    <CellData
+	name="el_indestructium_box2d_impassable"
+	ui_name="indestructium"
+	tags="[box2d]"
+	burnable="0"
+	density="5"
+	cell_type="solid"
+	wang_color="CF010100"
+	generates_smoke="0"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="50"
+	autoignition_temperature="999999"
+	solid_friction="0.7"
+	solid_static_type="1"
+	hp="1000000000000"
+	electrical_conductivity="0"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+	<Graphics
+		color="FF010100"
+	>
+	</Graphics>
+  </CellData>
+
+ <CellData
+	name="el_electrum"
+	ui_name="electrum"
+  	tags="[sand_metal],[corrodible],[alchemy],[solid]"
+	wang_color="CF9C8F31"
+	burnable="0"
+	density="10"
+	cell_type="liquid"
+	gfx_glow="127"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	durability="12"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	hp="8000" 
+	electrical_conductivity="1"
+	show_in_creative_mode="1"
+	>
+	<Graphics 
+	texture_file="mods/Electrum/files/materials_gfx/el_electrum.png" 
+	color="FFb89E58"> 
+    </Graphics>
+
+  </CellData>
+
+
+
+
+ <CellData
+	name="el_aqua_regia"
+	ui_name="Aqua Regia"
+  	tags="[liquid],[impure],[magic_liquid]"
+	burnable="0"
+	density="9.1"
+	cell_type="liquid"
+	wang_color="CFcd9f85"
+	generates_smoke="0"
+	liquid_gravity="0.5"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	danger_poison="1"
+	liquid_stains="2"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_aqua_regia.png" 
+			color="EBcd9f85" >
+    	</Graphics>
+
+	  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="POISONED" amount="0.15" /> <!--why?-->
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="POISONED"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
+
+
+
+<CellData
+	name="el_bloodmix"
+	ui_name="blood mixture"
+  	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]"
+	burnable="0"
+	density="9.15"    <!--should be heavier than aqua regia-->
+	cell_type="liquid"
+	wang_color="CFbf7839"
+	generates_smoke="0"
+	liquid_gravity="0.7"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	liquid_stains="2"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_bloodmix.png" 
+			color="d7bf7839" >
+    	</Graphics>
+
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="NIGHTVISION" amount="0.4" />
+			 <StatusEffect type="BLOODY" amount="0.4" />
+		</Ingestion>
+		<Stains>
+		 <StatusEffect type="BLOODY"/>
+		 <StatusEffect type="NIGHTVISION"/>
+		</Stains>
+	</StatusEffects>
+  </CellData>
+
+
+
+<CellData
+	name="el_cocoa"
+	ui_name="hot chocolate"
+  	tags="[liquid],[corrodible],[impure],[liquid_common],[food]"
+	burnable="0"
+	density="3"
+	cell_type="liquid"
+	wang_color="CFa6623e"
+	generates_smoke="0"
+	liquid_gravity="0.7"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	liquid_stains="2"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_cocoa.png" 
+			color="EEa6623e" >
+    	</Graphics>
+
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="EL_COCOA" amount="0.2" />
+		</Ingestion>
+		<Stains>
+			<StatusEffect type="WET"/>
+		</Stains>
+	</StatusEffects>
+  </CellData>
+
+
+
+ <CellData
+	name="el_cocoa_dust"
+	ui_name="chocolate"
+  	tags="[sand_other],[corrodible],[alchemy],[solid],[food]"
+	wang_color="CF73492c"
+	burnable="0"
+	density="4.5"
+	cell_type="liquid"
+	gfx_glow="0"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	durability="5"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	hp="8000" 
+	electrical_conductivity="0"
+	show_in_creative_mode="1"
+	>
+	<Graphics 
+	texture_file="mods/Electrum/files/materials_gfx/el_cocoa_dust.png" 
+	color="FF73492c"> 
+    </Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="EL_COCOA" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+
+  </CellData>
+  
+  
+  
+  
+ <CellData
+	name="el_destabalized_polymorph"
+	ui_name="destabalized polymorphine"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid]"
+	wang_color="CFea6cd7"
+	burnable="0"
+	density="1"
+	cell_type="liquid"
+	gfx_glow="63"
+	generates_smoke="0"
+	liquid_gravity="2"
+	durability="5"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	hp="8000" 
+	electrical_conductivity="1"
+	show_in_creative_mode="1"
+	liquid_stains="2"
+	>
+	<Graphics 
+	color="3Aea6cd7"> 
+    </Graphics>
+	  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="POISONED" amount="0.1" />
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="POISONED"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
+  
+  
+  <CellData
+	name="el_antipoly_liquid"
+	ui_name="antipolymorph fluid"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid]"
+	wang_color="CF169f49"
+	burnable="0"
+	density="1.9"
+	cell_type="liquid"
+	gfx_glow="127"
+	generates_smoke="0"
+	liquid_gravity="2"
+	durability="5"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	hp="8000" 
+	electrical_conductivity="1"
+	show_in_creative_mode="1"
+	liquid_stains="2"
+	>
+	<Graphics 
+	color="CA169f49"> 
+    </Graphics>
+	  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="POISONED" amount="0.2" />
+				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.02" />
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="POISONED"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
+  
+  
+
+<!--convert back to base metals with heat. of course, the lava will melt them, but you can solidify with wither, so eh-->
+ <Reaction probability="100" 
+	input_cell1="[lava]" 		input_cell2="el_electrum"  input_cell3="el_electrum" 
+	output_cell1="[lava]" 		output_cell2="gold" output_cell3="silver" >
+  </Reaction> 
+
+<!--the namesake reaction-->
+ <Reaction probability="90" 
+	input_cell1="gold" 		input_cell2="silver" input_cell3="el_aqua_regia"
+	output_cell1="el_electrum" 		output_cell2="el_electrum"	output_cell3="smoke"
+	blob_radius1="3"	blob_radius2="3"	blob_radius3="3">
+	
+  </Reaction>
+
+
+
+<!--it's a way to rid yourself of poly! with acid, ooooooohh-->
+ <Reaction probability="85" 
+	input_cell1="[acid]" 		input_cell2="[magic_polymorph]" 
+	output_cell1="el_aqua_regia" 		output_cell2="el_aqua_regia">
+  </Reaction>
+
+
+
+<!--funny reaction-->
+ <Reaction probability="30" 
+	input_cell1="el_aqua_regia" 		input_cell2="blood" 
+	output_cell1="el_aqua_regia" 		output_cell2="blood_worm">
+  </Reaction>
+ <Reaction probability="90" 
+	input_cell1="el_aqua_regia" 		input_cell2="blood_worm" 
+	output_cell1="el_aqua_regia" 		output_cell2="blood">
+  </Reaction>
+
+
+<!--berserkium, my beloved-->
+ <Reaction probability="90" 
+	input_cell1="magic_liquid_mana_regeneration" 		input_cell2="el_bloodmix"	input_cell3="el_electrum" 
+	output_cell1="magic_liquid_berserk" 		output_cell2="smoke" output_cell3="smoke"
+	blob_radius1="3"	blob_radius2="3"	blob_radius3="3">
+  </Reaction>
+
+<!--this is only here because a friend really likes conc. mana-->
+ <Reaction probability="90" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="el_aqua_regia" input_cell3="magic_liquid_berserk" 	
+	output_cell1="magic_liquid_mana_regeneration" 		output_cell2="smoke" output_cell3="el_bloodmix" 	>
+  </Reaction>
+
+
+<!--blood mix-->
+ <Reaction probability="95" 
+	input_cell1="blood" 		input_cell2="blood_worm" input_cell3="el_aqua_regia"
+	output_cell1="el_bloodmix" 		output_cell2="smoke"
+	blob_radius1="2"	blob_radius2="2"	blob_radius3="2">
+  </Reaction>
+
+ <Reaction probability="2" 
+	input_cell1="blood" 		input_cell2="blood_worm" input_cell3="el_bloodmix"
+	output_cell1="el_bloodmix" 		output_cell2="el_bloodmix"
+	blob_radius1="2"	blob_radius2="2"	blob_radius3="2">
+  </Reaction>
+  
+ <Reaction probability="1" 
+	input_cell1="blood" 		input_cell2="blood_worm"
+	output_cell1="el_bloodmix" output_cell2="smoke"> <!--why do i need to make it make smoke?-->
+  </Reaction>
+  
+  
+  <!--slime reverts the bloods-->
+   <Reaction probability="95" 
+	input_cell1="el_bloodmix" 	input_cell2="el_bloodmix" 		input_cell3="slime"
+	output_cell1="blood" output_cell2="blood_worm" output_cell3="slime">
+  </Reaction>
+    <Reaction probability="5" 
+	input_cell1="el_bloodmix" 	input_cell2="el_bloodmix" 		input_cell3="slime"
+	output_cell1="blood" output_cell2="blood_worm" output_cell3="smoke">
+  </Reaction>
+  
+  
+  <!--bloods seperate with lava.-->
+    <Reaction probability="100" 
+	input_cell1="el_bloodmix" 		input_cell2="[lava]" input_cell3="air"
+	output_cell1="blood"  output_cell2="[lava]" output_cell3="blood_worm">
+  </Reaction>
+  
+      <Reaction probability="100" 
+	input_cell1="el_bloodmix" 		input_cell2="[lava]" input_cell3="el_bloodmix"
+	output_cell1="blood"  output_cell2="[lava]" output_cell3="blood_worm">
+  </Reaction>
+
+<!--use for sulphur. makes sense to turn it into gunpowder.-->
+  <Reaction probability="50" 
+	input_cell1="sulphur" 		input_cell2="el_aqua_regia"
+	output_cell1="gunpowder"  output_cell2="el_aqua_regia">
+  </Reaction>
+
+<!--use for sulphur. doesn't make sense at all but eh.-->
+  <Reaction probability="50" 
+	input_cell1="sulphur" 		input_cell2="el_bloodmix"
+	output_cell1="honey"  output_cell2="smoke">
+  </Reaction>
+
+
+<!--funny.-->
+  <Reaction probability="50" 
+	input_cell1="el_bloodmix" 		input_cell2="[grows_grass]"
+	output_cell1="steam"  output_cell2="grass">
+  </Reaction>
+  <!--this is more useful.-->
+  <Reaction probability="50" 
+	input_cell1="el_bloodmix" 		input_cell2="[grows_fungus]"
+	output_cell1="steam"  output_cell2="fungi">
+  </Reaction>
+
+
+  <!--tasty...?-->
+  <!--first make the dust-->
+  <Reaction probability="100" 
+	input_cell1="el_electrum"	input_cell2="soil"
+	output_cell1="el_cocoa_dust"  output_cell2="el_cocoa_dust">
+  </Reaction>
+    <!--now the liquid-->
+  <Reaction probability="50" 
+	input_cell1="el_cocoa_dust"	input_cell2="water"
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+  
+
+
+	<!--yer gonna need regular poly for this one, oooooh, extra dangerous-->
+  <Reaction probability="25" 
+	input_cell1="magic_liquid_polymorph" 		input_cell2="el_aqua_regia"
+	output_cell1="el_destabalized_polymorph"  output_cell2="smoke">
+  </Reaction>
+	<!--and, well, gotta have a use for the electrum somewhere, eh?-->
+  <Reaction probability="60" 
+	input_cell1="el_destabalized_polymorph" 		input_cell2="el_electrum"
+	output_cell1="el_antipoly_liquid"  output_cell2="smoke">
+  </Reaction>
+
+	<!--good way to get rid of a good potion and some poly.-->
+     <Reaction probability="100" 
+	input_cell1="[magic_polymorph]" 		input_cell2="el_antipoly_liquid" 
+	output_cell1="smoke" 		output_cell2="smoke" >
+	</Reaction> 
+     <Reaction probability="50" 
+	input_cell1="[magic_polymorph]" 		input_cell2="el_antipoly_liquid" input_cell3="[magic_polymorph]" 
+	output_cell1="smoke" 		output_cell2="smoke" output_cell3="smoke" >
+	</Reaction> 
+
+<!--gives a way to get poly from unstable poly-->
+     <Reaction probability="80" 
+	input_cell1="magic_liquid_unstable_polymorph" 		input_cell2="el_electrum" 
+	output_cell1="magic_liquid_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+
+<!--gives a way to get acceleratium-->
+     <Reaction probability="80" 
+	input_cell1="material_darkness" 		input_cell2="el_electrum" 
+	output_cell1="magic_liquid_movement_faster" 		output_cell2="poison_gas" >
+  </Reaction>  
+
+<!--way to get worm pheromne-->
+     <Reaction probability="50" 
+	input_cell1="magic_liquid_charm" 		input_cell2="blood" 
+	output_cell1="magic_liquid_worm_attractor" 		output_cell2="magic_liquid_worm_attractor" >
+  </Reaction>  
+
+
+</Materials>
+
+
+
+
+

@@ -1,0 +1,40 @@
+<Entity>
+	
+  <GameAreaEffectComponent
+      radius="40"
+    />
+	<MaterialSuckerComponent
+		num_cells_sucked_per_frame="1500" <!--these settings ensure a full area fills in 1 tick-->
+		randomized_position.min_x="-20"
+		randomized_position.max_x="20"
+		randomized_position.min_y="-20"
+		randomized_position.max_y="20"
+		material_type="1"
+		barrel_size="1500"
+		>
+	</MaterialSuckerComponent>
+	
+	<MaterialInventoryComponent
+		drop_as_item="0"
+		on_death_spill="1"
+		>
+	</MaterialInventoryComponent>	
+
+	<LuaComponent
+		script_source_file="mods/Electrum/files/actions/pouch_fill.lua"
+		execute_on_removed=1,
+		execute_every_n_frame=-1,
+		>
+	</LuaComponent>
+	
+	<Base file="data/entities/projectiles/deck/base_field.xml">
+
+		<ProjectileComponent 
+			damage_game_effect_entities=""
+			lifetime="5"
+			>
+		</ProjectileComponent>
+	</Base>
+
+</Entity>
+

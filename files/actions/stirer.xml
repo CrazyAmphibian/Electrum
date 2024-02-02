@@ -1,0 +1,78 @@
+<Entity>
+	
+  <GameAreaEffectComponent
+      radius="24"
+    />
+	<MaterialSuckerComponent
+		num_cells_sucked_per_frame="576"
+		randomized_position.min_x="-12"
+		randomized_position.max_x="12"
+		randomized_position.min_y="-12"
+		randomized_position.max_y="12"
+		material_type="0"
+		barrel_size="576"
+		>
+	</MaterialSuckerComponent>
+	
+	
+	<MaterialSuckerComponent
+		num_cells_sucked_per_frame="576"
+		randomized_position.min_x="-12"
+		randomized_position.max_x="12"
+		randomized_position.min_y="-12"
+		randomized_position.max_y="12"
+		material_type="1"
+		barrel_size="576"
+		>
+	</MaterialSuckerComponent>
+
+	
+	<MaterialInventoryComponent
+		drop_as_item="0"
+		on_death_spill="1"
+		do_reactions="10000"
+		do_reactions_explosions="1"
+		do_reactions_entities="1"
+		>
+		<count_per_material_type>
+		</count_per_material_type>
+	</MaterialInventoryComponent>	
+
+	<LuaComponent
+		script_source_file="mods/Electrum/files/actions/stirer.lua"
+		execute_on_removed=0,
+		execute_every_n_frame=1,
+		>
+	</LuaComponent>
+	
+	<Base file="data/entities/projectiles/deck/base_field.xml">
+
+		<ProjectileComponent 
+			damage_game_effect_entities=""
+			lifetime="3" <!--this NEEDS to be 1 frame longer than after the code is ran for some reason. idk man otherwise shit deletes.-->
+			>
+		</ProjectileComponent>
+	</Base>
+
+  <DamageModelComponent 
+    _tags="enabled_in_world"
+    air_needed="0" 
+    blood_material="" 
+    drop_items_on_death="0" 
+    falling_damages="0" 
+    fire_damage_amount="0" 
+    fire_probability_of_ignition="0" 
+	critical_damage_resistance="1"
+    hp="0" 
+    is_on_fire="0" 
+    materials_create_messages="0" 
+    materials_damage="1" 
+    materials_that_damage=""
+    materials_how_much_damage=""
+    ragdoll_filenames_file=""
+    ragdoll_material=""
+  ></DamageModelComponent>
+
+
+</Entity>
+

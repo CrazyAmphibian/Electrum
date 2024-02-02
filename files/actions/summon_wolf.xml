@@ -1,0 +1,19 @@
+<Entity>
+
+	<LuaComponent
+		script_source_file="mods/Electrum/files/actions/summon_wolf.lua"
+		execute_on_removed=1,
+		execute_every_n_frame=-1,
+		>
+	</LuaComponent>
+	
+	<Base file="data/entities/projectiles/deck/base_field.xml">
+
+		<ProjectileComponent 
+			damage_game_effect_entities=""
+			lifetime="1" >
+		</ProjectileComponent>
+	</Base>
+
+</Entity>
+

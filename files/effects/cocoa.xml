@@ -1,0 +1,19 @@
+<Entity>
+	<!--i don't know what this does, but it breaks without it.-->
+    <GameEffectComponent 
+    	effect="CUSTOM"
+    	frames="600"
+    >
+	</GameEffectComponent >
+
+
+	<LuaComponent
+		script_damage_about_to_be_received="mods/Electrum/files/effects/cocoa.lua"
+		execute_every_n_frame="-1">
+	</LuaComponent>
+
+	<LuaComponent
+		script_damage_received="mods/Electrum/files/effects/cocoa.lua"
+		execute_every_n_frame="-1">
+	</LuaComponent>
+</Entity>
