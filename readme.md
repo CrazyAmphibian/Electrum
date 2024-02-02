@@ -12,8 +12,9 @@ Electrum is focused on the alchemy side of the game.
 ## Overview:
 
 - integration with other mods
-- 10 spells
-- 7 materials
+- 20 new spells (2 more with other mods enabled)
+- 7 new materials
+- 2 new items
 
 ## Spells
 
