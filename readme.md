@@ -7,13 +7,16 @@ Electrum is focused on the alchemy side of the game.
 
 
 
-#Features
-##Overview:
+# Features
+
+## Overview:
+
 - integration with other mods
 - 10 spells
 - 7 materials
 
-##Spells
+## Spells
+
 Potion Summoner:
 	summons an empty potion on you for your use
 	mana: 100
@@ -111,7 +114,7 @@ Acceleratium
 Polymorphine
 	see above
 	
-##Materials
+## Materials
 
 Aqua regia
 	made by combining any kind of polymorph with acid. used with other alchemical reactions.
@@ -137,6 +140,7 @@ Antipolymoprph fluid
 	the polymorph immunity is very short to maintain some balance, so it's hard to make a lot and use it pre-emptively. intended to be used reactively to attacks and situations. probably won't stop you from doing so, though...
 
 **other reactions**
+
 	combine blood mixture, electrum, and concentrated mana to make berserkium
 	pour aqua regia on berserkium to make it into concentrated mana.
 	aqua regia + sulphur = gunpowder. finaly sulphur has a use!
@@ -146,7 +150,7 @@ Antipolymoprph fluid
 	ominous liquid + electrum = acceleratium + poison gas
 	unstable polymorphine + electrum = polymorphine + smoke
 
-##mod interaction
+## mod interaction
 
 Graham's things:
 	adds 2 new spells, balloon summoner and balloon filler. does exactly what you think.
