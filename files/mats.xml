@@ -1,40 +1,13 @@
 <Materials>
 
-	<!--
   <CellData
 	name="el_indestructium"
 	ui_name="indestructium"
-  	tags=""
-	wang_color="CF010101"
-	cell_type="solid"
-	electrical_conductivity="0"
-	hp="1000000"
-	show_in_creative_mode="1"
-	density="5"
-	durability="1000000"
-	solid_static_type="1"
-	crackability="0"
-		
-	generates_smoke="0"
-	durability="1000000"
-	on_fire="0"
-	requires_oxygen="1"
-	temperature_of_fire="0"
-	>
-	<Graphics 
-	color="FF010101"> 
-    </Graphics>
-  </CellData>
-	-->
-
-  <CellData
-	name="el_indestructium"
-	ui_name="indestructium"
-	tags=""
+	tags="UNUSEDDEVTAGWILLTHISFIXIT"
 	burnable="0"
 	density="5"
 	cell_type="liquid"
-	wang_color="CF010101"
+	wang_color="CF000101"
 	electrical_conductivity="0"
 	hp="1000000000000"
 	show_in_creative_mode="1"
