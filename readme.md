@@ -13,7 +13,7 @@ Electrum is focused on the alchemy side of the game.
 
 - integration with other mods
 - 20 new spells (2 more with other mods enabled)
-- 7 new materials
+- 8 new materials
 - 2 new items
 
 ## Spells
@@ -147,6 +147,11 @@ Electrum is focused on the alchemy side of the game.
 	combine destabilized polymorph with electrum. annihilates with any polymorph. can be drank to give brief  polymorph immunity (2 seconds per drink/10% of a potion). Poisonous.
 	
 	the polymorph immunity is very short to maintain some balance, so it's hard to make a lot and use it pre-emptively. intended to be used reactively to attacks and situations. probably won't stop you from doing so, though...
+
+**reinforcement liquid**
+
+	combine aqua regia with metal dust. whenever it touches a solid material it will convert it into dense steel.
+	handy for creating alchemy labs, as dense steel is rather inert, and tough.
 
 **other reactions**
 

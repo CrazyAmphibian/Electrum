@@ -181,6 +181,12 @@
   </CellData>
 
 
+<!--
+basic guide to effect lengths:
+potions store 1000 particles
+a drink is 100 particles
+each particle ingested grants [amount] seconds of the status effect
+-->
 
 <CellData
 	name="el_cocoa"
@@ -207,7 +213,7 @@
 
 	<StatusEffects>
 		<Ingestion>
-			<StatusEffect type="EL_COCOA" amount="0.2" />
+			<StatusEffect type="EL_COCOA" amount="0.3" /> <!--30 seconds per sip. 5 minutes in a flask. 25 minutes with a secret item-->
 		</Ingestion>
 		<Stains>
 			<StatusEffect type="WET"/>
@@ -244,7 +250,7 @@
     </Graphics>
 	<StatusEffects>
 		<Ingestion>
-			<StatusEffect type="EL_COCOA" amount="0.1" />
+			<StatusEffect type="EL_COCOA" amount="0.15" />
 		</Ingestion>
 	</StatusEffects>
 
@@ -316,13 +322,37 @@
 	  <StatusEffects>
 			<Ingestion>
 				<StatusEffect type="POISONED" amount="0.2" />
-				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.02" />
+				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.02" /> <!--2 seconds per sip. 20 per flask. 1 minute 40 seconds with secret item.-->
 			</Ingestion>
 
 			<Stains>
 				<StatusEffect type="POISONED"/>
 			</Stains>
 		</StatusEffects>
+  </CellData>
+  
+  
+  <CellData
+	name="el_metalmakerjuice"
+	ui_name="reinforcement liquid"
+  	tags="[liquid]"
+	burnable="0"
+	density="10"
+	cell_type="liquid"
+	wang_color="CF626469"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_metalmakerjuice.png" 
+			color="FF626469" >
+    	</Graphics>
   </CellData>
   
   
@@ -453,6 +483,31 @@
 	input_cell1="el_cocoa_dust"	input_cell2="water"
 	output_cell1="el_cocoa"  output_cell2="el_cocoa">
   </Reaction>
+    <Reaction probability="50"  
+	input_cell1="el_cocoa_dust"	input_cell2="water_swamp" <!--for some reason the [water] tag is applied to a lot more materials than water. bah.-->
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+    <Reaction probability="50" 
+	input_cell1="el_cocoa_dust"	input_cell2="swamp"
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+  <Reaction probability="50" 
+	input_cell1="el_cocoa_dust"	input_cell2="water_salt"
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+    <Reaction probability="50" 
+	input_cell1="el_cocoa_dust"	input_cell2="water_ice"
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+      <Reaction probability="50" 
+	input_cell1="el_cocoa_dust"	input_cell2="water_temp" <!--so we have to list ALLLLLL of them.-->
+	output_cell1="el_cocoa"  output_cell2="el_cocoa">
+  </Reaction>
+  <!--mud is soil+water-->
+    <Reaction probability="50" 
+	input_cell1="el_electrum"	input_cell2="mud" input_cell3="mud"
+	output_cell1="el_cocoa"  output_cell2="el_cocoa" output_cell3="el_cocoa">
+  </Reaction>
   
 
 
@@ -495,6 +550,24 @@
 	output_cell1="magic_liquid_worm_attractor" 		output_cell2="magic_liquid_worm_attractor" >
   </Reaction>  
 
+
+<!--converts to dense steel. stuff is tough. perfect for making an alchemy lab, as it won't react.-->
+     <Reaction probability="10" 
+	input_cell1="el_metalmakerjuice" 		input_cell2="[solid]"  blob_radius2="5"
+	output_cell1="air" 		output_cell2="steel_static_strong" >
+  </Reaction>  
+     <Reaction probability="80" 
+	input_cell1="el_metalmakerjuice" 		input_cell2="[solid]" blob_radius2="5"
+	output_cell1="el_metalmakerjuice" 		output_cell2="steel_static_strong" >
+  </Reaction>  
+
+
+
+<!--make it by disolving metal dust into acid. gives it a use. hoorah.-->
+    <Reaction probability="60" 
+	input_cell1="el_aqua_regia" 		input_cell2="metal_sand" 
+	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
+  </Reaction>  
 
 </Materials>
 
