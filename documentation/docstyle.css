@@ -1,0 +1,326 @@
+a{
+color:inherit;
+text-decoration:inherit;
+}
+
+
+
+body{
+	background-color:#000;
+	color:#fff;
+	font-family:monospace;
+	font-size:15pt;
+	image-rendering:pixelated;
+}
+
+
+#titleheader{
+	color:#b89E58;
+	text-decoration:underline;
+}
+
+.overviewlisting{
+	list-style-type: none;
+}
+
+.overviewlisting * img{
+width:1em;	
+margin-right:4px;
+}
+
+
+.listingtable {
+	border-color:#71493e;
+	background-color:#3e3027;
+	border-style:solid;
+	
+	border-collapse: collapse;
+}
+
+.listingtable > * > * > th,.listingtable > * > * > td{
+	border-color:#71493e;
+	border-style:solid;
+	border-width:0px 3px 3px 3px;
+	padding:0px 2px 0px 2px;
+}
+
+.listingtable > * > * > th,.listingtable > * > * > td *{
+	vertical-align: middle;
+}
+
+.listingtable > * > * > th{
+	border-width:0px 2px 5px 2px;
+}
+
+.listingtable > * > * > td > * img {
+height: 2em;
+	margin:4px 0px 4px 0px;
+}
+
+
+.spell_other{
+	border:solid;
+	border-color:#714b33;
+	border-width:4px;
+	background-color:#444;
+}
+
+.spell_projectile{
+	border:solid;
+	border-color:#5A2323;
+	border-width:4px;
+	background-color:#444;
+}
+
+.spell_utility{
+	border:solid;
+	border-color:#7B2A74;
+	border-width:4px;
+	background-color:#444;
+}
+
+.spell_material{
+	border:solid;
+	border-color:#356F44;
+	border-width:4px;
+	background-color:#444;
+}
+
+
+#MODNOTE_graham{
+	vertical-align:super;
+	font-style:italic;
+	color:#ff00fc;
+	background-color:#2c2c2c;
+	border:solid #ff00fc 2px;
+}
+#MODNOTE_graham::before{
+	content:"G";
+	width:1em;
+	text-align:center;
+	display:inline-block;
+}
+#MODNOTE_graham:hover::after{
+	content:"only with graham's things enabled";
+	font-size:75%;
+	font-style:italic;
+	width:150px;
+	background:inherit;
+	display:inline-block;
+	position:absolute;
+	border:inherit;
+	padding:1px;
+}
+
+
+#MODNOTE_materials{
+	vertical-align:super;
+	font-style:italic;
+	color:#f22;
+	background-color:#222;
+	border:solid #f22 2px;
+}
+#MODNOTE_materials::before{
+	content:"M";
+	width:1em;
+	text-align:center;
+	display:inline-block;
+}
+#MODNOTE_materials:hover::after{
+	content:"not loaded with material spells";
+	font-size:75%;
+	font-style:italic;
+	width:150px;
+	background:inherit;
+	display:inline-block;
+	position:absolute;
+	border:inherit;
+	padding:1px;
+}
+
+#MODNOTE_dev{
+	vertical-align:super;
+	font-style:italic;
+	color:#fff;
+	background-color:#070707;
+	border:solid #fff 2px;
+}
+#MODNOTE_dev::before{
+	content:"D";
+	width:1em;
+	text-align:center;
+	display:inline-block;
+}
+#MODNOTE_dev:hover::after{
+	content:"only in dev game executable";
+	font-size:75%;
+	font-style:italic;
+	width:150px;
+	background:inherit;
+	display:inline-block;
+	position:absolute;
+	border:inherit;
+	padding:1px;
+}
+
+
+
+.infcharges{
+	color:#aaa;
+	font-style:italic;
+}
+.neverinfcharges::after{
+	content:"∞";
+	font-size:200%;
+	color:#aaa;
+	font-style:italic;
+}
+.neverinfcharges2{
+	position:absolute;
+	color:rgba(255,0,0,.75);
+	margin-top:.05em;
+	font-size:200%;
+}
+.ingestdurationnote{
+	text-decoration:underline;
+	font-style:italic;
+}
+.ingestdurationnote:hover::after{
+	content:"duration (in seconds) per-pixel. A potion holds 1000, and a sip is 100.";
+	position:absolute;
+	font-size:75%;
+	border:solid grey 2px;
+	background-color:black;
+	font-style:italic;
+	width:310px;
+}
+
+
+
+.spellinfopannel{
+	float:right;
+	border:solid white 2px;
+	width:400px;
+}
+.spellinfopannel > div{
+	border-bottom:solid white 2px;
+	border-top:solid white 2px;
+	padding-left:2px;
+	padding-right:2px;
+}
+
+#spellinfotitle{
+	font-weight:bold;
+	font-size:200%;
+	text-align:center;
+}
+#spellinfoimg{
+	text-align:center;
+}
+#spellinfoimg > img{
+	height:5em;
+}
+
+#spellinforarity{
+text-align:center;
+}
+#spellinforarity > table{
+	text-align:center;
+	border-collapse: collapse;
+	margin:auto;
+	margin-bottom:2px;
+}
+
+#spellinforarity th, #spellinforarity td{
+	border:solid white 2px;
+}
+
+#spellinfodesc{
+	font-style:italic;
+	font-family:serif;
+	padding-bottom:2px;
+}
+
+#spellinfoid{
+	text-align:center;
+	font-size:90%;
+	font-weight:bold;
+}
+
+.infopannelleft{
+	width:50%;
+	display:inline-block;
+	text-align:right;
+	color:#bbb;
+	
+}
+.infopannelright{
+	width:50%;
+	display:inline-block;
+	text-align:left;
+}
+
+.contentheader-holder{
+	width:90%;
+	text-align:center;
+	display:block;
+	margin:auto;
+}
+
+.contentheader{
+	float:left;
+	border:solid 2px;
+	padding:2px;
+	font-weight:bold;
+	font-size:110%;
+	text-align:center;
+	width:100%;
+	margin:.5em;
+}
+#contentheader_grahamsperks{
+	color:#ff00fc;
+	background-color:#2c2c2c;
+}
+
+#contentheader_materialspells{
+	color:#f22;
+	background-color:#222;
+}
+
+#contentheader_developer{
+	color:fff;
+	background-color:#070707;
+}
+
+
+.reaction_materialisthis{
+	font-weight:bold;
+	font-style:italic;
+}
+
+.reaction_vanillamat{
+	color:#bbb;
+}
+
+
+#reactionheader_grahamsthings{
+		color:#cc00c9;
+	background-color:#2c2c2c;
+}
+.reaction_grahamsthings{
+		background-color:#2c2c2c;
+}
+.reaction_matgrahamsthings{
+	color:#cc00c9;
+}
+
+#reactionheader_overcast{
+		color:#00cccc;
+	background-color:#2c2c2c;
+}
+.reaction_overcast{
+		background-color:#2c2c2c;
+}
+.reaction_matovercast{
+	color:#00cccc;
+}

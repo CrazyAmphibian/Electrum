@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../docstyle.css" rel="stylesheet" />
+	<style>
+		
+	.infopannelleft{
+		width:25%
+	}
+	
+	.infopannelright{
+		width:75%
+	}
+	
+	.ingestdurationnote::after{
+	margin-left:-350px;
+	}
+	
+	table{
+	border-collapse:collapse;
+	}
+	
+	
+	tr{
+	border: solid;
+
+	}
+	
+	td{
+	text-align:center;
+	}
+	td:nth-of-type(2){
+		border-style:solid;
+		border-top-width: 0px;
+		border-bottom-width: 0px;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+		
+	</style>
+</head>
+<body>
+
+	<a href="../home.html"><h1 id="titleheader">Electrum</h1></a>
+
+
+
+<h3><a style="text-decoration:underline;" href="../materials.html">return to materials</a></h3>
+
+
+	
+<div class="spellinfopannel">
+
+	<div id="spellinfotitle">Aqua Regia</div>
+	
+	<div id="spellinfoimg"> <img src="../../files/materials_gfx/el_aqua_regia.png">  </div>
+	<div id="spellinfotype"> <span class="infopannelleft">type:</span><span class="infopannelright">liquid</span></div>
+	<div id="spellinfotype"> <span class="infopannelleft">tags:</span><span class="infopannelright">[liquid],[impure],[magic_liquid]</span></div>
+	<div id="spellinfotype"> <span class="infopannelleft">effects:</span><span class="infopannelright"><ul>
+ 		<li>Ingest</li>
+			<ul>
+			<li> <a><img style="height:1em;" src="../assets/Effect_poisoned.png">Poisoned<span class="ingestdurationnote">(0.15)</span></a></li>
+			</ul>
+		<li>Stain</li>	
+		<ul>
+			<li> <a><img style="height:1em;" src="../assets/Effect_poisoned.png">Poisoned <span class="ingestdurationnote"></a>
+		</ul>
+		</ul>   
+		</div>
+	
+<div id="spellinfoid">el_aqua_regia</div>
+</div>
+
+
+
+<h3>Alchemy Reactions</h3>
+<table style="border:2px solid;">
+
+	<tr>
+		<td>Reagents</td>
+		<td>Prob.</td>
+		<td>Products</td>
+	</tr>
+	
+	
+	<tr> 
+		<td> <span class="reaction_vanillamat">[acid]</span> +  <span class="reaction_vanillamat">[magic_polymorph]</span> </td>
+		<td>85</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia (2x)</span></td>
+	</tr>
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">gold</span> +  <span class="reaction_vanillamat">silver</span> </td>
+		<td>90</td>
+		<td> <span >Electrum (2x)</span>  + <span class="reaction_vanillamat">Smoke</span></td>
+	</tr>
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">Polymorphine</span> </td>
+		<td>25</td>
+		<td> <span >Destabilized Polymorphine</span>  + <span class="reaction_vanillamat">Smoke</span></td>
+	</tr>
+
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">Metal Dust</span> </td>
+		<td>60</td>
+		<td> <span >Reinforcement Liquid (2x)</span></td>
+	</tr>
+
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">blood</span> </td>
+		<td>30</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia</span>  + <span class="reaction_vanillamat">worm blood</span></td>
+	</tr>
+
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">worm blood</span> </td>
+		<td>90</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia</span>  + <span class="reaction_vanillamat">blood</span></td>
+	</tr>
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">berserkium (2x)</span> </td>
+		<td>90</td>
+		<td> <span class="">Blood Mixture</span>  + <span class="reaction_vanillamat">Concentrated mana</span>+ <span class="reaction_vanillamat">Smoke</span></td>
+	</tr>
+	
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">worm blood</span> + <span class="reaction_vanillamat">blood</span> </td>
+		<td>95</td>
+		<td> <span class="">Blood Mixture</span> + <span class="reaction_vanillamat">Smoke</span> </td>
+	</tr>
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">Sulphur</span>  </td>
+		<td>50</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> + <span class="reaction_vanillamat">Gunpowder</span> </td>
+	</tr>
+
+	
+	<tr>
+	<td colspan=3 id="reactionheader_grahamsthings">
+		Only if Graham's Things is enabled
+	<td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Creepy Polymorphine</span> </td>
+		<td>40</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia (2x)</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Creepy Polymorphine</span> </td>
+		<td>75</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia </span> + <span class="reaction_vanillamat">Polymorphine</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Creepy Polymorphine</span> </td>
+		<td>15</td>
+		<td> <span class="reaction_vanillamat">Smoke</span> + <span class="reaction_vanillamat">Polymorphine</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Frozen Polymorphine</span> </td>
+		<td>75</td>
+		<td> <span class="reaction_materialisthis">Aqua Regia </span> + <span class="reaction_vanillamat">Polymorphine</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Frozen Polymorphine</span> </td>
+		<td>15</td>
+		<td> <span class="reaction_vanillamat">Smoke</span> + <span class="reaction_vanillamat">Polymorphine</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Statium (2x)</span> </td>
+		<td>90</td>
+		<td> <span class="reaction_vanillamat">Slime</span> + <span class="reaction_vanillamat">Ambrosia</span> + <span class="reaction_vanillamat">Poison</span> </td>
+	</tr>
+	
+	<tr class="reaction_grahamsthings"> 
+		<td> <span class="reaction_materialisthis">Aqua Regia</span> +  <span class="reaction_matgrahamsthings">Odd Mixture (2x)</span> </td>
+		<td>90</td>
+		<td> <span class="reaction_vanillamat">Smoke</span> + <span class="reaction_vanillamat">Acceleratium</span> + <span class="reaction_vanillamat">Flumoxium</span> </td>
+	</tr>
+
+	
+</table>
+
+
+
+
+
+
+</body>
+</html>

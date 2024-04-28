@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../docstyle.css" rel="stylesheet" />
+	<style>
+		
+	.infopannelleft{
+		width:25%
+	}
+	
+	.infopannelright{
+		width:75%
+	}
+	
+	.ingestdurationnote::after{
+	margin-left:-350px;
+	}
+	
+	table{
+	border-collapse:collapse;
+	}
+	
+	
+	tr{
+	border: solid;
+
+	}
+	
+	td{
+	text-align:center;
+	}
+	td:nth-of-type(2){
+		border-style:solid;
+		border-top-width: 0px;
+		border-bottom-width: 0px;
+		border-left-width: 1px;
+		border-right-width: 1px;
+	}
+		
+	</style>
+</head>
+<body>
+
+	<a href="../home.html"><h1 id="titleheader">Electrum</h1></a>
+
+
+
+<h3><a style="text-decoration:underline;" href="../materials.html">return to materials</a></h3>
+
+
+	
+<div class="spellinfopannel">
+
+	<div id="spellinfotitle">Blood Mixture</div>
+	
+	<div id="spellinfoimg"> <img src="../../files/materials_gfx/el_bloodmix.png">  </div>
+	<div id="spellinfotype"> <span class="infopannelleft">type:</span><span class="infopannelright">liquid</span></div>
+	<div id="spellinfotype"> <span class="infopannelleft">tags:</span><span class="infopannelright">[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]</span></div>
+	<div id="spellinfotype"> <span class="infopannelleft">effects:</span><span class="infopannelright"><ul>
+		<li>Ingest</li>
+			<ul>
+			<li> <a><img style="height:1em;" src="../assets/Effect_bloody.png">Bloody <span class="ingestdurationnote">(0.4)</span></a></li>
+			<li> <a><img style="height:1em;" src="../assets/Effect_nightvision.png">Wormy Vision <span class="ingestdurationnote">(0.4)</span></a></li>
+			</ul>
+		<li>Stain</li>	
+		<ul>
+			<li> <a><img style="height:1em;" src="../assets/Effect_bloody.png">Bloody <span class="ingestdurationnote"></span></a></li>
+			<li> <a><img style="height:1em;" src="../assets/Effect_nightvision.png">Wormy Vision <span class="ingestdurationnote"></a>
+		</ul>
+		</ul>   
+		</div>
+	
+<div id="spellinfoid">el_bloodmix</div>
+</div>
+
+
+
+<h3>Alchemy Reactions</h3>
+<table style="border:2px solid;">
+
+	<tr>
+		<td>Reagents</td>
+		<td>Prob.</td>
+		<td>Products</td>
+	</tr>
+	
+	<tr> 
+		<td> <span >Aqua Regia</span> + <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> </td>
+		<td>95</td>
+		<td> <span class="reaction_materialisthis">Blood Mixture</span>  + <span class="reaction_vanillamat">Smoke</span></td>
+	</tr>
+	<tr> 
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+		<td>2</td>
+		<td> <span class="reaction_materialisthis">Blood Mixture (2x)</span> </td>
+	</tr>	
+	<tr> 
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> </td>
+		<td>1</td>
+		<td> <span class="reaction_materialisthis">Blood Mixture</span> + <span class="reaction_vanillamat">Smoke</span> </td>
+	</tr>	
+	
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Blood Mixture (2x)</span> + <span class="reaction_vanillamat">Slime</span> </td>
+		<td>95</td>
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> </td>
+	</tr>	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Blood Mixture (2x)</span> + <span class="reaction_vanillamat">Slime</span> </td>
+		<td>5</td>
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> + <span class="reaction_vanillamat">Slime</span> </td>
+	</tr>		
+	
+	
+	<tr> 
+		<td> <span class="reaction_materialisthis">Blood Mixture (2x)</span> + <span class="reaction_vanillamat">Lava</span> </td>
+		<td>100</td>
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> + <span class="reaction_vanillamat">Lava</span> </td>
+	</tr>			
+	<tr> 
+		<td> <span class="reaction_materialisthis">Blood Mixture</span> + <span class="reaction_vanillamat">Lava</span> </td>
+		<td>100</td>
+		<td> <span class="reaction_vanillamat">Worm Blood</span> +  <span class="reaction_vanillamat">Blood</span> + <span class="reaction_vanillamat">Lava</span> </td>
+	</tr>		
+	
+	<tr> 
+		<td> <span >Electrum</span> + <span class="reaction_vanillamat">Concentrated Mana</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+		<td>90</td>
+		<td> <span class="reaction_vanillamat">Berserkium</span>  + <span class="reaction_vanillamat">Smoke (2x)</span></td>
+	</tr>
+	
+	<tr> 
+		<td> <span >Aqua Regia</span> + <span class="reaction_vanillamat">Berserkium (2x)</span> </td>
+		<td>90</td>
+		<td> <span class="reaction_vanillamat">Concentrated Mana</span>  + <span class="reaction_vanillamat">Smoke</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+	</tr>
+	
+	
+	<tr> 
+		<td> <span class="reaction_vanillamat">Sulphur</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+		<td>50</td>
+		<td> <span class="reaction_vanillamat">Honey</span>  + <span class="reaction_vanillamat">Smoke</span></td>
+	</tr>
+
+	<tr> 
+		<td> <span class="reaction_vanillamat">[grows_grass]</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+		<td>50</td>
+		<td> <span class="reaction_vanillamat">grass</span>  + <span class="reaction_vanillamat">Steam</span></td>
+	</tr>	
+	<tr> 
+		<td> <span class="reaction_vanillamat">[grows_fungus]</span> + <span class="reaction_materialisthis">Blood Mixture</span> </td>
+		<td>50</td>
+		<td> <span class="reaction_vanillamat">fungi</span>  + <span class="reaction_vanillamat">Steam</span></td>
+	</tr>	
+
+
+</table>
+
+
+
+
+
+
+</body>
+</html>

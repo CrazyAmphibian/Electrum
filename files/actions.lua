@@ -347,7 +347,7 @@ end --end of new material spawner spells
 	table.insert( actions,{
 		id          = "EL_TOUCH_AIR",
 		name 		= "Touch of Air",
-		description = "Transmutes everything in a short radius into smoke, including walls, creatures... and you",
+		description = "Transmutes everything in a short radius into air, including walls, creatures... and you",
 		sprite 		= "mods/Electrum/files/actions/touch_air.png",
 		related_projectiles	= {"mods/Electrum/files/actions/touch_air.xml"},
 		type 		= ACTION_TYPE_MATERIAL,
@@ -393,7 +393,7 @@ end --end of new material spawner spells
 		spawn_level                       = "5,6,10", -- MANA_REDUCE
 		spawn_probability                 = "0.1,0.2,1", -- MANA_REDUCE
 		price = 500,
-		mana = 120,
+		mana = 100,
 			action 		= function( recursion_level, iteration )
 			c.fire_rate_wait = c.fire_rate_wait + 50
 			

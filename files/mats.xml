@@ -395,7 +395,7 @@ each particle ingested grants [amount] seconds of the status effect
 <!--berserkium, my beloved-->
  <Reaction probability="90" 
 	input_cell1="magic_liquid_mana_regeneration" 		input_cell2="el_bloodmix"	input_cell3="el_electrum" 
-	output_cell1="magic_liquid_berserk" 		output_cell2="smoke" output_cell3="smoke"
+	output_cell1="magic_liquid_berserk" 		output_cell2="magic_liquid_berserk" output_cell3="smoke"
 	blob_radius1="3"	blob_radius2="3"	blob_radius3="3">
   </Reaction>
 
@@ -546,7 +546,7 @@ each particle ingested grants [amount] seconds of the status effect
 
 <!--way to get worm pheromne-->
      <Reaction probability="50" 
-	input_cell1="magic_liquid_charm" 		input_cell2="blood" 
+	input_cell1="magic_liquid_charm" 		input_cell2="el_bloodmix" 
 	output_cell1="magic_liquid_worm_attractor" 		output_cell2="magic_liquid_worm_attractor" >
   </Reaction>  
 
