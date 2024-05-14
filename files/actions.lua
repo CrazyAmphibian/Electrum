@@ -14,6 +14,7 @@ table.insert( actions,
 	max_uses = 3,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 150 --2.5 seconds
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/flask_summon.xml")
 		
 	end,
@@ -33,7 +34,7 @@ table.insert( actions,
 	max_uses = 3,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 150 --2.5 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/pouch_summon.xml")
 		
 	end,
@@ -56,7 +57,7 @@ table.insert( actions,
 	max_uses = 1,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 300 --5 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/flask_fill.xml")
 		
 	end,
@@ -77,7 +78,7 @@ table.insert( actions,
 	max_uses = 1,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 300 --5 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/pouch_fill.xml")
 		
 	end,
@@ -98,7 +99,7 @@ table.insert( actions,
 	max_uses = -1,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 6 --0.1 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/stirer.xml")
 		
 	end,
@@ -120,7 +121,7 @@ table.insert( actions,
 	max_uses = 5,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 60 --1 second
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/summon_wolf.xml")
 		
 	end,
@@ -496,7 +497,7 @@ table.insert( actions,
 	mana = 0,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 300
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/DEV_MASTERALCHEMISTFLASKSUMMON.xml")
 		
 	end,
@@ -516,7 +517,7 @@ table.insert( actions,
 	mana = 0,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 300
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/DEV_AMPOULESUMMON.xml")
 		
 	end,
@@ -569,8 +570,62 @@ table.insert( actions,
 	max_uses = 5,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 180 --3 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions/new_ampoule.xml")
 		
 	end,
 } )
+
+
+
+table.insert( actions,
+{
+	id          = "EL_ALCHEMISTHIISI_ATTACK",
+	name 		= "Aggressive Flask",
+	description = "Launches a potion with a random material in it!",
+	sprite 		= "mods/Electrum/files/actions/alchemisthiisi_attack.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "2,3,4,5,10",
+	spawn_probability                 = ".75,1,.75,1,.15",
+	price = 125,
+	mana = 100,
+	max_uses = 10,
+	action 		= function()
+		
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		if reflecting then return end
+
+		local casterent = GetUpdatedEntityID()
+		if (not casterent) or casterent==0 then return end --the game casts it upon loading a world, but that will crash the game. ain't that a bitch.
+		local x,y = EntityGetTransform(casterent)
+		
+		--print(casterent)
+		
+		local potion=EntityLoad("data/entities/items/pickup/potion_aggressive.xml",x,y-4)
+		if not potion then return end
+		
+		local aicomp--=EntityGetFirstComponentIncludingDisabled(casterent,"AnimalAIComponent")
+		local ang=0
+
+		--if aicomp then
+		--	ang = (ComponentGetValue2(aicomp,"mRangedAttackCurrentAimAngle ") or 0) + 3.1415926/2 --90 degree offset
+			
+		--else
+			aicomp=EntityGetFirstComponentIncludingDisabled(casterent,"ControlsComponent")
+			if not aicomp then print("cannot find controller component") return end
+			local aimx,aimy=ComponentGetValue2(aicomp,"mAimingVector")
+			ang=math.atan2(aimx,aimy)
+		--end
+		
+		local throwforce=300
+		
+		--print(ang)
+		
+		PhysicsApplyForce(potion,throwforce*math.sin(ang),throwforce*math.cos(ang))
+		
+		--add_projectile("mods/Electrum/files/actions/alchemisthiisi_attack.xml")
+	end,
+} )
+
+
+
