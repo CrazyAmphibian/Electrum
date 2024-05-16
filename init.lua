@@ -59,6 +59,7 @@ ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/Electrum/files/potion.l
 
 
 ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar.lua")
+ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar.lua")
 
 
 local content = ModTextFileGetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml")

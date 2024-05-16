@@ -6,7 +6,7 @@ split = function(s,seperator)
 local out={}
 local n=1
 	while true do
-		local i,i2=s:find(seperator,n)
+		local i,i2=s:find(seperator,n,nil,true)
 		if i then
 			out[#out+1]=s:sub(n,i-1)
 			n=i2+1
