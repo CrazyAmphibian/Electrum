@@ -58,8 +58,8 @@ ModLuaFileAppend( "data/scripts/status_effects/status_list.lua", "mods/Electrum/
 ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/Electrum/files/potion.lua" )
 
 
-ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar.lua")
-ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar.lua")
+ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar_masteralchemistflask.lua")
+ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar_alchemymaterialreward.lua")
 
 
 local content = ModTextFileGetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml")
@@ -68,7 +68,14 @@ if content then
 			<LuaComponent 
 				_enabled="1" 
 				execute_every_n_frame="240"
-				script_source_file="mods/electrum/files/temple_altar.lua" 
+				script_source_file="mods/electrum/files/temple_altar_masteralchemistflask.lua" 
+			>
+			</LuaComponent>
+			
+			<LuaComponent 
+				_enabled="1" 
+				execute_every_n_frame="240"
+				script_source_file="mods/electrum/files/temple_altar_alchemymaterialreward.lua" 
 			>
 			</LuaComponent>
 		</Entity>

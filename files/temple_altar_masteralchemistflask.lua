@@ -45,13 +45,16 @@ for i=1,#ents do
 	local ispouch,ispotion
 	
 	local entname=EntityGetFilename(entid)
-	if entname=="data/entities/items/pickup/powder_stash.xml" and EntityGetRootEntity(entid) == entid then
+	if entid~=0 and entname=="data/entities/items/pickup/powder_stash.xml" and EntityGetRootEntity(entid) == entid then
 		ispouch=true
 	end
 	
-	if EntityGetRootEntity(entid) == entid and (entname:sub(1,#"data/entities/items/pickup/potion")=="data/entities/items/pickup/potion" or 
-	(entname=="data/entities/player.xml" and EntityGetComponentIncludingDisabled(entid,"MaterialSuckerComponent") and EntityGetComponentIncludingDisabled(entid,"ItemComponent") ) ) then
-		ispotion=entname~="data/entities/items/pickup/potion_aggressive.xml" --don't allow potions from the alchemist hiisi
+	if entid~=0 and EntityGetRootEntity(entid) == entid and #(EntityGetComponent(entid,"MaterialSuckerComponent") or {})==1 and (ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"barrel_size") or 0)>=1000 and ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"material_type")==0 then
+		ispotion=true --i should have done a check like this earlier.
+	
+	--[[and (entname:sub(1,#"data/entities/items/pickup/potion")=="data/entities/items/pickup/potion" or 
+	(entname=="data/entities/player.xml" and EntityGetComponentIncludingDisabled(entid,"MaterialSuckerComponent") and EntityGetComponentIncludingDisabled(entid,"ItemComponent") ) ) then 
+		ispotion=entname~="data/entities/items/pickup/potion_aggressive.xml" --don't allow potions from the alchemist hiisi ]]
 	end
 
 	if ispouch and not detectingpouch then

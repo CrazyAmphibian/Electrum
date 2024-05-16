@@ -2,24 +2,33 @@ local entity_id = GetUpdatedEntityID()
 local x, y = EntityGetTransform( entity_id )
 local rewardedflaskreagents={}
 
-split = function(s,seperator) 
+split = function(s,seperator) --trying to figure this shit out has made me want to kill myself.
+if not s then return {} end
 local out={}
-local n=1
-	while true do
-		local i,i2=s:find(seperator,n,nil,true)
-		if i then
-			out[#out+1]=s:sub(n,i-1)
-			n=i2+1
+	local n=1
+	n=1--string.find(s,seperator,n,true)
+	if not n then return {s} end
+	local nn
+	while n<=#s do
+		local n1,n2=string.find(s,seperator,n,true)
+		if n1 then
+			out[#out+1]=s:sub(n,n1-1)
 		else
-			if n<#s then
-				out[#out+1]= s:sub(n,#s)
-			end
-			break
+			out[#out+1]=s:sub(n)
 		end
+		
+		n=(n2 or #s)+1
 	end
 	return out
 end
 
+concat=function(t,s)
+local ns=""
+for i=1,#t do
+ns=ns..t[i]..(i==#t and "" or s)
+end
+return ns
+end
 
 local _STDSPELLPOOL={ --a bunch of alchemy-related spells.
 "BLOOD_TO_ACID",
@@ -44,7 +53,7 @@ local _ELECTRUMCOOLSPELLPOOL={
 
 if ModIsEnabled("grahamsperks") then
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="GRAHAM_POWDER_EVAPORATION"
-_ELECTRUMCOOLSPELLPOOL=[#_ELECTRUMCOOLSPELLPOOL+1]="EL_BALOON_FILL"
+_ELECTRUMCOOLSPELLPOOL[#_ELECTRUMCOOLSPELLPOOL+1]="EL_BALOON_FILL"
 end
 
 if ModIsEnabled("cool_spell") then
@@ -99,37 +108,37 @@ local _REWARDPOOL={
 }
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
-["el_metalmakerjuice"]=_ELECTRUMCOOLSPELLPOOL,
-["el_antipoly_liquid"]=_ELECTRUMCOOLSPELLPOOL,
-["el_electrum"]=_ELECTRUMCOOLSPELLPOOL,
-["el_aqua_regia"]=_ELECTRUMCOOLSPELLPOOL,
-["el_cocoa"]=_ELECTRUMCOOLSPELLPOOL,
+_REWARDPOOL["el_metalmakerjuice"]=_ELECTRUMCOOLSPELLPOOL
+_REWARDPOOL["el_antipoly_liquid"]=_ELECTRUMCOOLSPELLPOOL
+_REWARDPOOL["el_electrum"]=_ELECTRUMCOOLSPELLPOOL
+_REWARDPOOL["el_aqua_regia"]=_ELECTRUMCOOLSPELLPOOL
+_REWARDPOOL["el_cocoa"]=_ELECTRUMCOOLSPELLPOOL
 
-["el_bloodmix"]=_STDSPELLPOOL, --it's too easy to get, mate.
+_REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL --it's too easy to get, mate.
 end
 
 if not ModIsEnabled("material_spells") then 
-["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"},
-["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"},
+_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"}
+_REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
 end
 
 
 if ModIsEnabled("grahamsperks") then
-_REWARDPOOL["radioactive_liquid"]={"GRAHAM_MATERIAL_RADIOACTIVE"},
-_REWARDPOOL["graham_pureliquid"]={"GRAHAM_MATERIAL_PURE"},
-_REWARDPOOL["graham_mundane"]=_STDSPELLPOOL,
-_REWARDPOOL["graham_bubbly"]=_STDSPELLPOOL,
-_REWARDPOOL["graham_hellblood"]=_STDSPELLPOOL,
-_REWARDPOOL["graham_slush"]=_STDSPELLPOOL,
-_REWARDPOOL["graham_statium"]=_STDSPELLPOOL,
-_REWARDPOOL["graham_resist"]=_STDSPELLPOOL,
+_REWARDPOOL["radioactive_liquid"]={"GRAHAM_MATERIAL_RADIOACTIVE"}
+_REWARDPOOL["graham_pureliquid"]={"GRAHAM_MATERIAL_PURE"}
+_REWARDPOOL["graham_mundane"]=_STDSPELLPOOL
+_REWARDPOOL["graham_bubbly"]=_STDSPELLPOOL
+_REWARDPOOL["graham_hellblood"]=_STDSPELLPOOL
+_REWARDPOOL["graham_slush"]=_STDSPELLPOOL
+_REWARDPOOL["graham_statium"]=_STDSPELLPOOL
+_REWARDPOOL["graham_resist"]=_STDSPELLPOOL
 end
 
 
 if ModIsEnabled("cool_spell") then
-_REWARDPOOL["overcast_magic_liquid_mystery"]={"OVERCAST_MATERIAL_ANOMALY"},
-_REWARDPOOL["overcast_oxidizing_dust"]={"OVERCAST_MATERIAL_OXIDIZING"},
-_REWARDPOOL["sodium"]={"OVERCAST_MATERIAL_SODIUM"},
+_REWARDPOOL["overcast_magic_liquid_mystery"]={"OVERCAST_MATERIAL_ANOMALY"}
+_REWARDPOOL["overcast_oxidizing_dust"]={"OVERCAST_MATERIAL_OXIDIZING"}
+_REWARDPOOL["sodium"]={"OVERCAST_MATERIAL_SODIUM"}
 end
 
 
@@ -140,12 +149,8 @@ if tab[i]==thing then return true end
 end
 end
 
-
-
-local ngp=SessionNumbersGetValue("NEW_GAME_PLUS_COUNT") or 0
-local pw=GetParallelWorldPosition( x, 0 )
-
-rewardedflaskreagents=split(    (GlobalsGetValue("Electurm_alchemyspellrewards") or "") , "\000" )
+rewardedflaskreagents=split(    (GlobalsGetValue("Electurm_alchemyspellrewards") or "") , "\001" )
+--print(GlobalsGetValue("Electurm_alchemyspellrewards"),#rewardedflaskreagents)
 
 local ents=EntityGetInRadius(x,y,60)
 
@@ -154,6 +159,7 @@ for i=1,#ents do
 	local entid=ents[i]
 	
 	local entname=EntityGetFilename(entid)
+	
 	if entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" and EntityGetRootEntity(entid) == entid then
 		detectedflask=entid
 		break
@@ -165,16 +171,19 @@ if detectedflask then
 	local _REWARDMATERIAL
 
 
-	invcomp=EntityGetFirstComponentIncludingDisabled(detectingpouch, "MaterialInventoryComponent")
-	local capacity=ComponentGetValue2(invcomp,"max_capacity")
+	local invcomp=EntityGetFirstComponentIncludingDisabled(detectedflask, "MaterialInventoryComponent")
+	local succcomp=EntityGetFirstComponentIncludingDisabled(detectedflask, "MaterialSuckerComponent")
+	local capacity=ComponentGetValue2(succcomp,"barrel_size")
 	local mats=ComponentGetValue2(invcomp,"count_per_material_type")
-	for m=1,#mats do
+	for m=1,#(mats or {}) do
 		if mats[m]==capacity then --find a material which completely fills
 			local _MATERIALNAME=CellFactory_GetName(m-1)
 			if (not isin(_MATERIALNAME,rewardedflaskreagents)) and _REWARDPOOL[_MATERIALNAME] then
-				AddMaterialInventoryMaterial(newflask, _MATERIALNAME ,0) 
+				AddMaterialInventoryMaterial(detectedflask, _MATERIALNAME ,0) 
 				rewardedflaskreagents[#rewardedflaskreagents+1]=_MATERIALNAME
 				_REWARDMATERIAL=_MATERIALNAME
+				GlobalsSetValue("Electurm_alchemyspellrewards",concat(rewardedflaskreagents,"\001"))
+				--print("POST",concat(rewardedflaskreagents,"\001"),#rewardedflaskreagents,#concat(rewardedflaskreagents,"\001"))
 				break
 			end
 		end
@@ -183,7 +192,7 @@ if detectedflask then
 		
 	if _REWARDMATERIAL then	
 		local pickfrom=_REWARDPOOL[_REWARDMATERIAL]		
-		local rcalls=GlobalsGetValue("Electrum_alchemyspellrandomcalls") or 0
+		local rcalls=tonumber(GlobalsGetValue("Electrum_alchemyspellrandomcalls")) or 0
 		SetRandomSeed(StatsGetValue("world_seed"),rcalls)
 		GlobalsSetValue("Electrum_alchemyspellrandomcalls",rcalls+1)
 		
@@ -199,7 +208,7 @@ if detectedflask then
 end
 
 
-GlobalsSetValue("Electurm_alchemyspellrewards",table.concat(rewardedflaskreagents,"\000"))
+
 
 
 

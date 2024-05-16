@@ -1,5 +1,7 @@
 --if one ever gets destroyed, spawn it back.
 
+do return end --do not do that. it causes too many issues.
+
 local entity_id = GetUpdatedEntityID()
 
 
