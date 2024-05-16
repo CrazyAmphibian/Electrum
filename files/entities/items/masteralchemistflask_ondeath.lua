@@ -1,12 +1,11 @@
 --if one ever gets destroyed, spawn it back.
 
-do return end --do not do that. it causes too many issues.
-
 local entity_id = GetUpdatedEntityID()
 
 
 if entity_id and EntityGetRootEntity(entity_id) == entity_id then
 local x, y = EntityGetTransform(entity_id)
+if not DoesWorldExistAt(x,y,x,y) then return end
 local invcomp=EntityGetFirstComponentIncludingDisabled(entity_id, "MaterialInventoryComponent")
 if invcomp then
 local mats=ComponentGetValue2(invcomp,"count_per_material_type")

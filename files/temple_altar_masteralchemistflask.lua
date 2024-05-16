@@ -33,7 +33,7 @@ end
 local ngp=SessionNumbersGetValue("NEW_GAME_PLUS_COUNT") or 0
 local pw=GetParallelWorldPosition( x, 0 )
 
-gottenmasterflasks=split(    (GlobalsGetValue("Electurm_masteralchemistflask-unlocks") or "") , "\000" )
+gottenmasterflasks=split(    (GlobalsGetValue("Electurm_masteralchemistflask-unlocks") or "") , "\001" )
 
 --print(GlobalsGetValue("Electurm_masteralchemistflask-unlocks") or "")
 
@@ -119,9 +119,9 @@ GlobalsSetValue("Electrum_masteralchemistflask-hint","yes")
 GamePrintImportant("Your quest is amusing those above.","bring forth another comparable vessel.")
 end
 
---print(table.concat(gottenmasterflasks,"\000"),tostring(#gottenmasterflasks))
+--print(table.concat(gottenmasterflasks,"\001"),tostring(#gottenmasterflasks))
 
-GlobalsSetValue("Electurm_masteralchemistflask-unlocks",table.concat(gottenmasterflasks,"\000"))
+GlobalsSetValue("Electurm_masteralchemistflask-unlocks",table.concat(gottenmasterflasks,"\001"))
 
 
 
