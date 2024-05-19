@@ -599,31 +599,18 @@ table.insert( actions,
 		if (not casterent) or casterent==0 then return end --the game casts it upon loading a world, but that will crash the game. ain't that a bitch.
 		local x,y = EntityGetTransform(casterent)
 		
-		--print(casterent)
 		
 		local potion=EntityLoad("data/entities/items/pickup/potion_aggressive.xml",x,y-4)
 		if not potion then return end
 		
-		local aicomp--=EntityGetFirstComponentIncludingDisabled(casterent,"AnimalAIComponent")
-		local ang=0
-
-		--if aicomp then
-		--	ang = (ComponentGetValue2(aicomp,"mRangedAttackCurrentAimAngle ") or 0) + 3.1415926/2 --90 degree offset
-			
-		--else
-			aicomp=EntityGetFirstComponentIncludingDisabled(casterent,"ControlsComponent")
-			if not aicomp then print("cannot find controller component") return end
-			local aimx,aimy=ComponentGetValue2(aicomp,"mAimingVector")
-			ang=math.atan2(aimx,aimy)
-		--end
+		local aicomp=EntityGetFirstComponentIncludingDisabled(casterent,"ControlsComponent")
+		if not aicomp then print("cannot find controller component") return end
+		local aimx,aimy=ComponentGetValue2(aicomp,"mAimingVector")
+		local ang=math.atan2(aimx,aimy)
 		
 		local throwforce=300
 		
-		--print(ang)
-		
 		PhysicsApplyForce(potion,throwforce*math.sin(ang),throwforce*math.cos(ang))
-		
-		--add_projectile("mods/Electrum/files/actions/alchemisthiisi_attack.xml")
 	end,
 } )
 
