@@ -386,7 +386,7 @@ end --end of new material spawner spells
 		table.insert( actions,{
 		id          = "EL_UPSILON",
 		name 		= "Upsilon",
-		description = "Casts a copy of the next avalible material-type spell in the current wand",
+		description = "Casts a copy of all material-type spells in the current wand",
 		sprite 		= "mods/Electrum/files/actions/upsilon.png",
 		spawn_requires_flag = "card_unlocked_duplicate",
 		type 		= ACTION_TYPE_OTHER,
@@ -402,43 +402,35 @@ end --end of new material spawner spells
 			local reload = current_reload_time
 			local mana_ = mana
 			
-			local SKIP --shame lua 5.1 doesn't have goto :\
-			
-			if ( discarded ~= nil ) and not skip  then --... the devs do know that you don't need ~= nil if the type isn't a bool, right? whatever, keeping it there for the sake of consistnecy.
+			if ( discarded ~= nil ) then --... the devs do know that you don't need ~= nil if the type isn't a bool, right? whatever, keeping it there for the sake of consistnecy.
 				for i,data in ipairs( discarded ) do
 					local rec = check_recursion( data, recursion_level )
 					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
 						dont_draw_actions = true
 						data.action( rec )
 						dont_draw_actions = false
-						SKIP=true
-						break
 					end
 				end
 			end
 			
-			if ( hand ~= nil ) and not skip  then
+			if ( hand ~= nil ) then
 				for i,data in ipairs( hand ) do
 					local rec = check_recursion( data, recursion_level )
 					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
 						dont_draw_actions = true
 						data.action( rec )
 						dont_draw_actions = false
-						SKIP=true
-						break
 					end
 				end
 			end
 			
-			if ( deck ~= nil ) and not skip then
+			if ( deck ~= nil ) then
 				for i,data in ipairs( deck ) do
 					local rec = check_recursion( data, recursion_level )
 					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
 						dont_draw_actions = true
 						data.action( rec )
 						dont_draw_actions = false
-						SKIP=true
-						break
 					end
 				end
 			end
