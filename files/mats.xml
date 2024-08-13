@@ -250,7 +250,7 @@ each particle ingested grants [amount] seconds of the status effect
     </Graphics>
 	<StatusEffects>
 		<Ingestion>
-			<StatusEffect type="EL_COCOA" amount="0.15" />
+			<StatusEffect type="EL_COCOA" amount="0.6" />
 		</Ingestion>
 	</StatusEffects>
 

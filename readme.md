@@ -14,7 +14,7 @@ Electrum is focused on the alchemy side of the game.
 - integration with other mods
 - 20 new spells (2 more with other mods enabled)
 - 8 new materials
-- 2 new items
+- 3 new items
 
 ## Spells
 
@@ -150,7 +150,7 @@ Electrum is focused on the alchemy side of the game.
 
 **reinforcement liquid**
 
-	combine aqua regia with metal dust. whenever it touches a solid material it will convert it into dense steel.
+	combine aqua regia with metal or steel dust. whenever it touches a solid material it will convert it into dense steel.
 	handy for creating alchemy labs, as dense steel is rather inert, and tough.
 
 **other reactions**
