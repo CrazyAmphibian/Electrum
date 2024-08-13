@@ -2,8 +2,9 @@
 --taken from graham's mod code. trusting their shit to work :clueless:
 local translations = ModTextFileGetContent( "data/translations/common.csv" );
 if translations then
-	translations = translations:gsub("\r","") -- why are we removing carriage return?
 	translations = translations .. (ModTextFileGetContent( "mods/Electrum/text.csv" ) or "")
+	translations = translations:gsub("\r\n","\n") -- why are we removing carriage return?
+	translations = translations:gsub("\n\n","\n")
 	ModTextFileSetContent( "data/translations/common.csv", translations )
 end
 
@@ -82,6 +83,17 @@ if content then
 		]])
 	ModTextFileSetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml", content)
 end
+
+
+
+local content = ModTextFileGetContent("data/scripts/buildings/forge_item_convert.lua")
+local append =ModTextFileGetContent("mods/Electrum/files/forge_item_convert.lua")
+if content and append then
+	content = content:gsub("if converted then", append.."\nif converted then")
+	ModTextFileSetContent("data/scripts/buildings/forge_item_convert.lua", content)
+end
+
+
 
 
 

@@ -18,7 +18,7 @@
   <PhysicsImageShapeComponent 
     body_id="1"
     centered="1"
-    image_file="data/items_gfx/pressure_bottle.png"
+    image_file="mods/Electrum/files/items_gfx/pressure_bottle_noreact.png"
     material="el_indestructium_box2d"
   ></PhysicsImageShapeComponent>
   
@@ -118,8 +118,8 @@
     leak_on_damage_percent="0"
     min_damage_to_leak="0.0"
     death_throw_particle_velocity_coeff="0.5"
-    do_reactions="20"
-	reaction_speed="25"
+    do_reactions="0"
+	reaction_speed="0"
     do_reactions_explosions="1"
     do_reactions_entities="1"
      >
@@ -135,22 +135,22 @@
     _enabled="0"
     offset_x="4"
     offset_y="4"
-    image_file="data/items_gfx/pressure_bottle.png"
+    image_file="mods/Electrum/files/items_gfx/pressure_bottle_noreact.png"
   ></SpriteComponent>
 
   <ItemComponent
     _tags="enabled_in_world"
-    item_name="$item_masteralchemistflask_name"
+    item_name="$item_stasisbeaker_name"
     max_child_items="0"
     is_pickable="1"
     is_equipable_forced="1"
-    ui_sprite="data/items_gfx/pressure_bottle.png"
+    ui_sprite="mods/Electrum/files/items_gfx/pressure_bottle_noreact.png"
     ui_description="$item_description_potion"
     preferred_inventory="QUICK"
   ></ItemComponent>
 
   <AbilityComponent
-    ui_name="$item_masteralchemistflask"
+    ui_name="$item_stasisbeaker"
     throw_as_item="1"
   ><gun_config
     deck_capacity="0"

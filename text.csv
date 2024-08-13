@@ -1,4 +1,7 @@
-item_masteralchemistflask,$0 Mestarialkemistipullo,,,,,,,,,,,,
-item_masteralchemistflask_name,Mestarialkemistipullo,,,,,,,,,,,,
-item_ampoule,$0 Ampoule,,,,,,,,,,,,
-item_ampoule_name,Ampoule,,,,,,,,,,,,
+
+item_masteralchemistflask,$0 Mestarialkemistipullo,,,,,,,,,,,,,
+item_masteralchemistflask_name,Mestarialkemistipullo,,,,,,,,,,,,,
+item_ampoule,$0 Ampoule,,,,,,,,,,,,,
+item_ampoule_name,Ampoule,,,,,,,,,,,,,
+item_stasisbeaker,$0 Stasis beaker,,,,,,,,,,,,,
+item_stasisbeaker_name,Stasis beaker,,,,,,,,,,,,,

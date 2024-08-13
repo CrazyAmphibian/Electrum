@@ -160,7 +160,7 @@ for i=1,#ents do
 	
 	local entname=EntityGetFilename(entid)
 	
-	if entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" and EntityGetRootEntity(entid) == entid then
+	if (entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or entname=="mods/Electrum/files/entities/items/stasisbeaker.xml") and EntityGetRootEntity(entid) == entid then
 		detectedflask=entid
 		break
 	end

@@ -394,9 +394,9 @@ each particle ingested grants [amount] seconds of the status effect
 
 <!--berserkium, my beloved-->
  <Reaction probability="90" 
-	input_cell1="magic_liquid_mana_regeneration" 		input_cell2="el_bloodmix"	input_cell3="el_electrum" 
-	output_cell1="magic_liquid_berserk" 		output_cell2="magic_liquid_berserk" output_cell3="smoke"
-	blob_radius1="3"	blob_radius2="3"	blob_radius3="3">
+	input_cell1="el_bloodmix"	input_cell2="el_electrum" 
+	output_cell1="magic_liquid_berserk" 		output_cell2="magic_liquid_berserk"
+	blob_radius2="3">
   </Reaction>
 
 <!--this is only here because a friend really likes conc. mana-->
@@ -566,6 +566,12 @@ each particle ingested grants [amount] seconds of the status effect
 <!--make it by disolving metal dust into acid. gives it a use. hoorah.-->
     <Reaction probability="60" 
 	input_cell1="el_aqua_regia" 		input_cell2="metal_sand" 
+	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
+  </Reaction>  
+
+<!--steel dust is also pretty useless.-->
+    <Reaction probability="60" 
+	input_cell1="el_aqua_regia" 		input_cell2="steel_sand" 
 	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
   </Reaction>  
 
