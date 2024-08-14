@@ -1,4 +1,4 @@
-<Entity tags="hittable,teleportable_NOT,item_physics,item_pickup" >
+<Entity tags="hittable,teleportable_NOT,item_physics,item_pickup,EL_specialflask,EL_stasisbeaker" >
 
   <!-- physical presence -->
   
@@ -44,7 +44,7 @@
   
    <LuaComponent 
    _tags="enabled_in_world,enabled_in_hand,enabled_in_inventory"
-   script_source_file="mods/Electrum/files/entities/items/masteralchemistflask_ondeath.lua"
+   script_source_file="mods/Electrum/files/entities/items/stasisbeaker_ondeath.lua"
   execute_on_removed="1"
   execute_every_n_frame="-1"
   >

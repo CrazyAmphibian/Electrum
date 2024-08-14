@@ -1,11 +1,10 @@
 
 for _,id in pairs(EntityGetInRadius(pos_x, pos_y, 70)) do
 	if EntityGetRootEntity(id) == id then
-		local fn=EntityGetFilename(id)
-		print(fn)
-		if fn=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or fn=="mods/Electrum/files/entities/items/stasisbeaker.xml" then
+		local fn=EntityHasTag(id,"EL_specialflask")
+		if fn then
 			
-			local isMAF=fn=="mods/Electrum/files/entities/items/masteralchemistflask.xml"
+			local isMAF=EntityHasTag(id,"EL_masteralchemistflask")
 			
 			local x,y = EntityGetTransform(id)
 			

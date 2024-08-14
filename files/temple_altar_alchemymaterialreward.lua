@@ -152,13 +152,12 @@ end
 rewardedflaskreagents=split(    (GlobalsGetValue("Electurm_alchemyspellrewards") or "") , "\001" )
 --print(GlobalsGetValue("Electurm_alchemyspellrewards"),#rewardedflaskreagents)
 
-local ents=EntityGetInRadius(x,y,60)
+local ents=EntityGetInRadiusWithTag(x, y, 60, "EL_specialflask")--EntityGetInRadius(x,y,60)
 
-local detectedflask
+local detectedflask=ents[1]
+--[[
 for i=1,#ents do
 	local entid=ents[i]
-	
-	local entname=EntityGetFilename(entid)
 	
 	if (entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or entname=="mods/Electrum/files/entities/items/stasisbeaker.xml") and EntityGetRootEntity(entid) == entid then
 		detectedflask=entid
@@ -166,6 +165,7 @@ for i=1,#ents do
 	end
 	
 end
+]]
 
 if detectedflask then
 	local _REWARDMATERIAL
