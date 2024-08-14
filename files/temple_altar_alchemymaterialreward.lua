@@ -53,7 +53,7 @@ local _ELECTRUMCOOLSPELLPOOL={
 
 if ModIsEnabled("grahamsperks") then
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="GRAHAM_POWDER_EVAPORATION"
-_ELECTRUMCOOLSPELLPOOL[#_ELECTRUMCOOLSPELLPOOL+1]="EL_BALOON_FILL"
+_ELECTRUMCOOLSPELLPOOL[#_ELECTRUMCOOLSPELLPOOL+1]="EL_BALLOON_FILL"
 end
 
 if ModIsEnabled("cool_spell") then
@@ -154,18 +154,19 @@ rewardedflaskreagents=split(    (GlobalsGetValue("Electurm_alchemyspellrewards")
 
 local ents=EntityGetInRadiusWithTag(x, y, 60, "EL_specialflask")--EntityGetInRadius(x,y,60)
 
-local detectedflask=ents[1]
---[[
+--local detectedflask=ents[1]
+
 for i=1,#ents do
 	local entid=ents[i]
 	
-	if (entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or entname=="mods/Electrum/files/entities/items/stasisbeaker.xml") and EntityGetRootEntity(entid) == entid then
+	--if (entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or entname=="mods/Electrum/files/entities/items/stasisbeaker.xml") and EntityGetRootEntity(entid) == entid then
+	if EntityGetRootEntity(entid) == entid then
 		detectedflask=entid
 		break
 	end
 	
 end
-]]
+
 
 if detectedflask then
 	local _REWARDMATERIAL
