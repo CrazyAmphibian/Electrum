@@ -574,8 +574,10 @@ table.insert( actions,
 {
 	id          = "EL_ALCHEMISTHIISI_ATTACK",
 	name 		= "Aggressive Flask",
+	related_projectiles	= {"data/entities/items/pickup/potion_aggressive.xml"},
 	description = "Launches a potion with a random material in it!",
 	sprite 		= "mods/Electrum/files/actions/alchemisthiisi_attack.png",
+	custom_xml_file = "mods/Electrum/files/actions/alchemisthiisi_cardaction.xml", --"data/entities/misc/custom_cards/summon_rock.xml", 
 	type 		= ACTION_TYPE_PROJECTILE,
 	spawn_level                       = "2,3,4,5,10",
 	spawn_probability                 = ".75,1,.75,1,.15",
@@ -585,9 +587,13 @@ table.insert( actions,
 	action 		= function()
 		
 		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		if reflecting then return end
-
+		--add_projectile("data/entities/items/pickup/potion_aggressive.xml")
+		add_projectile("data/entities/items/pickup/potion_aggressive.xml")
+		--if reflecting then return end
+		--[[
 		local casterent = GetUpdatedEntityID()
+	
+		
 		if (not casterent) or casterent==0 then return end --the game casts it upon loading a world, but that will crash the game. ain't that a bitch.
 		local x,y = EntityGetTransform(casterent)
 		
@@ -603,6 +609,7 @@ table.insert( actions,
 		local throwforce=300
 		
 		PhysicsApplyForce(potion,throwforce*math.sin(ang),throwforce*math.cos(ang))
+		]]
 	end,
 } )
 
