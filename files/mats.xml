@@ -430,7 +430,7 @@ each particle ingested grants [amount] seconds of the status effect
  <Reaction probability="90" 
 	input_cell1="el_bloodmix"	input_cell2="el_electrum" 
 	output_cell1="magic_liquid_berserk" 		output_cell2="magic_liquid_berserk"
-	blob_radius2="3">
+	blob_radius1="3">
   </Reaction>
 
 <!--this is only here because a friend really likes conc. mana-->
