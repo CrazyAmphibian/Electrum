@@ -443,8 +443,8 @@ each particle ingested grants [amount] seconds of the status effect
 <!--blood mix-->
  <Reaction probability="95" 
 	input_cell1="blood" 		input_cell2="blood_worm" input_cell3="el_aqua_regia"
-	output_cell1="el_bloodmix" 		output_cell2="smoke"
-	blob_radius1="2"	blob_radius2="2"	blob_radius3="2">
+	output_cell1="el_bloodmix" 	output_cell2="smoke"
+	blob_radius1="2"	blob_radius2="2">
   </Reaction>
 
  <Reaction probability="2" 
@@ -460,13 +460,9 @@ each particle ingested grants [amount] seconds of the status effect
   
   
   <!--slime reverts the bloods-->
-   <Reaction probability="95" 
-	input_cell1="el_bloodmix" 	input_cell2="el_bloodmix" 		input_cell3="slime"
-	output_cell1="blood" output_cell2="blood_worm" output_cell3="slime">
-  </Reaction>
-    <Reaction probability="5" 
-	input_cell1="el_bloodmix" 	input_cell2="el_bloodmix" 		input_cell3="slime"
-	output_cell1="blood" output_cell2="blood_worm" output_cell3="smoke">
+   <Reaction probability="100" 
+	input_cell1="el_bloodmix" 		input_cell3="slime"
+	output_cell1="blood" output_cell2="blood_worm" >
   </Reaction>
   
   
@@ -476,10 +472,6 @@ each particle ingested grants [amount] seconds of the status effect
 	output_cell1="blood"  output_cell2="[lava]" output_cell3="blood_worm">
   </Reaction>
   
-      <Reaction probability="100" 
-	input_cell1="el_bloodmix" 		input_cell2="[lava]" input_cell3="el_bloodmix"
-	output_cell1="blood"  output_cell2="[lava]" output_cell3="blood_worm">
-  </Reaction>
 
 <!--use for sulphur. makes sense to turn it into gunpowder.-->
   <Reaction probability="50" 
@@ -596,13 +588,13 @@ each particle ingested grants [amount] seconds of the status effect
 
 
 <!--make it by disolving metal dust into acid. gives it a use. hoorah.-->
-    <Reaction probability="60" 
+    <Reaction probability="90" 
 	input_cell1="el_aqua_regia" 		input_cell2="metal_sand" 
 	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
   </Reaction>  
 
 <!--steel dust is also pretty useless.-->
-    <Reaction probability="60" 
+    <Reaction probability="90" 
 	input_cell1="el_aqua_regia" 		input_cell2="steel_sand" 
 	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
   </Reaction>  
