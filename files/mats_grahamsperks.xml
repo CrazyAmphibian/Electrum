@@ -50,15 +50,13 @@ still it slows it down a bit-->
   <!--behold, my antipolyinator!-->
    <Reaction probability="100" 
 	input_cell1="graham_creepypoly" 		input_cell2="el_antipoly_liquid" 
-	output_cell1="graham_creepypoly_frozen" 		output_cell2="smoke" >
-  </Reaction> 
-     <Reaction probability="100" 
-	input_cell1="graham_creepypoly" 		input_cell2="el_antipoly_liquid" input_cell3="graham_creepypoly" 
-	output_cell1="graham_creepypoly_frozen" 		output_cell2="smoke" output_cell3="graham_creepypoly_frozen">
-  </Reaction> 
-     <Reaction probability="20" 
+	output_cell1="graham_creepypoly_frozen" 		output_cell2="smoke" 
+	blob_radius1="5">
+
+     <Reaction probability="10" 
 	input_cell1="graham_creepypoly_frozen" 		input_cell2="el_antipoly_liquid" 
-	output_cell1="smoke" 		output_cell2="smoke" >
+	output_cell1="smoke" 		output_cell2="smoke" 
+	blob_radius1="3">
   </Reaction> 
   
   <!--PERRY THE PLATYPUS?-->

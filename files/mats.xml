@@ -80,10 +80,10 @@
  <CellData
 	name="el_electrum"
 	ui_name="electrum"
-  	tags="[sand_metal],[corrodible],[alchemy],[solid]"
+  	tags="[sand_metal],[corrodible],[alchemy],[solid],[meltable]"
 	wang_color="CF9C8F31"
 	burnable="0"
-	density="10"
+	density="5.5"
 	cell_type="liquid"
 	gfx_glow="127"
 	generates_smoke="0"
@@ -105,7 +105,41 @@
 
   </CellData>
 
-
+ <CellData
+	name="el_electrum_molten"
+	ui_name="molten electrum"
+  	tags="[corrodible],[alchemy],[liquid],[molten]"
+	wang_color="CF9C8F21"
+	burnable="0"
+	density="2"
+	cell_type="liquid"
+	gfx_glow="127"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	durability="12"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	audio_materialaudio_type="LAVA" 
+	on_fire="0"
+	always_ignites_damagemodel="1"
+	danger_fire="1"
+	hp="8000" 
+	electrical_conductivity="1"
+	show_in_creative_mode="1"
+	status_effects="ON_FIRE"
+	>
+	<Graphics 
+	texture_file="mods/Electrum/files/materials_gfx/el_electrum.png" 
+	color="FFb89E58"> 
+    </Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.1" />
+		</Ingestion>
+	</StatusEffects>
+  </CellData>
 
 
  <CellData
@@ -113,7 +147,7 @@
 	ui_name="Aqua Regia"
   	tags="[liquid],[impure],[magic_liquid]"
 	burnable="0"
-	density="9.1"
+	density="5.75"
 	cell_type="liquid"
 	wang_color="CFcd9f85"
 	generates_smoke="0"
@@ -150,7 +184,7 @@
 	ui_name="blood mixture"
   	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]"
 	burnable="0"
-	density="9.15"    <!--should be heavier than aqua regia-->
+	density="5.9"    <!--should be heavier than aqua regia-->
 	cell_type="liquid"
 	wang_color="CFbf7839"
 	generates_smoke="0"
@@ -357,17 +391,17 @@ each particle ingested grants [amount] seconds of the status effect
   
   
 
-<!--convert back to base metals with heat. of course, the lava will melt them, but you can solidify with wither, so eh-->
- <Reaction probability="100" 
-	input_cell1="[lava]" 		input_cell2="el_electrum"  input_cell3="el_electrum" 
-	output_cell1="[lava]" 		output_cell2="gold" output_cell3="silver" >
+<!--convert back to base metals with aqua regia-->
+ <Reaction probability="40" 
+	input_cell1="el_aqua_regia" 		input_cell2="el_electrum"  input_cell3="el_electrum" 
+	output_cell1="el_aqua_regia" 		output_cell2="gold" output_cell3="silver" 
+	blob_radius1="3">
   </Reaction> 
 
 <!--the namesake reaction-->
- <Reaction probability="90" 
-	input_cell1="gold" 		input_cell2="silver" input_cell3="el_aqua_regia"
-	output_cell1="el_electrum" 		output_cell2="el_electrum"	output_cell3="smoke"
-	blob_radius1="3"	blob_radius2="3"	blob_radius3="3">
+ <Reaction probability="100" 
+	input_cell1="gold_molten" 		input_cell2="silver_molten"
+	output_cell1="el_electrum_molten" 		output_cell2="el_electrum_molten">
 	
   </Reaction>
 
@@ -512,25 +546,23 @@ each particle ingested grants [amount] seconds of the status effect
 
 
 	<!--yer gonna need regular poly for this one, oooooh, extra dangerous-->
-  <Reaction probability="25" 
-	input_cell1="magic_liquid_polymorph" 		input_cell2="el_aqua_regia"
+  <Reaction probability="60" 
+	input_cell1="magic_liquid_polymorph" 		input_cell2="el_electrum"
 	output_cell1="el_destabalized_polymorph"  output_cell2="smoke">
   </Reaction>
-	<!--and, well, gotta have a use for the electrum somewhere, eh?-->
-  <Reaction probability="60" 
-	input_cell1="el_destabalized_polymorph" 		input_cell2="el_electrum"
+
+  <Reaction probability="30" 
+	input_cell1="el_destabalized_polymorph" 		input_cell2="el_aqua_regia"
 	output_cell1="el_antipoly_liquid"  output_cell2="smoke">
   </Reaction>
 
 	<!--good way to get rid of a good potion and some poly.-->
      <Reaction probability="100" 
 	input_cell1="[magic_polymorph]" 		input_cell2="el_antipoly_liquid" 
-	output_cell1="smoke" 		output_cell2="smoke" >
+	output_cell1="smoke" 		output_cell2="smoke" 
+	blob_radius1="4">
 	</Reaction> 
-     <Reaction probability="50" 
-	input_cell1="[magic_polymorph]" 		input_cell2="el_antipoly_liquid" input_cell3="[magic_polymorph]" 
-	output_cell1="smoke" 		output_cell2="smoke" output_cell3="smoke" >
-	</Reaction> 
+
 
 <!--gives a way to get poly from unstable poly-->
      <Reaction probability="80" 
