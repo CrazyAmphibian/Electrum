@@ -115,11 +115,13 @@ _REWARDPOOL["el_aqua_regia"]=_ELECTRUMCOOLSPELLPOOL
 _REWARDPOOL["el_cocoa"]=_ELECTRUMCOOLSPELLPOOL
 
 _REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL --it's too easy to get, mate.
+
+_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"}
+_REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
 end
 
 if not ModIsEnabled("material_spells") then 
-_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"}
-_REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
+
 end
 
 
@@ -177,7 +179,7 @@ if detectedflask then
 	local capacity=ComponentGetValue2(succcomp,"barrel_size")
 	local mats=ComponentGetValue2(invcomp,"count_per_material_type")
 	for m=1,#(mats or {}) do
-		if mats[m]==capacity then --find a material which completely fills
+		if mats[m]>=capacity*.98 then --find a material which completely fills (or is pretty close)
 			local _MATERIALNAME=CellFactory_GetName(m-1)
 			if (not isin(_MATERIALNAME,rewardedflaskreagents)) and _REWARDPOOL[_MATERIALNAME] then
 				AddMaterialInventoryMaterial(detectedflask, _MATERIALNAME ,0) 
