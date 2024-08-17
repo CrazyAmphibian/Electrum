@@ -4,6 +4,7 @@ local gottenmasterflasks={}
 
 split = function(s,seperator) 
 local out={}
+--[[
 local n=1
 	while true do
 		local i,i2=s:find(seperator,n,nil,true)
@@ -17,6 +18,8 @@ local n=1
 			break
 		end
 	end
+	]]
+	for d in s:gmatch("[^"..seperator.."]+") do out[#out+1]=d end
 	return out
 end
 
