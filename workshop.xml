@@ -44,7 +44,7 @@ Anvil of Destiny
 	integrates several materials added from this mod to add spells when poured onto the anvil."
 	
     tags="alchemy,spells,gameplay"
-    dont_upload_folders=""
+    dont_upload_folders=".git,.github"
     dont_upload_files="workshopimage.xcf"
 > 
 </Mod>

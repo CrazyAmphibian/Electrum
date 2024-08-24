@@ -1,0 +1,1 @@
+print("electrum: spawned pixel scene personal_lab") --for some fucking reason it refuses to load the scene unless i have this script component in it. i swear to god if i ever see an employee of nolla games i am going to beat the shit out of them for making such a shit ass convoluted inconsistent API.

@@ -4,21 +4,6 @@ local gottenmasterflasks={}
 
 split = function(s,seperator) 
 local out={}
---[[
-local n=1
-	while true do
-		local i,i2=s:find(seperator,n,nil,true)
-		if i then
-			out[#out+1]=s:sub(n,i-1)
-			n=i2+1
-		else
-			if n<#s then
-				out[#out+1]= s:sub(n,#s)
-			end
-			break
-		end
-	end
-	]]
 	for d in s:gmatch("[^"..seperator.."]+") do out[#out+1]=d end
 	return out
 end
@@ -54,10 +39,6 @@ for i=1,#ents do
 	
 	if entid~=0 and EntityGetRootEntity(entid) == entid and #(EntityGetComponent(entid,"MaterialSuckerComponent") or {})==1 and (ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"barrel_size") or 0)>=1000 and ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"material_type")==0 then
 		ispotion=true --i should have done a check like this earlier.
-	
-	--[[and (entname:sub(1,#"data/entities/items/pickup/potion")=="data/entities/items/pickup/potion" or 
-	(entname=="data/entities/player.xml" and EntityGetComponentIncludingDisabled(entid,"MaterialSuckerComponent") and EntityGetComponentIncludingDisabled(entid,"ItemComponent") ) ) then 
-		ispotion=entname~="data/entities/items/pickup/potion_aggressive.xml" --don't allow potions from the alchemist hiisi ]]
 	end
 
 	if ispouch and not detectingpouch then

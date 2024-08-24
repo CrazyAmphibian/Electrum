@@ -1,0 +1,20 @@
+<Entity>
+	<PixelSceneComponent
+		pixel_scene="mods/Electrum/files/pixel_scenes/personal_lab/scene.png"
+		offset_x="0"
+		offset_y="0"
+		skip_biome_checks="1"
+		skip_edge_textures="1"
+		>
+	</PixelSceneComponent>
+	<LifetimeComponent
+		lifetime="2"
+		>
+	</LifetimeComponent>
+	<LuaComponent
+	script_source_file="mods/Electrum/files/pixel_scenes/personal_lab/test.lua"
+	remove_after_executed="1"
+	execute_every_n_frame="1"
+	>
+	</LuaComponent>
+</Entity>

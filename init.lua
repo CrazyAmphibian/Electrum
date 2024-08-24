@@ -45,6 +45,10 @@ end
 function OnMagicNumbersAndWorldSeedInitialized() -- this is the last point where the Mod* API is available. after this materials.xml will be loaded.
 --	local x = ProceduralRandom(0,0)
 --	print( "===================================== random " .. tostring(x) )
+
+dofile("mods/Electrum/files/pixel_scenes/personal_lab/append.lua")
+
+
 end
 
 
@@ -101,6 +105,7 @@ end
 
 if ModIsEnabled("anvil_of_destiny") then
   ModLuaFileAppend("mods/anvil_of_destiny/files/scripts/modded_content.lua", "mods/Electrum/files/anvilofdestiny.lua")
+  print("Electrum: added content from anvil_of_destiny")
 end
 
 function OnModPostInit()
@@ -123,6 +128,8 @@ function OnModPostInit()
 	print("Electrum: added content from cool_spell")
 	end
 	
+	
+
 end
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
