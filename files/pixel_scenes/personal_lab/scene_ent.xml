@@ -1,10 +1,12 @@
 <Entity>
 	<PixelSceneComponent
 		pixel_scene="mods/Electrum/files/pixel_scenes/personal_lab/scene.png"
+		pixel_scene_visual="mods/Electrum/files/pixel_scenes/personal_lab/scene_vis.png"
+		pixel_scene_background="mods/Electrum/files/pixel_scenes/personal_lab/scene_bg.png"
 		offset_x="0"
 		offset_y="0"
 		skip_biome_checks="1"
-		skip_edge_textures="1"
+		skip_edge_textures="0"
 		>
 	</PixelSceneComponent>
 	<LifetimeComponent
@@ -12,7 +14,7 @@
 		>
 	</LifetimeComponent>
 	<LuaComponent
-	script_source_file="mods/Electrum/files/pixel_scenes/personal_lab/test.lua"
+	script_source_file="mods/Electrum/files/pixel_scenes/personal_lab/load_scene.lua"
 	remove_after_executed="1"
 	execute_every_n_frame="1"
 	>

@@ -66,8 +66,14 @@ ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/Electrum/files/potion.l
 ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar_masteralchemistflask.lua")
 ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar_alchemymaterialreward.lua")
 
+ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/Electrum/files/perks.lua")
 
 local content = ModTextFileGetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml")
+
+local ft=ModTextFileGetContent("data/entities/buildings/coop_respawn.xml")
+local labperkxml='<LuaComponent execute_on_added="1" remove_after_executed="1" script_source_file="mods/Electrum/files/perks/portal_spawner.lua" />'
+ModTextFileSetContent("data/entities/buildings/coop_respawn.xml",ft:gsub("</Entity>",labperkxml.."</Entity>"))
+
 if content then
 	content = content:gsub("</Entity>", [[
 			<LuaComponent 
