@@ -4,8 +4,8 @@ print("Electrum: loading perks.")
 table.insert(perk_list,{
 
 id="EL_PERSONAL_LAB",
-ui_name="Personal Lab",
-ui_description ="Gives you access to a personal alchemy lab.",
+ui_name="$el_perkname_alchemylab",
+ui_description ="$el_perkdesc_alchemylab",
 
  ui_icon = "mods/Electrum/files/perks/personal_lab__UI.png",
 

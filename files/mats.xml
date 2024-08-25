@@ -461,7 +461,7 @@ each particle ingested grants [amount] seconds of the status effect
   
   <!--slime reverts the bloods-->
    <Reaction probability="100" 
-	input_cell1="el_bloodmix" 		input_cell3="slime"
+	input_cell1="el_bloodmix" 		input_cell2="slime"
 	output_cell1="blood" output_cell2="blood_worm" >
   </Reaction>
   
