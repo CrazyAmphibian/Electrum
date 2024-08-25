@@ -1,6 +1,6 @@
 <Mod
 	name="Electrum"
-	description="A minor (for now) content mod. Adds some alchemy-related spells, reactions, and some other stuff. Visit the github for any bug reports (https://github.com/CrazyAmphibian/Electrum)"
+	description="A minor (for now) content mod. Adds some alchemy-related spells, reactions, and some other stuff.\nVisit the github for any bug reports (https://github.com/CrazyAmphibian/Electrum)"
 	request_no_api_restrictions="0" 
 > 
 </Mod>
