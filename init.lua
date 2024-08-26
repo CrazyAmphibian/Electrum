@@ -71,7 +71,7 @@ ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/Electrum/files/perks.
 local content = ModTextFileGetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml")
 
 local ft=ModTextFileGetContent("data/entities/buildings/coop_respawn.xml")
-local labperkxml='<LuaComponent execute_on_added="1" remove_after_executed="1" script_source_file="mods/Electrum/files/perks/portal_spawner.lua" />'
+local labperkxml='<LuaComponent execute_on_added="1" execute_every_n_frame="30" script_source_file="mods/Electrum/files/perks/portal_spawner.lua" />'
 ModTextFileSetContent("data/entities/buildings/coop_respawn.xml",ft:gsub("</Entity>",labperkxml.."</Entity>"))
 
 if content then

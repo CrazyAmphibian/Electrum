@@ -22,8 +22,8 @@ ui_description ="$el_perkdesc_alchemylab",
 		EntitySetTransform(backupportal,860,-1220,0,1,1)
 		
 		--make one above where the perk was picked up, since it won't load in to the current one.
-		local newportal=EntityLoad("mods/Electrum/files/perks/portal_to_lab.xml",x,y-48)
-		
+		--local newportal=EntityLoad("mods/Electrum/files/perks/portal_to_lab.xml",x,y-48)
+		GamePrintImportant("You hear a portal opening behind you.","It hums in unison with several others.")
     end
 	
 	
