@@ -1,8 +1,8 @@
 <Entity>
 	<PixelSceneComponent
-		pixel_scene="mods/Electrum/files/pixel_scenes/personal_lab/scene.png"
-		pixel_scene_visual="mods/Electrum/files/pixel_scenes/personal_lab/scene_vis.png"
-		pixel_scene_background="mods/Electrum/files/pixel_scenes/personal_lab/scene_bg.png"
+		pixel_scene="mods/Electrum/files/pixel_scenes/personal_lab/scene_2.png"
+		pixel_scene_visual="mods/Electrum/files/pixel_scenes/personal_lab/scene_2_vis.png"
+		pixel_scene_background="mods/Electrum/files/pixel_scenes/personal_lab/scene_2_bg.png"
 		offset_x="0"
 		offset_y="0"
 		skip_biome_checks="1"
@@ -10,16 +10,6 @@
 		>
 	</PixelSceneComponent>
 	
-	<PixelSceneComponent
-		pixel_scene="mods/Electrum/files/pixel_scenes/personal_lab/scene_2.png"
-		pixel_scene_visual="mods/Electrum/files/pixel_scenes/personal_lab/scene_2_vis.png"
-		pixel_scene_background="mods/Electrum/files/pixel_scenes/personal_lab/scene_2_bg.png"
-		offset_x="-512"
-		offset_y="0"
-		skip_biome_checks="1"
-		skip_edge_textures="0"
-		>
-	</PixelSceneComponent>
 	
 	<LifetimeComponent
 		lifetime="2"

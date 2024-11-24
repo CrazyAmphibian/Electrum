@@ -1,0 +1,41 @@
+<Entity tags="scroll">
+	<Base file="data/entities/items/books/base_book.xml">
+		<BookComponent
+			_enabled="0"
+			>
+		</BookComponent>
+
+		<ParticleEmitterComponent 
+			_enabled="0"
+			>
+		</ParticleEmitterComponent>
+		
+		<PhysicsImageShapeComponent 
+			image_file="data/items_gfx/book_small.png"
+		></PhysicsImageShapeComponent>
+
+		<UIInfoComponent
+			name="Alchemist's Note"
+			>
+		</UIInfoComponent>
+		
+		<ItemComponent
+			ui_sprite="data/items_gfx/book.png"
+			item_name="Alchemist's Note"
+			ui_description="Silver and gold, as valuable as they are, can be combined to form a reagent worth more than the both
+Others in my group have been researching this material, too
+I've been told that it reacts most curiously with many materials, including blood, or dirt.
+Though most curious is how it acts with polymorphine - this we will have to look into."
+			>
+		</ItemComponent>
+		
+		<SpriteComponent
+			image_file="data/items_gfx/in_hand/book_in_hand.png"
+		></SpriteComponent>
+		
+		<AbilityComponent
+			ui_name="Alchemist's Note"
+			>
+		</AbilityComponent>
+	</Base>
+</Entity>

@@ -47,6 +47,7 @@ function OnMagicNumbersAndWorldSeedInitialized() -- this is the last point where
 --	print( "===================================== random " .. tostring(x) )
 
 dofile("mods/Electrum/files/pixel_scenes/personal_lab/append.lua")
+dofile("mods/Electrum/files/pixel_scenes/alchemist_house/append.lua")
 
 
 end
