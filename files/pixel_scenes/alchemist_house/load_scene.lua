@@ -22,12 +22,12 @@ EntityLoad("mods/Electrum/files/pixel_scenes/alchemist_house/potion_looker.xml",
 
 
 local bev1=EntityLoad("data/entities/items/pickup/potion_empty.xml",base_x+105,base_y+50)
-AddMaterialInventoryMaterial(bev1, "sima" ,250)
+AddMaterialInventoryMaterial(bev1, "sima" ,500)
 local bev2=EntityLoad("data/entities/items/pickup/potion_empty.xml",base_x+105,base_y+32)
 AddMaterialInventoryMaterial(bev2, "sima" ,1000)
 
 local yummers=EntityLoad("data/entities/items/pickup/potion_empty.xml",base_x+37,base_y+70)
-AddMaterialInventoryMaterial(yummers, "porridge" ,750)
+AddMaterialInventoryMaterial(yummers, "porridge" ,250)
 
 
 

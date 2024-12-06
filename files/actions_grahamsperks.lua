@@ -15,7 +15,7 @@ table.insert( actions,
 	max_uses = 3,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 150 --2.5 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions_grahamsperks/balloon_summon.xml")
 		
 	end,
@@ -38,7 +38,7 @@ table.insert( actions,
 	max_uses = 1,
 	action 		= function()
 		c.fire_rate_wait = c.fire_rate_wait + 300 --5 seconds
-
+		if reflecting then return end
 		add_projectile("mods/Electrum/files/actions_grahamsperks/balloon_fill.xml")
 		
 	end,

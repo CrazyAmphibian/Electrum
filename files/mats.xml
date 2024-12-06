@@ -1,5 +1,6 @@
 <Materials>
 
+<!--
   <CellData
 	name="el_indestructium"
 	ui_name="indestructium"
@@ -19,6 +20,7 @@
 	color="FF010101"> 
     </Graphics>
   </CellData>
+ -->
  
 	<!--this shit is confusing as hell, wtf?-->
    <CellData
@@ -49,7 +51,7 @@
   </CellData>
   
   
-  
+  <!--
     <CellData
 	name="el_indestructium_box2d_impassable"
 	ui_name="indestructium"
@@ -76,6 +78,7 @@
 	>
 	</Graphics>
   </CellData>
+-->
 
  <CellData
 	name="el_electrum"
@@ -182,7 +185,7 @@
 <CellData
 	name="el_bloodmix"
 	ui_name="blood mixture"
-  	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]"
+	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]"
 	burnable="0"
 	density="5.9"    <!--should be heavier than aqua regia-->
 	cell_type="liquid"
@@ -388,6 +391,147 @@ each particle ingested grants [amount] seconds of the status effect
 			color="FF626469" >
     	</Graphics>
   </CellData>
+  
+  
+  
+    <CellData
+	name="el_stable"
+	ui_name="alchemical stabilizer"
+  	tags="[liquid]"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	wang_color="CF007CAC"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			color="7F007CAC" >
+    	</Graphics>
+  </CellData>
+  
+      <CellData
+	name="el_unstable"
+	ui_name="alchemical destabilizer"
+  	tags="[liquid]"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	wang_color="CFf33783"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			color="7Ff33783" >
+    	</Graphics>
+  </CellData>
+  
+        <CellData
+	name="el_chaotic"
+	ui_name="alchemical chaoticizer"
+  	tags="[liquid],[magic_liquid]"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	wang_color="CFa2cb5d"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="100"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			color="7Fa2cb5d" >
+    	</Graphics>
+  </CellData>
+  
+  
+  
+       <CellData
+	name="el_weakhealthpotion"
+	ui_name="life essence"
+  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation]"
+	burnable="0"
+	density="7"
+	cell_type="liquid"
+	wang_color="CFe4ab97"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_stains="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="0"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_weakhealthpotion.png" 
+			color="FFe4ab97" >
+    	</Graphics>
+		
+			  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="HP_REGENERATION" amount="0.0025" /> <!--.25 seconds of regen per sip. not a lot, but it's easy to get, so deal with it.-->
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="SLIMY"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
+  
+  
+         <CellData
+	name="el_healthpotion"
+	ui_name="vigor"
+  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation]"
+	burnable="0"
+	density="1"
+	cell_type="liquid"
+	wang_color="CF009c82"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_stains="2"
+	liquid_sand="0"
+	on_fire="0"
+	gfx_glow="0"
+	requires_oxygen="1"
+	temperature_of_fire="10" 
+	show_in_creative_mode="1"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/el_healthpotion.png" 
+			color="FF009c82" >
+    	</Graphics>
+		
+			  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="HP_REGENERATION" amount="0.005" /> <!--.5 seconds of regen per sip. a bit more.-->
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="SLIMY"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
+  
+  
   
   
 
@@ -598,6 +742,124 @@ each particle ingested grants [amount] seconds of the status effect
 	input_cell1="el_aqua_regia" 		input_cell2="steel_sand" 
 	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
   </Reaction>  
+
+
+
+<!--converters-->
+
+    <Reaction probability="75" 
+	input_cell1="snow" 		input_cell2="[slime]" 
+	output_cell1="el_stable" 		output_cell2="el_stable" >
+  </Reaction>  
+
+    <Reaction probability="75" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="gunpowder_explosive" 
+	output_cell1="el_unstable" 		output_cell2="el_unstable" >
+  </Reaction>  
+      <Reaction probability="75" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="gunpowder" 
+	output_cell1="el_unstable" 		output_cell2="el_unstable" >
+  </Reaction>  
+      <Reaction probability="75" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="gunpowder_tnt" 
+	output_cell1="el_unstable" 		output_cell2="el_unstable" >
+  </Reaction>  
+      <Reaction probability="75" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="gunpowder_unstable" 
+	output_cell1="el_unstable" 		output_cell2="el_unstable" >
+  </Reaction>  
+      <Reaction probability="75" 
+	input_cell1="magic_liquid_berserk" 		input_cell2="gunpowder_unstable_big" 
+	output_cell1="el_unstable" 		output_cell2="el_unstable" >
+  </Reaction>  
+
+
+    <Reaction probability="75" 
+	input_cell1="material_confusion" 		input_cell2="alcohol" 
+	output_cell1="el_chaotic" 		output_cell2="el_chaotic" >
+  </Reaction>  
+
+
+
+<!--and their lengthy reaction lists, because they're not standardized. bastards.-->
+
+
+<!--teleoportatin-->
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_unstable_teleportation" 		input_cell2="el_stable" 
+	output_cell1="magic_liquid_teleportation" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_teleportation" 		input_cell2="el_unstable" 
+	output_cell1="magic_liquid_unstable_teleportation" 		output_cell2="smoke" >
+  </Reaction>  
+
+<!--polymorph-->
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_unstable_polymorph" 		input_cell2="el_stable" 
+	output_cell1="magic_liquid_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_random_polymorph" 		input_cell2="el_stable" 
+	output_cell1="magic_liquid_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_polymorph" 		input_cell2="el_unstable" 
+	output_cell1="magic_liquid_unstable_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_random_polymorph" 		input_cell2="el_unstable" 
+	output_cell1="magic_liquid_unstable_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+      <Reaction probability="80" 
+	input_cell1="magic_liquid_polymorph" 		input_cell2="el_chaotic" 
+	output_cell1="magic_liquid_random_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="magic_liquid_unstable_polymorph" 		input_cell2="el_chaotic" 
+	output_cell1="magic_liquid_random_polymorph" 		output_cell2="smoke" >
+  </Reaction>  
+
+
+
+
+
+	<!--yummy yummy hp-->
+    <Reaction probability="50" 
+	input_cell1="[blood]" 		input_cell2="bone"
+	output_cell1="el_weakhealthpotion" output_cell2="poison_gas" >
+  </Reaction>  
+      <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="slime"
+	output_cell1="el_weakhealthpotion" output_cell2="steam" >
+  </Reaction>  
+
+    <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="[magic_faster]"
+	output_cell1="el_healthpotion" output_cell2="steam" >
+  </Reaction>  
+      <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_protection_all"
+	output_cell1="el_healthpotion" output_cell2="steam" >
+  </Reaction>  
+  
+        <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_invisibility"
+	output_cell1="el_healthpotion" output_cell2="steam" >
+  </Reaction>  
+          <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_charm"
+	output_cell1="el_healthpotion" output_cell2="steam" >
+  </Reaction>  
+  
+  
+
+  
+    <Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="alcohol"
+	output_cell1="magic_liquid_berserk" output_cell2="coal" >
+  </Reaction>  
+
 
 </Materials>
 

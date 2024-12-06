@@ -40,12 +40,14 @@ still it slows it down a bit-->
   </Reaction> 
   
     <!--sure, do the same for odd mixture..-->
+
   <Reaction probability="90" 
-	input_cell1="el_aqua_regia" 		input_cell2="graham_confuse"
-	output_cell2="material_confusion" output_cell3="magic_liquid_movement_faster" 
-	blob_radius2="3">
+	input_cell1="el_aqua_regia" 		input_cell2="graham_confuse" input_cell3="graham_confuse"
+	 output_cell1="material_confusion" output_cell2="smoke" output_cell3="magic_liquid_movement_faster" 
+>
   </Reaction> 
   
+
   
   <!--behold, my antipolyinator!-->
    <Reaction probability="100" 
@@ -65,6 +67,28 @@ still it slows it down a bit-->
 	input_cell1="graham_creepypoly_frozen" 		input_cell2="el_destabalized_polymorph" 
 	output_cell1="graham_creepypoly" 		output_cell2="el_destabalized_polymorph" >
   </Reaction> 
+  
+  
+  
+    <Reaction probability="80" 
+	input_cell1="graham_tele_chaotic" 		input_cell2="el_stable" 
+	output_cell1="magic_liquid_teleportation" 		output_cell2="smoke" >
+  </Reaction>  
+    <Reaction probability="80" 
+	input_cell1="graham_tele_chaotic" 		input_cell2="el_unstable" 
+	output_cell1="magic_liquid_unstable_teleportation" 		output_cell2="smoke" >
+  </Reaction>  
+      <Reaction probability="80" 
+	input_cell1="magic_liquid_teleportation" 		input_cell2="el_chaotic" 
+	output_cell1="graham_tele_chaotic" 		output_cell2="smoke" >
+  </Reaction>  
+      <Reaction probability="80" 
+	input_cell1="magic_liquid_unstable_teleportation" 		input_cell2="el_chaotic" 
+	output_cell1="graham_tele_chaotic" 		output_cell2="smoke" >
+  </Reaction>  
+  
+  
+  
   
   
 
