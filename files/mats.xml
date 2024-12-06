@@ -700,12 +700,6 @@ each particle ingested grants [amount] seconds of the status effect
 	</Reaction> 
 
 
-<!--gives a way to get poly from unstable poly-->
-     <Reaction probability="80" 
-	input_cell1="magic_liquid_unstable_polymorph" 		input_cell2="el_electrum" 
-	output_cell1="magic_liquid_polymorph" 		output_cell2="smoke" >
-  </Reaction>  
-
 <!--gives a way to get acceleratium-->
      <Reaction probability="80" 
 	input_cell1="material_darkness" 		input_cell2="el_electrum" 
