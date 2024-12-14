@@ -40,20 +40,24 @@ local _STDSPELLPOOL={ --a bunch of alchemy-related spells.
 "GUNPOWDER_TRAIL",
 "SOILBALL",
 "SEA_ALCOHOL",
+"EL_MATERIAL_CAST",
+"EL_SEA_SLIME",
+"EL_SEA_WORM_ATTRACTOR",
 }
 
-
-local _ELECTRUMCOOLSPELLPOOL={
+local _SPECIALREWARDSPELLPOOL={
 "EL_FLASK_FILL",
 "EL_POUCH_FILL",
 "EL_SPLITBOLT",
+"EL_ALCHEMISTHIISI_ATTACK",
 }
 
 
 
 if ModIsEnabled("grahamsperks") then
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="GRAHAM_POWDER_EVAPORATION"
-_ELECTRUMCOOLSPELLPOOL[#_ELECTRUMCOOLSPELLPOOL+1]="EL_BALLOON_FILL"
+_SPECIALREWARDSPELLPOOL[#_SPECIALREWARDSPELLPOOL+1]="EL_BALLOON_FILL"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_BALOON_SUMMON"
 end
 
 if ModIsEnabled("cool_spell") then
@@ -68,8 +72,9 @@ _STDSPELLPOOL[#_STDSPELLPOOL+1]="OVERCAST_PAYLOAD_POISON"
 end
 
 if true then
-_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_ALCHEMISTHIISI_ATTACK"
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_PURIFYBOLT"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_FLASK_SUMMON"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_POUCH_SUMMON"
 end
 
 local _REWARDPOOL={ 
@@ -81,20 +86,28 @@ local _REWARDPOOL={
 ["water"]={"MATERIAL_WATER"},
 
 ["magic_liquid_movement_faster"]=_STDSPELLPOOL, --[magic_liquid]!
+["magic_liquid_polymorph"]=_STDSPELLPOOL, 
+["magic_liquid_random_polymorph"]=_STDSPELLPOOL, 
 ["magic_liquid_unstable_polymorph"]=_STDSPELLPOOL, 
 ["magic_liquid_protection_all"]=_STDSPELLPOOL,
 ["magic_liquid_berserk"]=_STDSPELLPOOL,
 ["magic_liquid_mana_regeneration"]=_STDSPELLPOOL,
 ["material_confusion"]=_STDSPELLPOOL,
 ["magic_liquid_faster_levitation"]=_STDSPELLPOOL,
+["magic_liquid_faster_levitation_and_movement"]=_STDSPELLPOOL,
 ["magic_liquid_invisibility"]=_STDSPELLPOOL,
 ["magic_liquid_charm"]=_STDSPELLPOOL,
+["magic_liquid_unstable_teleportation"]=_STDSPELLPOOL,
 ["magic_liquid_teleportation"]=_STDSPELLPOOL,
 ["magic_liquid_worm_attractor"]=_STDSPELLPOOL,
 ["material_darkness"]=_STDSPELLPOOL,
+["magic_liquid_weakness"]=_STDSPELLPOOL,
 
 ["blood_worm"]=_STDSPELLPOOL, --other stuff that's used in alchemy
 ["purifying_powder"]=_STDSPELLPOOL,
+["coal"]=_STDSPELLPOOL,
+["salt"]=_STDSPELLPOOL,
+["sodium"]=_STDSPELLPOOL,
 ["alcohol"]=_STDSPELLPOOL,
 ["lava"]=_STDSPELLPOOL,
 ["slime"]=_STDSPELLPOOL,
@@ -105,16 +118,27 @@ local _REWARDPOOL={
 ["brass"]=_STDSPELLPOOL,
 ["copper"]=_STDSPELLPOOL,
 ["honey"]=_STDSPELLPOOL,
+
+
+["urine"]=_STDSPELLPOOL, --other crap that might as well be here.
+["pus"]=_STDSPELLPOOL,
 }
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
-_REWARDPOOL["el_metalmakerjuice"]=_ELECTRUMCOOLSPELLPOOL
-_REWARDPOOL["el_antipoly_liquid"]=_ELECTRUMCOOLSPELLPOOL
-_REWARDPOOL["el_electrum"]=_ELECTRUMCOOLSPELLPOOL
-_REWARDPOOL["el_aqua_regia"]=_ELECTRUMCOOLSPELLPOOL
-_REWARDPOOL["el_cocoa"]=_ELECTRUMCOOLSPELLPOOL
+_REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
+_REWARDPOOL["el_antipoly_liquid"]=_STDSPELLPOOL
+_REWARDPOOL["el_electrum"]=_STDSPELLPOOL
+_REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
+_REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL --it's too easy to get, mate.
+_REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL
+
+_REWARDPOOL["el_stable"]=_STDSPELLPOOL
+_REWARDPOOL["el_unstable"]=_STDSPELLPOOL
+_REWARDPOOL["el_chaotic"]=_STDSPELLPOOL
+
+_REWARDPOOL["el_healthpotion"]=_STDSPELLPOOL
+_REWARDPOOL["el_weakhealthpotion"]=_STDSPELLPOOL
 
 _REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"}
 _REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
@@ -157,6 +181,7 @@ rewardedflaskreagents=split(    (GlobalsGetValue("Electurm_alchemyspellrewards")
 local ents=EntityGetInRadiusWithTag(x, y, 60, "EL_specialflask")--EntityGetInRadius(x,y,60)
 
 --local detectedflask=ents[1]
+local detectedflask
 
 for i=1,#ents do
 	local entid=ents[i]
@@ -195,11 +220,22 @@ if detectedflask then
 		
 	if _REWARDMATERIAL then	
 		local pickfrom=_REWARDPOOL[_REWARDMATERIAL]		
-		local rcalls=tonumber(GlobalsGetValue("Electrum_alchemyspellrandomcalls")) or 0
-		SetRandomSeed(StatsGetValue("world_seed"),rcalls)
-		GlobalsSetValue("Electrum_alchemyspellrandomcalls",rcalls+1)
+		local pickedspell
+		if #pickfrom==1 then --if the mat drops a material spell, just drop it
+			pickedspell=pickfrom[1]
+		else --otherwise, pick a card, any card!
+			local rcalls=tonumber(GlobalsGetValue("Electrum_alchemyspellrandomcalls")) or 0
+			rcalls=rcalls+1
+			SetRandomSeed(StatsGetValue("world_seed"),rcalls)
+			GlobalsSetValue("Electrum_alchemyspellrandomcalls",rcalls)
+			pickedspell=pickfrom[Random(1,#pickfrom)]
+
+			if rcalls%5==0 then --every 5th submit give a bonus reward
+				local bonusspell=_SPECIALREWARDSPELLPOOL[Random(1,#_SPECIALREWARDSPELLPOOL)]
+				CreateItemActionEntity(bonusspell,x+20,y)
+			end
+		end
 		
-		local pickedspell=pickfrom[Random(1,#pickfrom)]
 	
 		local spellentid=CreateItemActionEntity(pickedspell,x,y)
 	

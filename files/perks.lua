@@ -18,7 +18,7 @@ ui_description ="$el_perkdesc_alchemylab",
 		local x,y=EntityGetTransform(entity_who_picked)
 		
 		--make one at the mountian altar
-		local backupportal=EntityLoad("mods/Electrum/files/perks/portal_to_lab.xml",x,y)
+		local backupportal=EntityLoad("mods/Electrum/files/perks/portal_to_lab.xml",860,-1220)
 		EntitySetTransform(backupportal,860,-1220,0,1,1)
 		
 		--make one above where the perk was picked up, since it won't load in to the current one.
