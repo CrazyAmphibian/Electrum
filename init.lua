@@ -50,6 +50,36 @@ dofile("mods/Electrum/files/pixel_scenes/personal_lab/append.lua")
 dofile("mods/Electrum/files/pixel_scenes/alchemist_house/append.lua")
 
 
+--[[ the issue with this is that many materials are children of others, and that makes parsing stuff really, really hard. too much work for me, at least.
+
+--parse materials file
+local mattxt=ModTextFileGetContent("data/materials.xml")
+local matd={}
+if mattxt then
+	for matdata in mattxt:gmatch("<CellData.->") do
+		local s,e=matdata:find("name=\".-\"")
+		if s then
+			local matname=matdata:sub(s+6,e-1)
+			matd[matname]={}
+			local s,e=matdata:find("tags=\".-\"")
+			if s then
+				local mattags=matdata:sub(s,e)
+				for tag in mattags:gmatch("%[.-%]") do
+					matd[matname][#matd[matname]+1]=tag:sub(2,#tag-1)
+				end
+			end
+		end
+	end
+end
+local submit=""
+for mat,tags in pairs(matd) do
+	submit=submit..mat.."\003"..table.concat(tags,"\001").."\002"
+end
+print(#submit)
+ELECTRUM_MATERIAL_DATABASE=submit
+]]
+
+
 end
 
 
@@ -140,6 +170,9 @@ function OnModPostInit()
 end
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
+
+	--GlobalsSetValue("ELECTRUM_MATERIAL_DATABASE",ELECTRUM_MATERIAL_DATABASE)
+
 	--EntitySetDamageFromMaterial(player_entity,"el_aqua-regia",".001") -- 1/5th as potent as acid.
 	--this is commented out because i'd like a way to apply it more universally.
 end

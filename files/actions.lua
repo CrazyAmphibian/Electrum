@@ -593,29 +593,30 @@ table.insert( actions,
 		
 		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
 		add_projectile("data/entities/items/pickup/potion_aggressive.xml")
-		--if reflecting then return end
-		--[[
-		local casterent = GetUpdatedEntityID()
-	
-		
-		if (not casterent) or casterent==0 then return end --the game casts it upon loading a world, but that will crash the game. ain't that a bitch.
-		local x,y = EntityGetTransform(casterent)
-		
-		
-		local potion=EntityLoad("data/entities/items/pickup/potion_aggressive.xml",x,y-4)
-		if not potion then return end
-		
-		local aicomp=EntityGetFirstComponentIncludingDisabled(casterent,"ControlsComponent")
-		if not aicomp then print("cannot find controller component") return end
-		local aimx,aimy=ComponentGetValue2(aicomp,"mAimingVector")
-		local ang=math.atan2(aimx,aimy)
-		
-		local throwforce=300
-		
-		PhysicsApplyForce(potion,throwforce*math.sin(ang),throwforce*math.cos(ang))
-		]]
+
 	end,
 } )
 
 
+table.insert( actions,
+{
+	id          = "EL_CONCENTRATEBOLT",
+	name 		= "Concentrating Bolt",
+	description = "Removes the least-abundant material from an entity",
+	sprite 		= "mods/Electrum/files/actions/concentration_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/concentration_bolt.xml"},
+	spawn_level                       = "2,4,5,6",
+	spawn_probability                 = "0.1,0.3,0.4,0.4", 
+	
+	price = 100,
+	mana = 50,
+	max_uses = -1,
+	action 		= function()
+		add_projectile_trigger_death("mods/Electrum/files/actions/concentration_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
 
+		
+	end,
+} )
