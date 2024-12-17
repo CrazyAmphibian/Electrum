@@ -16,13 +16,13 @@ if invcomp then
 			lowestid=m
 			highestcount=mats[m]
 			matcount=matcount+1
-			print("found a material",tostring(m),tostring(mats[m]))
+			--print("found a material",tostring(m),tostring(mats[m]))
 		end
 	end
 
 	if lowestid and matcount>1 then --ensure that it doesn't delete everything.
-	print("removing",tostring(m),tostring(mats[m]) )
-		AddMaterialInventoryMaterial(ents[i], CellFactory_GetName(m-1) ,0) 
+		--print("removing",tostring(lowestid),tostring(mats[lowestid]) )
+		AddMaterialInventoryMaterial(ents[i], CellFactory_GetName(lowestid-1) ,0) 
 	end
 	
 	--print("ent")
