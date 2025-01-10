@@ -14,7 +14,7 @@ if invcomp then
 	for m=1,#mats do --get each material, store the lest abundant.
 		if mats[m]<lowestcount and mats[m]~=0 then
 			lowestid=m
-			highestcount=mats[m]
+			lowestcount=mats[m]
 			matcount=matcount+1
 			--print("found a material",tostring(m),tostring(mats[m]))
 		end
