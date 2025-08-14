@@ -1,27 +1,5 @@
 <Materials>
 
-<!--
-  <CellData
-	name="el_indestructium"
-	ui_name="indestructium"
-	tags="UNUSEDDEVTAGWILLTHISFIXIT"
-	burnable="0"
-	density="5"
-	cell_type="liquid"
-	wang_color="CF000101"
-	electrical_conductivity="0"
-	hp="1000000000000"
-	show_in_creative_mode="1"
-	durability="1000000000"
-	liquid_sand="1"
-	liquid_static="1"
-	>
-	<Graphics 
-	color="FF010101"> 
-    </Graphics>
-  </CellData>
- -->
- 
 	<!--this shit is confusing as hell, wtf?-->
    <CellData
 	name="el_indestructium_box2d"
@@ -49,36 +27,6 @@
 	>
 	</Graphics>
   </CellData>
-  
-  
-  <!--
-    <CellData
-	name="el_indestructium_box2d_impassable"
-	ui_name="indestructium"
-	tags="[box2d]"
-	burnable="0"
-	density="5"
-	cell_type="solid"
-	wang_color="CF010001"
-	generates_smoke="0"
-	on_fire="0"
-	requires_oxygen="1"
-	temperature_of_fire="50"
-	autoignition_temperature="999999"
-	solid_friction="0.7"
-	solid_static_type="1"
-	hp="1000000000000"
-	electrical_conductivity="0"
-	audio_physics_material_wall="rock"
-	audio_physics_material_solid="rock"
-	show_in_creative_mode="1"
-	>
-	<Graphics
-		color="FF010100"
-	>
-	</Graphics>
-  </CellData>
--->
 
  <CellData
 	name="el_electrum"
