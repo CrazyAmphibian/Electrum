@@ -13,10 +13,10 @@ local tofill=EntityLoad("mods/Electrum/files/entities/items/ampoule.xml",x,y)
 
 
 local fillcomp=EntityGetFirstComponentIncludingDisabled(spellent, "MaterialInventoryComponent")
-print(tostring(x),tostring(y))
+--print(tostring(x),tostring(y))
 for i=1, #cv do
 	if cv[i]~=0 then
-		print(i,cv[i])
+		--print(i,cv[i])
 		AddMaterialInventoryMaterial(spellent, CellFactory_GetName(i-1) ,0) 
 		AddMaterialInventoryMaterial(tofill, CellFactory_GetName(i-1) ,cv[i]) 
 	end

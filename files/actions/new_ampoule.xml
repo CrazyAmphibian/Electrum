@@ -5,13 +5,13 @@ this is a far simpler version, though. for better or for worse.-->
       radius="32"
     />
 	<MaterialSuckerComponent
-		num_cells_sucked_per_frame="500" <!--has to fill a lot more since it won't suck after-->
-		randomized_position.min_x="-13"
-		randomized_position.max_x="13"
-		randomized_position.min_y="-13"
-		randomized_position.max_y="13"
+		num_cells_sucked_per_frame="1000" <!--has to fill a lot more since it won't suck after-->
+		randomized_position.min_x="-15"
+		randomized_position.max_x="15"
+		randomized_position.min_y="-15"
+		randomized_position.max_y="15"
 		material_type="0"
-		barrel_size="500"
+		barrel_size="1000"
 		>
 	</MaterialSuckerComponent>
 	

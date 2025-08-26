@@ -158,13 +158,11 @@ table.insert( actions,
 
 
 
---i can't seem to be able to get entity hit working. shelved for later.
-
 table.insert( actions,
 {
 	id          = "EL_PURIFYBOLT",
 	name 		= "Purification Bolt",
-	description = "Removes all non-majority materials from an entity",
+	description = "Removes the least-abundant material from an entity",
 	sprite 		= "mods/Electrum/files/actions/purification_bolt.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/purification_bolt.xml"},
@@ -176,7 +174,7 @@ table.insert( actions,
 	max_uses = -1,
 	action 		= function()
 		add_projectile_trigger_death("mods/Electrum/files/actions/purification_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.fire_rate_wait = c.fire_rate_wait + 60 --2 second
 		c.spread_degrees = c.spread_degrees - 5
 
 		
@@ -367,27 +365,8 @@ end --end of new material spawner spells
 	})
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		table.insert( actions,{
+
+	table.insert( actions,{
 		id          = "EL_UPSILON",
 		name 		= "Upsilon",
 		description = "Casts a copy of all material-type spells in the current wand",
@@ -445,12 +424,6 @@ end --end of new material spawner spells
 		end,
 	})
 	
-	
-	
-
-
-
-
 
 
 
@@ -525,13 +498,11 @@ table.insert( actions,
 
 end
 
-
-
 table.insert( actions,
 {
 	id          = "EL_SPLITBOLT",
 	name 		= "Splitting Bolt",
-	description = "Moves all non-majority materials from an entity into new, separate potions.",
+	description = "Moves the least-abundant material from an entity into a new, separate potion.",
 	sprite 		= "mods/Electrum/files/actions/splitting_bolt.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/splitting_bolt.xml"},
@@ -540,10 +511,10 @@ table.insert( actions,
 	
 	price = 250,
 	mana = 100,
-	max_uses = 3,
+	max_uses = 12,
 	action 		= function()
 		add_projectile_trigger_death("mods/Electrum/files/actions/splitting_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 240 --4 seconds
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
 		c.spread_degrees = c.spread_degrees - 5
 
 		
@@ -598,6 +569,7 @@ table.insert( actions,
 } )
 
 
+--deprecated. functionality moved to Purification bolt.
 table.insert( actions,
 {
 	id          = "EL_CONCENTRATEBOLT",
@@ -606,8 +578,8 @@ table.insert( actions,
 	sprite 		= "mods/Electrum/files/actions/concentration_bolt.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/concentration_bolt.xml"},
-	spawn_level                       = "2,4,5,6",
-	spawn_probability                 = "0.1,0.3,0.4,0.4", 
+	spawn_level                       = "",--"2,4,5,6",
+	spawn_probability                 = "",--"0.1,0.3,0.4,0.4", 
 	
 	price = 100,
 	mana = 50,
