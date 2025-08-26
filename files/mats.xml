@@ -595,7 +595,7 @@ each particle ingested grants [amount] seconds of the status effect
   <Reaction probability="100" 
 	input_cell1="el_electrum"	input_cell2="soil"
 	output_cell1="el_cocoa_dust"  output_cell2="el_cocoa_dust"
-	blob_radius2="5">
+	blob_radius2="3">
   </Reaction>
     <!--now the liquid-->
   <Reaction probability="50" 
