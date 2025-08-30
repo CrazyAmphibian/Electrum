@@ -127,6 +127,14 @@ end
 
 
 
+local mastermaster = ModTextFileGetContent( "data/entities/animals/boss_wizard/death.lua" )
+if mastermaster then 
+	mastermaster=mastermaster:gsub("AddFlagPersistent%( \"miniboss_wizard\" %)","AddFlagPersistent( \"miniboss_wizard\" )\n EntityLoad( \"mods/Electrum/files/wands/leveraction.xml\",  x , y )",1)
+	ModTextFileSetContent( "data/entities/animals/boss_wizard/death.lua", mastermaster )
+end
+
+
+
 local content = ModTextFileGetContent("data/scripts/buildings/forge_item_convert.lua")
 local append =ModTextFileGetContent("mods/Electrum/files/forge_item_convert.lua")
 if content and append then

@@ -492,7 +492,24 @@ table.insert( actions,
 	end,
 } )
 
-
+table.insert( actions,
+{
+	id          = "EL_DEV_SUMMOMWAND",
+	name 		= "DEV WAND",
+	description = "DEVELOPER SPELL",
+	sprite 		= "mods/Electrum/files/actions/DEV_AMPOULESUMMON.png",
+	type 		= ACTION_TYPE_OTHER,
+	spawn_level                       = "", --this shouldn't ever spawn.
+	spawn_probability                 = "",
+	price = 0,
+	mana = 0,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 300
+		if reflecting then return end
+		add_projectile("mods/Electrum/files/wands/leveraction.xml")
+		
+	end,
+} )
 
 
 
@@ -567,6 +584,65 @@ table.insert( actions,
 
 	end,
 } )
+
+
+
+
+table.insert( actions,
+{
+	id          = "EL_ALCHEMYBUCKSHOT",
+	name 		= "Alchemistshot",
+	description = "Fires several projectiles. Does more damage the more stains and status effects you have.",
+	sprite 		= "mods/Electrum/files/actions/alchemybuckshot.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/alchemybuckshot.xml"},
+	spawn_level                       = "",
+	spawn_probability                 = "",
+	
+	price = 200,
+	mana = 30,
+	max_uses = -1,
+	action 		= function()
+		local ONE_DAMAGE=0.037
+	
+		for _=1,5 do
+			add_projectile("mods/Electrum/files/actions/alchemybuckshot.xml", 1)
+			--c.extra_entities=c.extra_entities.."mods/Electrum/files/actions/alchemybuckshot.xml,"
+		end
+		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
+		c.spread_degrees = c.spread_degrees + 18.0
+		c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
+		if not reflecting then
+			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
+			
+			local statuses=EntityGetFirstComponentIncludingDisabled(caster_id,"StatusEffectDataComponent")
+			if not statuses or statuses==0 then return end
+
+			local stains=ComponentGetValue2(statuses,"stain_effects") or {}
+			local ingests=ComponentGetValue2(statuses,"ingestion_effects") or {}
+			local total_effects=0
+			for i=1,#stains do
+				total_effects = total_effects + (stains[i]>=0.15 and 1 or 0) --stains won't affect you below this. also won't show up. strange game.
+			end
+			for i=1,#ingests do
+				total_effects = total_effects + (ingests[i]>0 and 1 or 0)
+			end
+			
+
+			local enddmg= 1.5*ONE_DAMAGE*(2^(total_effects^0.5)) -- does damage equal to 2 to the power of the square root of number of total effects
+			
+			c.damage_curse_add = c.damage_curse_add + enddmg - ONE_DAMAGE --subtract the 1 damage we just added earlier.
+		else
+		
+		end
+		
+	end,
+} )
+
+
+
+
+
 
 
 --deprecated. functionality moved to Purification bolt.
