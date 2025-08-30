@@ -33,7 +33,7 @@ for i=1,#ents do
 	local ispouch,ispotion
 	
 	local entname=EntityGetFilename(entid)
-	if entid~=0 and entname=="data/entities/items/pickup/powder_stash.xml" and EntityGetRootEntity(entid) == entid then
+	if entid~=0 and EntityGetRootEntity(entid) == entid and #(EntityGetComponent(entid,"MaterialSuckerComponent") or {})==1 and (ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"barrel_size") or 0)>=1500 and ComponentGetValue2(EntityGetComponent(entid,"MaterialSuckerComponent")[1],"material_type")==1 then
 		ispouch=true
 	end
 	
