@@ -50,7 +50,6 @@ local _SPECIALREWARDSPELLPOOL={
 "EL_POUCH_FILL",
 "EL_SPLITBOLT",
 "EL_ALCHEMISTHIISI_ATTACK",
-"EL_CONCENTRATEBOLT",
 "EL_PURIFYBOLT",
 }
 
@@ -104,6 +103,8 @@ local _REWARDPOOL={
 ["material_darkness"]=_STDSPELLPOOL,
 ["magic_liquid_weakness"]=_STDSPELLPOOL,
 
+["mimic_liquid"]=_SPECIALREWARDSPELLPOOL,
+
 ["blood_worm"]=_STDSPELLPOOL, --other stuff that's used in alchemy
 ["purifying_powder"]=_STDSPELLPOOL,
 ["coal"]=_STDSPELLPOOL,
@@ -112,17 +113,28 @@ local _REWARDPOOL={
 ["alcohol"]=_STDSPELLPOOL,
 ["lava"]=_STDSPELLPOOL,
 ["slime"]=_STDSPELLPOOL,
-["blood_worm"]=_STDSPELLPOOL,
 ["diamond"]=_STDSPELLPOOL,
 ["silver"]=_STDSPELLPOOL,
 ["gold"]=_STDSPELLPOOL,
 ["brass"]=_STDSPELLPOOL,
 ["copper"]=_STDSPELLPOOL,
 ["honey"]=_STDSPELLPOOL,
-
+["radioactive_liquid"]=_STDSPELLPOOL, --overwritten if graham's things is on
+["snow"]=_STDSPELLPOOL,
+["fungi"]=_STDSPELLPOOL,
+["bone"]=_STDSPELLPOOL,
+["soil"]=_STDSPELLPOOL,
+["sand"]=_STDSPELLPOOL,
+["gunpowder"]=_STDSPELLPOOL,
+["gunpowder_explosive"]=_STDSPELLPOOL, --why are there so many gunpower variants?
+["gunpowder_tnt"]=_STDSPELLPOOL,
 
 ["urine"]=_STDSPELLPOOL, --other crap that might as well be here.
 ["pus"]=_STDSPELLPOOL,
+["peat"]=_STDSPELLPOOL,
+["swamp"]=_STDSPELLPOOL,
+["water_swamp"]=_STDSPELLPOOL,
+
 }
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
