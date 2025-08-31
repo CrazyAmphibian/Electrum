@@ -611,6 +611,14 @@ table.insert( actions,
 		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
 		c.spread_degrees = c.spread_degrees + 18.0
 		if not reflecting then
+		
+			local countofus=0
+			for i=1,#(hand or {}) do
+				local spell=hand[i]
+				countofus=countofus+ (spell.id=="EL_ALCHEMYBUCKSHOT" and 1 or 0)
+			end
+			if countofus>1 then return end --do not add damage if we are not first of multiple spells at once. this is because the damage will stack. not good :(
+		
 			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
 			
 			local statuses=EntityGetFirstComponentIncludingDisabled(caster_id,"StatusEffectDataComponent")
