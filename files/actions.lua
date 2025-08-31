@@ -603,15 +603,13 @@ table.insert( actions,
 	mana = 30,
 	max_uses = -1,
 	action 		= function()
-		local ONE_DAMAGE=0.037
+		local ONE_DAMAGE=0.04
 	
 		for _=1,5 do
 			add_projectile("mods/Electrum/files/actions/alchemybuckshot.xml", 1)
-			--c.extra_entities=c.extra_entities.."mods/Electrum/files/actions/alchemybuckshot.xml,"
 		end
 		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
 		c.spread_degrees = c.spread_degrees + 18.0
-		c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
 		if not reflecting then
 			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
 			
@@ -629,11 +627,11 @@ table.insert( actions,
 			end
 			
 
-			local enddmg= 1.5*ONE_DAMAGE*(2^(total_effects^0.5)) -- does damage equal to 2 to the power of the square root of number of total effects
+			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
 			
-			c.damage_curse_add = c.damage_curse_add + enddmg - ONE_DAMAGE --subtract the 1 damage we just added earlier.
+			c.damage_curse_add = c.damage_curse_add + enddmg
 		else
-		
+			c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
 		end
 		
 	end,
