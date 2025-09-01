@@ -1,7 +1,6 @@
 <Mod
     name="Electrum"
     description="Welcome to Electrum, a mod focused on the alchemy side of the game.
-(my first mod, pls be kind)
 
 for bug reports, a more detailed description, and feature suggestions, go to the github page: https://github.com/CrazyAmphibian/Electrum
 
@@ -9,9 +8,9 @@ Features:
 
 Overview:
 - integration with other mods
-- 20 spells (2 more with other mods)
-- 8 materials
-- 3 new items
+- 22 spells (2 more with other mods)
+- 15 materials
+- 5 new items
 - 1 new perk
 
 
