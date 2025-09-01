@@ -3,7 +3,7 @@
 local entity_id = GetUpdatedEntityID()
 
 
-if entity_id then
+if entity_id and EntityGetRootEntity(entity_id) == entity_id then
 local x, y = EntityGetTransform(entity_id)
 if not DoesWorldExistAt(x,y,x,y) then return end
 local invcomp=EntityGetFirstComponentIncludingDisabled(entity_id, "MaterialInventoryComponent")
