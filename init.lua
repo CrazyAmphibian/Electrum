@@ -67,6 +67,7 @@ local function should_material_be_blacklisted(materialname,materialdata)
 	if materialname=="mimic_liquid" then return true end
 	if materialname=="magic_liquid_hp_regeneration_unstable" then return true end
 	if materialname=="magic_liquid_hp_regeneration" then return true end
+	if materialname=="magic_gas_hp_regeneration" then return true end
 	
 	--electrum materials
 	if materialname=="el_destabalized_polymorph" then return true end

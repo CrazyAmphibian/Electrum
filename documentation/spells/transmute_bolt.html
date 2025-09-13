@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../docstyle.css" rel="stylesheet" />
+	<style>
+		
+		.nospawn{
+		color:#999;
+		}
+				#spellinforarity td{
+		width:1.25em;
+		}
+	</style>
+</head>
+<body>
+
+	<a href="../home.html"><h1 id="titleheader">Electrum</h1></a>
+
+
+
+<h3><a style="text-decoration:underline;" href="../spells.html">return to spells</a></h3>
+
+
+
+<div class="spellinfopannel">
+
+	<div id="spellinfotitle">Transmuting Bolt</div>
+	
+	<div id="spellinfoimg"> <img src="../../files/actions/transmute_bolt.png"> <div id="spellinfodesc">Transmutes all materials in an entity into a different, similar material.</div> </div>
+	<div id="spellinfotype"> <span class="infopannelleft">type:</span><span class="infopannelright">PROJECTILE</span> </div>
+	<div id="spellinfo"> <span class="infopannelleft">mana:</span><span class="infopannelright">75</span> </div>
+	<div id="spellinfo"> <span class="infopannelleft">cast delay:</span><span class="infopannelright">+2 seconds</span> </div>
+	<div id="spellinfo"> <span class="infopannelleft">recharge time:</span><span class="infopannelright">+0 seconds</span> </div>
+	<div id="spellinfo"> <span class="infopannelleft">charges:</span><span class="infopannelright">6</span> </div>
+	<div id="spellinforarity"> Spawning Rarity<table>
+		<tr>
+			<th>Tier</th>
+			<td class="nospawn">0</td>
+			<td class="nospawn">1</td>
+			<td>2</td>
+			<td class="nospawn">3</td>
+			<td>4</td>
+			<td>5</td>
+			<td>6</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<th>Probablility</th>
+			<td class="nospawn">x</td>
+			<td class="nospawn">x</td>
+			<td>.1</td>
+			<td class="nospawn">x</td>
+			<td>.3</td>
+			<td>.4</td>
+			<td>.4</td>
+			<td>.5</td>
+		</tr>
+	</table> </div>
+	
+<div id="spellinfoid">EL_TRANSMUTEBOLT</div>
+</div>
+
+
+Transmuting Bolt, when colliding with an entity that stores materials, will, for each material, change it into a different material. The new material is randomly picked from any material, as long as both materials share enough tags.<br>
+to determine this, the number of similar tags are taken, then, if that number is at least or more than 3/4ths the number of tags that the material with the least number of tags has (rounded up), it will be able to change into it.<br>
+
+<hr>
+<h3> Material Blacklist</h3>
+Some materials are forbidden from being selected, either for game balance, destroying a save, or causing bugs
+<table>
+	<tr >
+		<th>Material&nbsp;ID</th>
+		<th>&nbsp;</th>
+		<th>Material&nbsp;Name</th>
+	</tr>
+	
+	<tr>
+		<td>creepy_liquid</td>
+		<td></td>
+		<td>Creepy Liquid</td>
+	</tr>
+	<tr>
+		<td>just_death</td>
+		<td></td>
+		<td>Instant Deathium</td>
+	</tr>
+	<tr>
+		<td>monster_powder_test</td>
+		<td></td>
+		<td>Monstrous Powder</td>
+	</tr>
+	<tr>
+		<td>rat_powder</td>
+		<td></td>
+		<td>Ratty Powder</td>
+	</tr>
+	<tr>
+		<td>fungus_powder</td>
+		<td></td>
+		<td>Fungal Soil</td>
+	</tr>
+	<tr>
+		<td>fungus_powder_bad</td>
+		<td></td>
+		<td>Fungal Soil</td>
+	</tr>
+	<tr>
+		<td>midas_precursor</td>
+		<td></td>
+		<td>Alchemic Precursor</td>
+	</tr>
+	<tr>
+		<td>mimic_liquid</td>
+		<td></td>
+		<td>Mimicium</td>
+	</tr>
+	<tr>
+		<td>magic_liquid_hp_regeneration</td>
+		<td></td>
+		<td>Healthium</td>
+	</tr>
+	<tr>
+		<td>magic_liquid_hp_regeneration_unstable</td>
+		<td></td>
+		<td>Lively Concoction</td>
+	</tr>
+	<tr>
+		<td>magic_gas_hp_regeneration</td>
+		<td></td>
+		<td>Healium</td>
+	</tr>
+	
+	<tr>
+		<td>[box2d]</td>
+		<td></td>
+		<td>Any Material tagged with [box2d]</td>
+	</tr>
+	
+	<tr>
+		<td>el_destabalized_polymorph</td>
+		<td></td>
+		<td>Destabalized Polymorphine (Electrum)</td>
+	</tr>
+	<tr>
+		<td>el_antipoly_liquid</td>
+		<td></td>
+		<td>Antipolymorph Fluid (Electrum)</td>
+	</tr>
+	<tr>
+		<td>el_healthpotion</td>
+		<td></td>
+		<td>Vigor (Electrum)</td>
+	</tr>
+	
+	<tr>
+		<td>graham_creepypoly</td>
+		<td></td>
+		<td>Creepy Polymorphine (Graham's Things)</td>
+	</tr>
+	<tr>
+		<td>graham_graymatter_liquid</td>
+		<td></td>
+		<td>Hunger (Graham's Things)</td>
+	</tr>
+		<tr>
+		<td>[catastrophic]</td>
+		<td></td>
+		<td>Any Material tagged with [catastrophic]</td>
+	</tr>
+</table>
+
+
+</body>
+</html>

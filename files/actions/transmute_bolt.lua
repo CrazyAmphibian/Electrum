@@ -41,7 +41,7 @@ local function transmute(mat_name)
 			
 			for n=1,#subset do --check every other material with that tag.
 				local thismat=subset[n]
-				if (not member_in_list(eligable,thismat) ) and list_shared_member_count(database[thismat],tags )>=math.floor(0.80*math.min(#database[thismat],#tags)) then --if they share at least 80% of their tags (communitive), rounded down to not punish materials with small amounts of tags.
+				if (not member_in_list(eligable,thismat) ) and list_shared_member_count(database[thismat],tags )>=math.floor(0.75*math.min(#database[thismat],#tags)) then --if they share at least 75% of their tags (communitive), rounded down to not punish materials with small amounts of tags.
 					eligable[#eligable+1]=subset[n]
 				end
 			end
