@@ -1,3 +1,6 @@
+dofile_once("data/scripts/lib/utilities.lua")
+dofile_once("data/scripts/perks/perk.lua")
+
 local entity_id = GetUpdatedEntityID()
 local x, y = EntityGetTransform( entity_id )
 local rewardedflaskreagents={}
@@ -22,6 +25,20 @@ local out={}
 	return out
 end
 
+local function pickrandomfromlist(list,numbercalls)
+	SetRandomSeed(StatsGetValue("world_seed"),0)
+	local listcopy={}
+	for i=1,#list do listcopy[i]=list[i] end --shuffle the list depending on the world seed.
+	for i=1,#listcopy do
+		local p=Random(1,#listcopy)
+		listcopy[p],listcopy[i]=listcopy[i],listcopy[p]
+	end
+	
+	local r=numbercalls+StatsGetValue("world_seed")
+	local n= (r%(#list))+1
+	return list[n]
+end
+
 concat=function(t,s)
 local ns=""
 for i=1,#t do
@@ -40,9 +57,13 @@ local _STDSPELLPOOL={ --a bunch of alchemy-related spells.
 "GUNPOWDER_TRAIL",
 "SOILBALL",
 "SEA_ALCOHOL",
-"EL_MATERIAL_CAST",
-"EL_SEA_SLIME",
-"EL_SEA_WORM_ATTRACTOR",
+"SEA_LAVA",
+"SEA_ACID_GAS",
+"CIRCLE_FIRE",
+"VACUUM_LIQUID",
+"VACUUM_POWDER",
+"STATIC_TO_SAND",
+"LIQUID_TO_EXPLOSION",
 }
 
 local _SPECIALREWARDSPELLPOOL={
@@ -51,6 +72,8 @@ local _SPECIALREWARDSPELLPOOL={
 "EL_SPLITBOLT",
 "EL_ALCHEMISTHIISI_ATTACK",
 "EL_PURIFYBOLT",
+"EL_TRANSMUTEBOLT",
+--"EL_CHAOTICTRANSMUTEBOLT",
 }
 
 
@@ -73,19 +96,28 @@ _STDSPELLPOOL[#_STDSPELLPOOL+1]="OVERCAST_PAYLOAD_POISON"
 end
 
 if true then
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_MATERIAL_CAST"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_SEA_SLIME"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_SEA_WORM_ATTRACTOR"
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_FLASK_SUMMON"
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_POUCH_SUMMON"
 end
 
+
 local _REWARDPOOL={ 
-["water"]={"MATERIAL_WATER"}, --materials which give their material spell.
+ --materials which have a droplet material spell.
+["water"]={"MATERIAL_WATER"},
 ["blood"]={"MATERIAL_BLOOD"},
 ["oil"]={"MATERIAL_OIL"},
 ["acid"]={"MATERIAL_ACID"},
 ["cement"]={"MATERIAL_CEMENT"},
 ["water"]={"MATERIAL_WATER"},
 
-["magic_liquid_movement_faster"]=_STDSPELLPOOL, --[magic_liquid]!
+
+["mimic_liquid"]=_SPECIALREWARDSPELLPOOL, --mimicmic
+
+--materials tagged [magic_liquid]
+["magic_liquid_movement_faster"]=_STDSPELLPOOL, 
 ["magic_liquid_polymorph"]=_STDSPELLPOOL, 
 ["magic_liquid_random_polymorph"]=_STDSPELLPOOL, 
 ["magic_liquid_unstable_polymorph"]=_STDSPELLPOOL, 
@@ -100,46 +132,70 @@ local _REWARDPOOL={
 ["magic_liquid_unstable_teleportation"]=_STDSPELLPOOL,
 ["magic_liquid_teleportation"]=_STDSPELLPOOL,
 ["magic_liquid_worm_attractor"]=_STDSPELLPOOL,
-["material_darkness"]=_STDSPELLPOOL,
 ["magic_liquid_weakness"]=_STDSPELLPOOL,
+["material_darkness"]=_STDSPELLPOOL,
+["pus"]=_STDSPELLPOOL,
+["material_rainbow"]=_STDSPELLPOOL,
+["magic_liquid_hp_regeneration_unstable"]=_STDSPELLPOOL,
+["magic_liquid_hp_regeneration"]=_STDSPELLPOOL,
 
-["mimic_liquid"]=_SPECIALREWARDSPELLPOOL,
-
-["blood_worm"]=_STDSPELLPOOL, --other stuff that's used in alchemy
+--materials tagged [alchemy] (except a lot of random shit)
+["peat"]=_STDSPELLPOOL,
 ["purifying_powder"]=_STDSPELLPOOL,
-["coal"]=_STDSPELLPOOL,
-["salt"]=_STDSPELLPOOL,
-["sodium"]=_STDSPELLPOOL,
-["alcohol"]=_STDSPELLPOOL,
-["lava"]=_STDSPELLPOOL,
-["slime"]=_STDSPELLPOOL,
-["diamond"]=_STDSPELLPOOL,
-["silver"]=_STDSPELLPOOL,
-["gold"]=_STDSPELLPOOL,
-["brass"]=_STDSPELLPOOL,
-["copper"]=_STDSPELLPOOL,
-["honey"]=_STDSPELLPOOL,
-["radioactive_liquid"]=_STDSPELLPOOL, --overwritten if graham's things is on
-["snow"]=_STDSPELLPOOL,
-["fungi"]=_STDSPELLPOOL,
-["bone"]=_STDSPELLPOOL,
-["soil"]=_STDSPELLPOOL,
-["sand"]=_STDSPELLPOOL,
+["burning_powder"]=_STDSPELLPOOL,
 ["gunpowder"]=_STDSPELLPOOL,
 ["gunpowder_explosive"]=_STDSPELLPOOL, --why are there so many gunpower variants?
 ["gunpowder_tnt"]=_STDSPELLPOOL,
+["coal"]=_STDSPELLPOOL,
+["sulphur"]=_STDSPELLPOOL,
+["lavasand"]=_STDSPELLPOOL,
+["bone"]=_STDSPELLPOOL,
+["salt"]=_STDSPELLPOOL,
+["sodium"]=_STDSPELLPOOL,
+["brass"]=_STDSPELLPOOL,
+["gold"]=_STDSPELLPOOL,
+["copper"]=_STDSPELLPOOL,
+["silver"]=_STDSPELLPOOL,
+["diamond"]=_STDSPELLPOOL,
+["snow"]=_STDSPELLPOOL,
+["sand"]=_STDSPELLPOOL,
+["sand_surface"]=_STDSPELLPOOL, --huuuuuuhhhH?????
+["sand_blue"]=_STDSPELLPOOL,
+["fungi"]=_STDSPELLPOOL,
+["honey"]=_STDSPELLPOOL,
+["slime"]=_STDSPELLPOOL,
+["endslime"]=_STDSPELLPOOL,
+["soil"]=_STDSPELLPOOL,
+["soil_dead"]=_STDSPELLPOOL,
+["soil_lush"]=_STDSPELLPOOL,
+["soil_lush_dark"]=_STDSPELLPOOL,
+["pea_soup"]=_STDSPELLPOOL,
+["rotten_meat"]=_STDSPELLPOOL,
 
-["urine"]=_STDSPELLPOOL, --other crap that might as well be here.
-["pus"]=_STDSPELLPOOL,
-["peat"]=_STDSPELLPOOL,
+--materials tagged [chaotic_transmutation] (except earlier ones and other shit)
+["blood_worm"]=_STDSPELLPOOL, 
+["lava"]=_STDSPELLPOOL,
 ["swamp"]=_STDSPELLPOOL,
-["water_swamp"]=_STDSPELLPOOL,
+["alcohol"]=_STDSPELLPOOL,
 
+
+--other materials for the sake of more materials or because they do alchemy, too.
+["radioactive_liquid"]=_STDSPELLPOOL,
+["liquid_fire"]=_STDSPELLPOOL,
+["poison"]=_STDSPELLPOOL,
+["mud"]=_STDSPELLPOOL,
+["urine"]=_STDSPELLPOOL,
+["water_swamp"]=_STDSPELLPOOL,
+["water_salt"]=_STDSPELLPOOL,
+["blood_cold_vapour"]=_STDSPELLPOOL,
+["porridge"]=_STDSPELLPOOL,
+["fungi_creeping"]=_STDSPELLPOOL,
+["void_liquid"]=_STDSPELLPOOL,
 }
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
 _REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
-_REWARDPOOL["el_antipoly_liquid"]=_STDSPELLPOOL
+_REWARDPOOL["el_antipoly_liquid"]=_SPECIALREWARDSPELLPOOL
 _REWARDPOOL["el_electrum"]=_STDSPELLPOOL
 _REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
 _REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
@@ -199,7 +255,6 @@ local detectedflask
 for i=1,#ents do
 	local entid=ents[i]
 	
-	--if (entname=="mods/Electrum/files/entities/items/masteralchemistflask.xml" or entname=="mods/Electrum/files/entities/items/stasisbeaker.xml") and EntityGetRootEntity(entid) == entid then
 	if EntityGetRootEntity(entid) == entid then
 		detectedflask=entid
 		break
@@ -224,7 +279,6 @@ if detectedflask then
 				rewardedflaskreagents[#rewardedflaskreagents+1]=_MATERIALNAME
 				_REWARDMATERIAL=_MATERIALNAME
 				GlobalsSetValue("Electurm_alchemyspellrewards",concat(rewardedflaskreagents,"\001"))
-				--print("POST",concat(rewardedflaskreagents,"\001"),#rewardedflaskreagents,#concat(rewardedflaskreagents,"\001"))
 				break
 			end
 		end
@@ -234,33 +288,33 @@ if detectedflask then
 	if _REWARDMATERIAL then	
 		local pickfrom=_REWARDPOOL[_REWARDMATERIAL]		
 		local pickedspell
+		local extramsg=""
 		if #pickfrom==1 then --if the mat drops a material spell, just drop it
 			pickedspell=pickfrom[1]
 		else --otherwise, pick a card, any card!
 			local rcalls=tonumber(GlobalsGetValue("Electrum_alchemyspellrandomcalls")) or 0
 			rcalls=rcalls+1
-			SetRandomSeed(StatsGetValue("world_seed"),rcalls)
-			GlobalsSetValue("Electrum_alchemyspellrandomcalls",rcalls)
-			pickedspell=pickfrom[Random(1,#pickfrom)]
-
+			pickedspell=pickrandomfromlist(pickfrom,rcalls)
+	
 			if rcalls%5==0 then --every 5th submit give a bonus reward
-				local bonusspell=_SPECIALREWARDSPELLPOOL[Random(1,#_SPECIALREWARDSPELLPOOL)]
+				local bonusspell=pickrandomfromlist(_SPECIALREWARDSPELLPOOL, math.floor(rcalls/5) )
 				CreateItemActionEntity(bonusspell,x+20,y)
 			end
+			if rcalls==11 then --something something orbs.
+				perk_spawn( x-20, y, "EL_PERSONAL_LAB" )
+			elseif rcalls==33 then --also orbs.
+				EntityRemoveTag(EntityLoad( "data/entities/items/pickup/chest_random_super.xml", x-20, y),"chest")
+			elseif rcalls%7==0 then --every 7th, give a treasure chest, too. why 7th? spacing reasons.
+				EntityRemoveTag(EntityLoad( "data/entities/items/pickup/chest_random.xml", x-20, y),"chest")
+			end
+			GlobalsSetValue("Electrum_alchemyspellrandomcalls",tostring(rcalls))
 		end
 		
+		CreateItemActionEntity(pickedspell,x,y)	
 	
-		local spellentid=CreateItemActionEntity(pickedspell,x,y)
-	
-	
-		GamePrintImportant("Your hard work has been rewarded.")		
+		GamePrintImportant("Your hard work has been rewarded.",extramsg)		
 		local fxent = EntityLoad("data/entities/particles/image_emitters/potion_effect.xml", x, y)
 	end
 
 end
-
-
-
-
-
 

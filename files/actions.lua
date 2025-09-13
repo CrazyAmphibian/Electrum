@@ -173,7 +173,7 @@ table.insert( actions,
 	mana = 50,
 	max_uses = -1,
 	action 		= function()
-		add_projectile_trigger_death("mods/Electrum/files/actions/purification_bolt.xml", 1)
+		add_projectile("mods/Electrum/files/actions/purification_bolt.xml", 1)
 		c.fire_rate_wait = c.fire_rate_wait + 60 --2 second
 		c.spread_degrees = c.spread_degrees - 5
 
@@ -530,7 +530,7 @@ table.insert( actions,
 	mana = 100,
 	max_uses = 12,
 	action 		= function()
-		add_projectile_trigger_death("mods/Electrum/files/actions/splitting_bolt.xml", 1)
+		add_projectile("mods/Electrum/files/actions/splitting_bolt.xml", 1)
 		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
 		c.spread_degrees = c.spread_degrees - 5
 
@@ -637,9 +637,9 @@ table.insert( actions,
 
 			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
 			
-			c.damage_curse_add = c.damage_curse_add + enddmg
+			c.damage_curse_add = c.damage_curse_add + enddmg - ONE_DAMAGE --the projectile comes with 1 damage.
 		else
-			c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
+			--c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
 		end
 		
 	end,
@@ -647,9 +647,56 @@ table.insert( actions,
 
 
 
+table.insert( actions,
+{
+	id          = "EL_TRANSMUTEBOLT",
+	name 		= "Transmutating Bolt",
+	description = "Transmutes all materials in an entity into a different, similar material.",
+	sprite 		= "mods/Electrum/files/actions/transmute_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/transmute_bolt.xml"},
+	spawn_level                       = "2,4,5,6,10",
+	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
+	
+	price = 100,
+	mana = 75,
+	max_uses = 6,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/transmute_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
 
+		
+	end,
+} )
 
+--a bit too unstable.
+--[[
 
+table.insert( actions,
+{
+	id          = "EL_CHAOTICTRANSMUTEBOLT",
+	name 		= "Chaotic Transmutating Bolt",
+	description = "Transmutes all materials in an entity into a different, related material.",
+	sprite 		= "mods/Electrum/files/actions/chaotictransmute_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/chaotictransmute_bolt.xml"},
+	spawn_level                       = "2,4,5,6,10",
+	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
+	
+	price = 100,
+	mana = 75,
+	max_uses = 6,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/chaotictransmute_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
+
+		
+	end,
+} )
+
+]]
 
 --deprecated. functionality moved to Purification bolt.
 table.insert( actions,
@@ -667,7 +714,7 @@ table.insert( actions,
 	mana = 50,
 	max_uses = -1,
 	action 		= function()
-		add_projectile_trigger_death("mods/Electrum/files/actions/concentration_bolt.xml", 1)
+		add_projectile("mods/Electrum/files/actions/concentration_bolt.xml", 1)
 		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
 		c.spread_degrees = c.spread_degrees - 5
 
