@@ -91,46 +91,24 @@ table.insert( actions,
 
 table.insert( actions,
 {
-	id          = "EL_STIRING",
-	name 		= "Stirer",
-	description = "Mixes all powders and liquids in a radius",
-	sprite 		= "mods/Electrum/files/actions/stirer.png",
+	id          = "EL_NEW_AMPOULE",
+	name 		= "Create Ampoule",
+	description = "Creates a fragile, sealed ampoule containing materials around where the spell is cast.",
+	sprite 		= "mods/Electrum/files/actions/new_ampoule.png",
+	custom_xml_file = "mods/Electrum/files/actions/new_ampoule_card.xml",
 	type 		= ACTION_TYPE_OTHER,
-	spawn_level                       = "2,3,4,5,6",
-	spawn_probability                 = ".5,1,.5,1,.75",
-	price = 90,
-	mana = 20,
-	max_uses = -1,
-	action 		= function()
-		c.fire_rate_wait = c.fire_rate_wait + 6 --0.1 seconds
-		if reflecting then return end
-		add_projectile("mods/Electrum/files/actions/stirer.xml")
-		
-	end,
-} )
-
-
-
-table.insert( actions,
-{
-	id          = "EL_WOLF", --friend request, funny. pointless, too.
-	name 		= "Summon Wolf",
-	description = "Summons a friendly wolf for you to... something?",
-	sprite 		= "mods/Electrum/files/actions/summon_wolf.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	spawn_level                       = "0,1,2,4",
-	spawn_probability                 = ".5,.25,.1,.1",
-	price = 50,
-	mana = 35,
+	spawn_level                       = "2,3,4,5,6,10",
+	spawn_probability                 = ".5,1,.5,1,.75,.1",
+	price = 80,
+	mana = 80,
 	max_uses = 5,
 	action 		= function()
-		c.fire_rate_wait = c.fire_rate_wait + 60 --1 second
+		c.fire_rate_wait = c.fire_rate_wait + 180 --3 seconds
 		if reflecting then return end
-		add_projectile("mods/Electrum/files/actions/summon_wolf.xml")
+		add_projectile("mods/Electrum/files/actions/new_ampoule.xml")
 		
 	end,
 } )
-
 
 
 table.insert( actions,
@@ -158,29 +136,23 @@ table.insert( actions,
 
 
 
-table.insert( actions,
-{
-	id          = "EL_PURIFYBOLT",
-	name 		= "Purification Bolt",
-	description = "Removes the least-abundant material from an entity",
-	sprite 		= "mods/Electrum/files/actions/purification_bolt.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/purification_bolt.xml"},
-	spawn_level                       = "2,4,5,6",
-	spawn_probability                 = "0.1,0.3,0.4,0.4", 
-	
-	price = 100,
-	mana = 50,
-	max_uses = -1,
+
+table.insert( actions,{
+	id          = "EL_TOUCH_AIR",
+	name 		= "Touch of Air",
+	description = "Transmutes everything in a short radius into air, including walls, creatures... and you",
+	sprite 		= "mods/Electrum/files/actions/touch_air.png",
+	related_projectiles	= {"mods/Electrum/files/actions/touch_air.xml"},
+	type 		= ACTION_TYPE_MATERIAL,
+	spawn_level                       = "1,2,3,4,5,6,7,10", -- TOUCH_SMOKE
+	spawn_probability                 = "0,0,0,0,0.1,0.1,0.1,0.4", -- TOUCH_SMOKE
+	price = 350,
+	mana = 230,
+	max_uses    = 5, 
 	action 		= function()
-		add_projectile("mods/Electrum/files/actions/purification_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 60 --2 second
-		c.spread_degrees = c.spread_degrees - 5
-
-		
+		add_projectile("mods/Electrum/files/actions/touch_air.xml")
 	end,
-} )
-
+})
 
 if not ModIsEnabled("material_spells") then --material spawner spells.
 
@@ -222,27 +194,6 @@ table.insert( actions,{
 		end,
 })
 
-
-
-
-	table.insert( actions,{
-		id          = "EL_SEA_SLIME",
-		name 		= "Sea of Slime",
-		description = "Summons a large body of sticky slime below the caster",
-		sprite 		= "mods/Electrum/files/actions/sea_slime.png",
-		related_projectiles	= {"mods/Electrum/files/actions/sea_slime.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level                       = "0,4,5,6", -- SEA_OIL
-		spawn_probability                 = "0.3,0.5,0.6,0.3", -- SEA_OIL
-		price = 350,
-		mana = 140,
-		max_uses = 3,
-		action 		= function()
-			add_projectile("mods/Electrum/files/actions/sea_slime.xml")
-			c.fire_rate_wait = c.fire_rate_wait + 15
-		end,
-	})
-	
 	
 table.insert( actions,{
 	id          = "EL_TOUCH_SALT",
@@ -264,191 +215,384 @@ table.insert( actions,{
 
 
 
-	table.insert( actions,{
-		id          = "EL_SEA_WORM_ATTRACTOR", 
-		name 		= "Sea of Worm Pheromone",
-		description = "Summons a large body of worm-attracting liquid below the caster.",
-		sprite 		= "mods/Electrum/files/actions/sea_worm_attractor.png",
-		related_projectiles	= {"mods/Electrum/files/actions/sea_worm_attractor.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level                       = "0,4,5,6", -- SEA_ACID
-		spawn_probability                 = "0.2,0.2,0.4,0.5", -- SEA_ACID
-		price = 350,
-		mana = 140,
-		max_uses = 3,
-		action 		= function()
-			add_projectile("mods/Electrum/files/actions/sea_worm_attractor.xml")
-			c.fire_rate_wait = c.fire_rate_wait + 15
-		end,
-	})
+
+table.insert( actions,{
+	id          = "EL_SEA_SLIME",
+	name 		= "Sea of Slime",
+	description = "Summons a large body of sticky slime below the caster",
+	sprite 		= "mods/Electrum/files/actions/sea_slime.png",
+	related_projectiles	= {"mods/Electrum/files/actions/sea_slime.xml"},
+	type 		= ACTION_TYPE_MATERIAL,
+	spawn_level                       = "0,4,5,6", -- SEA_OIL
+	spawn_probability                 = "0.3,0.5,0.6,0.3", -- SEA_OIL
+	price = 350,
+	mana = 140,
+	max_uses = 3,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/sea_slime.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 15
+	end,
+})
+	
 
 
 
 
-	table.insert( actions,{
-		id          = "EL_MATERIAL_ACCELERATIUM",
-		name 		= "Acceleratium",
-		description = "Transmute drops of acceleratium from nothing",
-		sprite 		= "mods/Electrum/files/actions/material_acceleratium.png",
-		related_projectiles	= {"mods/Electrum/files/actions/material_acceleratium.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level                       = "2,3,4,5,6", -- MATERIAL_CEMENT
-		spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_CEMENT
-		price = 100,
-		max_uses = 100,
-		mana = 0,
-		sound_loop_tag = "sound_spray",
-		action 		= function()
-			add_projectile("mods/Electrum/files/actions/material_acceleratium.xml")
-			c.fire_rate_wait = c.fire_rate_wait - 15
-			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
-		end,
-	})
-
-	table.insert( actions,{
-		id          = "EL_MATERIAL_POLYMORPH",
-		name 		= "Polymorphine",
-		description = "Transmute drops of polymorphine from nothing",
-		sprite 		= "mods/Electrum/files/actions/material_polymorph.png",
-		related_projectiles	= {"mods/Electrum/files/actions/material_polymorph.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level                       = "2,3,4,5,6", -- MATERIAL_CEMENT
-		spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_CEMENT
-		price = 100,
-		max_uses = 100,
-		mana = 0,
-		sound_loop_tag = "sound_spray",
-		action 		= function()
-			add_projectile("mods/Electrum/files/actions/material_polymorph.xml")
-			c.fire_rate_wait = c.fire_rate_wait - 15
-			current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
-		end,
-	})
+table.insert( actions,{
+	id          = "EL_SEA_WORM_ATTRACTOR", 
+	name 		= "Sea of Worm Pheromone",
+	description = "Summons a large body of worm-attracting liquid below the caster.",
+	sprite 		= "mods/Electrum/files/actions/sea_worm_attractor.png",
+	related_projectiles	= {"mods/Electrum/files/actions/sea_worm_attractor.xml"},
+	type 		= ACTION_TYPE_MATERIAL,
+	spawn_level                       = "0,4,5,6", -- SEA_ACID
+	spawn_probability                 = "0.2,0.2,0.4,0.5", -- SEA_ACID
+	price = 350,
+	mana = 140,
+	max_uses = 3,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/sea_worm_attractor.xml")
+		c.fire_rate_wait = c.fire_rate_wait + 15
+	end,
+})
 
 
 
 
+table.insert( actions,{
+	id          = "EL_MATERIAL_ACCELERATIUM",
+	name 		= "Acceleratium",
+	description = "Transmute drops of acceleratium from nothing",
+	sprite 		= "mods/Electrum/files/actions/material_acceleratium.png",
+	related_projectiles	= {"mods/Electrum/files/actions/material_acceleratium.xml"},
+	type 		= ACTION_TYPE_MATERIAL,
+	spawn_level                       = "2,3,4,5,6", -- MATERIAL_CEMENT
+	spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_CEMENT
+	price = 100,
+	max_uses = 100,
+	mana = 0,
+	sound_loop_tag = "sound_spray",
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/material_acceleratium.xml")
+		c.fire_rate_wait = c.fire_rate_wait - 15
+		current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+	end,
+})
+
+
+table.insert( actions,{
+	id          = "EL_MATERIAL_POLYMORPH",
+	name 		= "Polymorphine",
+	description = "Transmute drops of polymorphine from nothing",
+	sprite 		= "mods/Electrum/files/actions/material_polymorph.png",
+	related_projectiles	= {"mods/Electrum/files/actions/material_polymorph.xml"},
+	type 		= ACTION_TYPE_MATERIAL,
+	spawn_level                       = "2,3,4,5,6", -- MATERIAL_CEMENT
+	spawn_probability                 = "0.4,0.4,0.4,0.4,0.4", -- MATERIAL_CEMENT
+	price = 100,
+	max_uses = 100,
+	mana = 0,
+	sound_loop_tag = "sound_spray",
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/material_polymorph.xml")
+		c.fire_rate_wait = c.fire_rate_wait - 15
+		current_reload_time = current_reload_time - ACTION_DRAW_RELOAD_TIME_INCREASE - 10 -- this is a hack to get the cement reload time back to 0
+	end,
+})
 
 end --end of new material spawner spells
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	table.insert( actions,{
-		id          = "EL_TOUCH_AIR",
-		name 		= "Touch of Air",
-		description = "Transmutes everything in a short radius into air, including walls, creatures... and you",
-		sprite 		= "mods/Electrum/files/actions/touch_air.png",
-		related_projectiles	= {"mods/Electrum/files/actions/touch_air.xml"},
-		type 		= ACTION_TYPE_MATERIAL,
-		spawn_level                       = "1,2,3,4,5,6,7,10", -- TOUCH_SMOKE
-		spawn_probability                 = "0,0,0,0,0.1,0.1,0.1,0.4", -- TOUCH_SMOKE
-		price = 350,
-		mana = 230,
-		max_uses    = 5, 
-		action 		= function()
-			add_projectile("mods/Electrum/files/actions/touch_air.xml")
-		end,
-	})
 	
 	
 
-	table.insert( actions,{
-		id          = "EL_UPSILON",
-		name 		= "Upsilon",
-		description = "Casts a copy of all material-type spells in the current wand",
-		sprite 		= "mods/Electrum/files/actions/upsilon.png",
-		spawn_requires_flag = "card_unlocked_duplicate",
-		type 		= ACTION_TYPE_OTHER,
-		recursive	= true,
-		spawn_level                       = "5,6,10", -- MANA_REDUCE
-		spawn_probability                 = "0.1,0.2,1", -- MANA_REDUCE
-		price = 500,
-		mana = 100,
-			action 		= function( recursion_level, iteration )
-			c.fire_rate_wait = c.fire_rate_wait + 50
-			
-			local firerate = c.fire_rate_wait
-			local reload = current_reload_time
-			local mana_ = mana
-			
-			if ( discarded ~= nil ) then --... the devs do know that you don't need ~= nil if the type isn't a bool, right? whatever, keeping it there for the sake of consistnecy.
-				for i,data in ipairs( discarded ) do
-					local rec = check_recursion( data, recursion_level )
-					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
-						dont_draw_actions = true
-						data.action( rec )
-						dont_draw_actions = false
-					end
+table.insert( actions,{
+	id          = "EL_UPSILON",
+	name 		= "Upsilon",
+	description = "Casts a copy of all material-type spells in the current wand",
+	sprite 		= "mods/Electrum/files/actions/upsilon.png",
+	spawn_requires_flag = "card_unlocked_duplicate",
+	type 		= ACTION_TYPE_OTHER,
+	recursive	= true,
+	spawn_level                       = "5,6,10", -- MANA_REDUCE
+	spawn_probability                 = "0.1,0.2,1", -- MANA_REDUCE
+	price = 500,
+	mana = 100,
+		action 		= function( recursion_level, iteration )
+		c.fire_rate_wait = c.fire_rate_wait + 50
+		
+		local firerate = c.fire_rate_wait
+		local reload = current_reload_time
+		local mana_ = mana
+		
+		if ( discarded ~= nil ) then --... the devs do know that you don't need ~= nil if the type isn't a bool, right? whatever, keeping it there for the sake of consistnecy.
+			for i,data in ipairs( discarded ) do
+				local rec = check_recursion( data, recursion_level )
+				if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
+					dont_draw_actions = true
+					data.action( rec )
+					dont_draw_actions = false
 				end
 			end
-			
-			if ( hand ~= nil ) then
-				for i,data in ipairs( hand ) do
-					local rec = check_recursion( data, recursion_level )
-					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
-						dont_draw_actions = true
-						data.action( rec )
-						dont_draw_actions = false
-					end
+		end
+		
+		if ( hand ~= nil ) then
+			for i,data in ipairs( hand ) do
+				local rec = check_recursion( data, recursion_level )
+				if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
+					dont_draw_actions = true
+					data.action( rec )
+					dont_draw_actions = false
 				end
 			end
-			
-			if ( deck ~= nil ) then
-				for i,data in ipairs( deck ) do
-					local rec = check_recursion( data, recursion_level )
-					if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
-						dont_draw_actions = true
-						data.action( rec )
-						dont_draw_actions = false
-					end
+		end
+		
+		if ( deck ~= nil ) then
+			for i,data in ipairs( deck ) do
+				local rec = check_recursion( data, recursion_level )
+				if ( data ~= nil ) and ( data.type == ACTION_TYPE_MATERIAL ) and ( rec > -1 ) then
+					dont_draw_actions = true
+					data.action( rec )
+					dont_draw_actions = false
 				end
 			end
-			
-			c.fire_rate_wait = firerate
-			current_reload_time = reload
-			mana = mana_
-		end,
-	})
+		end
+		
+		c.fire_rate_wait = firerate
+		current_reload_time = reload
+		mana = mana_
+	end,
+})
 	
 
 
 
 table.insert( actions,{
-		id          = "EL_WORM_SHOTGUN",
-		name 		= "Scatterworm",
-		description = "Surely this will be useful.",
-		spawn_requires_flag = "card_unlocked_exploding_deer",
-		sprite 		= "mods/Electrum/files/actions/worm_shotgun.png",
-		sprite_unidentified = "data/ui_gfx/gun_actions/exploding_deer_unidentified.png",
-		related_projectiles	= {"mods/Electrum/files/actions/worm_shotgun.xml"},
-		type 		= ACTION_TYPE_PROJECTILE,
-		spawn_level                       = "3,4,5,6,10", -- EXPLODING_DEER
-		spawn_probability                 = "0.6,0.8,0.6,0.4,0.3", -- EXPLODING_DEER
-		price = 150,
-		mana = 75,
-		action 		= function()
-			for i=1,3 do
-				add_projectile("mods/Electrum/files/actions/worm_shotgun.xml")
+	id          = "EL_WORM_SHOTGUN",
+	name 		= "Scatterworm",
+	description = "Surely this will be useful.",
+	spawn_requires_flag = "card_unlocked_exploding_deer",
+	sprite 		= "mods/Electrum/files/actions/worm_shotgun.png",
+	sprite_unidentified = "data/ui_gfx/gun_actions/exploding_deer_unidentified.png",
+	related_projectiles	= {"mods/Electrum/files/actions/worm_shotgun.xml"},
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "3,4,5,6,10", -- EXPLODING_DEER
+	spawn_probability                 = "0.6,0.8,0.6,0.4,0.3", -- EXPLODING_DEER
+	price = 150,
+	mana = 75,
+	action 		= function()
+		for i=1,3 do
+			add_projectile("mods/Electrum/files/actions/worm_shotgun.xml")
+		end
+		c.fire_rate_wait = c.fire_rate_wait + 6
+		current_reload_time = current_reload_time + 15
+		c.spread_degrees = c.spread_degrees + 30
+	end,
+})
+
+table.insert( actions,
+{
+	id          = "EL_WOLF", --friend request, funny. pointless, too.
+	name 		= "Summon Wolf",
+	description = "Summons a friendly wolf for you to... something?",
+	sprite 		= "mods/Electrum/files/actions/summon_wolf.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "0,1,2,4",
+	spawn_probability                 = ".5,.25,.1,.1",
+	price = 50,
+	mana = 35,
+	max_uses = 5,
+	action 		= function()
+		c.fire_rate_wait = c.fire_rate_wait + 60 --1 second
+		if reflecting then return end
+		add_projectile("mods/Electrum/files/actions/summon_wolf.xml")
+		
+	end,
+} )
+
+
+table.insert( actions,
+{
+	id          = "EL_ALCHEMISTHIISI_ATTACK",
+	name 		= "Aggressive Flask",
+	related_projectiles	= {"data/entities/items/pickup/potion_aggressive.xml"},
+	description = "Launches a potion with a random material in it!",
+	sprite 		= "mods/Electrum/files/actions/alchemisthiisi_attack.png",
+	custom_xml_file = "mods/Electrum/files/actions/alchemisthiisi_cardaction.xml", --"data/entities/misc/custom_cards/summon_rock.xml", 
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "2,3,4,5,10",
+	spawn_probability                 = ".75,1,.75,1,.15",
+	price = 125,
+	mana = 100,
+	max_uses = 10,
+	action 		= function()
+		
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		add_projectile("data/entities/items/pickup/potion_aggressive.xml")
+
+	end,
+} )
+
+
+
+
+table.insert( actions,
+{
+	id          = "EL_ALCHEMYBUCKSHOT",
+	name 		= "Alchemistshot",
+	description = "Fires several projectiles. Does more damage the more stains and status effects you have.",
+	sprite 		= "mods/Electrum/files/actions/alchemybuckshot.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/alchemybuckshot.xml"},
+	spawn_level                       = "",
+	spawn_probability                 = "",
+	spawn_requires_flag = "miniboss_wizard", --master blaster (from barter town)
+	price = 200,
+	mana = 30,
+	max_uses = -1,
+	action 		= function()
+		local ONE_DAMAGE=0.04
+	
+		for _=1,5 do
+			add_projectile("mods/Electrum/files/actions/alchemybuckshot.xml", 1)
+		end
+		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
+		c.spread_degrees = c.spread_degrees + 18.0
+		if not reflecting then
+		
+			local countofus=0
+			for i=1,#(hand or {}) do
+				local spell=hand[i]
+				countofus=countofus+ (spell.id=="EL_ALCHEMYBUCKSHOT" and 1 or 0)
 			end
-			c.fire_rate_wait = c.fire_rate_wait + 6
-			current_reload_time = current_reload_time + 15
-			c.spread_degrees = c.spread_degrees + 30
-		end,
-	})
+			if countofus>1 then return end --do not add damage if we are not first of multiple spells at once. this is because the damage will stack. not good :(
+		
+			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
+			
+			local statuses=EntityGetFirstComponentIncludingDisabled(caster_id,"StatusEffectDataComponent")
+			if not statuses or statuses==0 then return end
+
+			local stains=ComponentGetValue2(statuses,"stain_effects") or {}
+			local ingests=ComponentGetValue2(statuses,"ingestion_effects") or {}
+			local total_effects=0
+			for i=1,#stains do
+				total_effects = total_effects + (stains[i]>=0.15 and 1 or 0) --stains won't affect you below this. also won't show up. strange game.
+			end
+			for i=1,#ingests do
+				total_effects = total_effects + (ingests[i]>0 and 1 or 0)
+			end
+			
+
+			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
+			
+			c.damage_curse_add = c.damage_curse_add + enddmg - (ONE_DAMAGE*5.0) --the projectile comes with 5 damage. this is for 2 reasons. 1) so that other spells won't benefit as much from this, it's not a modifier. 2) so that the spell card displays 5 damage, which is what it should do at base if all pellets hit.
+		else
+			--c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
+		end
+		
+	end,
+} )
+
+
+
+table.insert( actions,
+{
+	id          = "EL_PURIFYBOLT",
+	name 		= "Purification Bolt",
+	description = "Removes the least-abundant material from an entity",
+	sprite 		= "mods/Electrum/files/actions/purification_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/purification_bolt.xml"},
+	spawn_level                       = "2,4,5,6",
+	spawn_probability                 = "0.1,0.3,0.4,0.4", 
+	
+	price = 100,
+	mana = 50,
+	max_uses = -1,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/purification_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 60 --2 second
+		c.spread_degrees = c.spread_degrees - 5
+
+		
+	end,
+} )
+
+
+table.insert( actions,
+{
+	id          = "EL_SPLITBOLT",
+	name 		= "Splitting Bolt",
+	description = "Moves the least-abundant material from an entity into a new, separate potion.",
+	sprite 		= "mods/Electrum/files/actions/splitting_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/splitting_bolt.xml"},
+	spawn_level                       = "2,4,5,6,10",
+	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
+	
+	price = 250,
+	mana = 100,
+	max_uses = 12,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/splitting_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
+
+		
+	end,
+} )
+
+table.insert( actions,
+{
+	id          = "EL_TRANSMUTEBOLT",
+	name 		= "Transmutating Bolt",
+	description = "Transmutes all materials in an entity into a different, similar material.",
+	sprite 		= "mods/Electrum/files/actions/transmute_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/transmute_bolt.xml"},
+	spawn_level                       = "2,4,5,6,10",
+	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
+	
+	price = 100,
+	mana = 75,
+	max_uses = 6,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/transmute_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
+
+		
+	end,
+} )
+
+--a bit too unstable.
+--[[
+
+table.insert( actions,
+{
+	id          = "EL_CHAOTICTRANSMUTEBOLT",
+	name 		= "Chaotic Transmutating Bolt",
+	description = "Transmutes all materials in an entity into a different, related material.",
+	sprite 		= "mods/Electrum/files/actions/chaotictransmute_bolt.png",
+	type 		= ACTION_TYPE_PROJECTILE,
+	related_projectiles	= {"mods/Electrum/files/actions/chaotictransmute_bolt.xml"},
+	spawn_level                       = "2,4,5,6,10",
+	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
+	
+	price = 100,
+	mana = 75,
+	max_uses = 6,
+	action 		= function()
+		add_projectile("mods/Electrum/files/actions/chaotictransmute_bolt.xml", 1)
+		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
+		c.spread_degrees = c.spread_degrees - 5
+
+		
+	end,
+} )
+
+]]
 
 
 if DebugGetIsDevBuild() then --debug, only spawn in dev build.
@@ -510,214 +654,5 @@ table.insert( actions,
 		
 	end,
 } )
-
-
-
 end
 
-table.insert( actions,
-{
-	id          = "EL_SPLITBOLT",
-	name 		= "Splitting Bolt",
-	description = "Moves the least-abundant material from an entity into a new, separate potion.",
-	sprite 		= "mods/Electrum/files/actions/splitting_bolt.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/splitting_bolt.xml"},
-	spawn_level                       = "2,4,5,6,10",
-	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
-	
-	price = 250,
-	mana = 100,
-	max_uses = 12,
-	action 		= function()
-		add_projectile("mods/Electrum/files/actions/splitting_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		c.spread_degrees = c.spread_degrees - 5
-
-		
-	end,
-} )
-
-
-
-table.insert( actions,
-{
-	id          = "EL_NEW_AMPOULE",
-	name 		= "Create Ampoule",
-	description = "Creates a fragile, sealed ampoule containing materials around where the spell is cast.",
-	sprite 		= "mods/Electrum/files/actions/new_ampoule.png",
-	custom_xml_file = "mods/Electrum/files/actions/new_ampoule_card.xml",
-	type 		= ACTION_TYPE_OTHER,
-	spawn_level                       = "2,3,4,5,6,10",
-	spawn_probability                 = ".5,1,.5,1,.75,.1",
-	price = 80,
-	mana = 80,
-	max_uses = 5,
-	action 		= function()
-		c.fire_rate_wait = c.fire_rate_wait + 180 --3 seconds
-		if reflecting then return end
-		add_projectile("mods/Electrum/files/actions/new_ampoule.xml")
-		
-	end,
-} )
-
-
-
-table.insert( actions,
-{
-	id          = "EL_ALCHEMISTHIISI_ATTACK",
-	name 		= "Aggressive Flask",
-	related_projectiles	= {"data/entities/items/pickup/potion_aggressive.xml"},
-	description = "Launches a potion with a random material in it!",
-	sprite 		= "mods/Electrum/files/actions/alchemisthiisi_attack.png",
-	custom_xml_file = "mods/Electrum/files/actions/alchemisthiisi_cardaction.xml", --"data/entities/misc/custom_cards/summon_rock.xml", 
-	type 		= ACTION_TYPE_PROJECTILE,
-	spawn_level                       = "2,3,4,5,10",
-	spawn_probability                 = ".75,1,.75,1,.15",
-	price = 125,
-	mana = 100,
-	max_uses = 10,
-	action 		= function()
-		
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		add_projectile("data/entities/items/pickup/potion_aggressive.xml")
-
-	end,
-} )
-
-
-
-
-table.insert( actions,
-{
-	id          = "EL_ALCHEMYBUCKSHOT",
-	name 		= "Alchemistshot",
-	description = "Fires several projectiles. Does more damage the more stains and status effects you have.",
-	sprite 		= "mods/Electrum/files/actions/alchemybuckshot.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/alchemybuckshot.xml"},
-	spawn_level                       = "",
-	spawn_probability                 = "",
-	
-	price = 200,
-	mana = 30,
-	max_uses = -1,
-	action 		= function()
-		local ONE_DAMAGE=0.04
-	
-		for _=1,5 do
-			add_projectile("mods/Electrum/files/actions/alchemybuckshot.xml", 1)
-		end
-		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
-		c.spread_degrees = c.spread_degrees + 18.0
-		if not reflecting then
-		
-			local countofus=0
-			for i=1,#(hand or {}) do
-				local spell=hand[i]
-				countofus=countofus+ (spell.id=="EL_ALCHEMYBUCKSHOT" and 1 or 0)
-			end
-			if countofus>1 then return end --do not add damage if we are not first of multiple spells at once. this is because the damage will stack. not good :(
-		
-			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
-			
-			local statuses=EntityGetFirstComponentIncludingDisabled(caster_id,"StatusEffectDataComponent")
-			if not statuses or statuses==0 then return end
-
-			local stains=ComponentGetValue2(statuses,"stain_effects") or {}
-			local ingests=ComponentGetValue2(statuses,"ingestion_effects") or {}
-			local total_effects=0
-			for i=1,#stains do
-				total_effects = total_effects + (stains[i]>=0.15 and 1 or 0) --stains won't affect you below this. also won't show up. strange game.
-			end
-			for i=1,#ingests do
-				total_effects = total_effects + (ingests[i]>0 and 1 or 0)
-			end
-			
-
-			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
-			
-			c.damage_curse_add = c.damage_curse_add + enddmg - ONE_DAMAGE --the projectile comes with 1 damage.
-		else
-			--c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
-		end
-		
-	end,
-} )
-
-
-
-table.insert( actions,
-{
-	id          = "EL_TRANSMUTEBOLT",
-	name 		= "Transmutating Bolt",
-	description = "Transmutes all materials in an entity into a different, similar material.",
-	sprite 		= "mods/Electrum/files/actions/transmute_bolt.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/transmute_bolt.xml"},
-	spawn_level                       = "2,4,5,6,10",
-	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
-	
-	price = 100,
-	mana = 75,
-	max_uses = 6,
-	action 		= function()
-		add_projectile("mods/Electrum/files/actions/transmute_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		c.spread_degrees = c.spread_degrees - 5
-
-		
-	end,
-} )
-
---a bit too unstable.
---[[
-
-table.insert( actions,
-{
-	id          = "EL_CHAOTICTRANSMUTEBOLT",
-	name 		= "Chaotic Transmutating Bolt",
-	description = "Transmutes all materials in an entity into a different, related material.",
-	sprite 		= "mods/Electrum/files/actions/chaotictransmute_bolt.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/chaotictransmute_bolt.xml"},
-	spawn_level                       = "2,4,5,6,10",
-	spawn_probability                 = "0.1,0.3,0.3,0.3,.5", 
-	
-	price = 100,
-	mana = 75,
-	max_uses = 6,
-	action 		= function()
-		add_projectile("mods/Electrum/files/actions/chaotictransmute_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		c.spread_degrees = c.spread_degrees - 5
-
-		
-	end,
-} )
-
-]]
-
---deprecated. functionality moved to Purification bolt.
-table.insert( actions,
-{
-	id          = "EL_CONCENTRATEBOLT",
-	name 		= "Concentrating Bolt",
-	description = "Removes the least-abundant material from an entity",
-	sprite 		= "mods/Electrum/files/actions/concentration_bolt.png",
-	type 		= ACTION_TYPE_PROJECTILE,
-	related_projectiles	= {"mods/Electrum/files/actions/concentration_bolt.xml"},
-	spawn_level                       = "",--"2,4,5,6",
-	spawn_probability                 = "",--"0.1,0.3,0.4,0.4", 
-	
-	price = 100,
-	mana = 50,
-	max_uses = -1,
-	action 		= function()
-		add_projectile("mods/Electrum/files/actions/concentration_bolt.xml", 1)
-		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds
-		c.spread_degrees = c.spread_degrees - 5
-
-		
-	end,
-} )
