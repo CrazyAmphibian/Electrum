@@ -14,3 +14,8 @@ table.insert(materials_magic, {
         material="el_aqua_regia",
         cost=300,
 })
+
+table.insert(materials_magic, {
+        material="el_weakhealthpotion",
+        cost=350,
+})

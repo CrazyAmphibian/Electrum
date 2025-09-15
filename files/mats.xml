@@ -306,8 +306,8 @@ each particle ingested grants [amount] seconds of the status effect
     </Graphics>
 	  <StatusEffects>
 			<Ingestion>
-				<StatusEffect type="POISONED" amount="0.2" />
-				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.02" /> <!--2 seconds per sip. 20 per flask. 1 minute 40 seconds with secret item.-->
+				<StatusEffect type="POISONED" amount="0.25" />
+				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.05" /> <!--5 seconds per sip. 50 per flask. 4 minute 10 seconds with secret item.-->
 			</Ingestion>
 
 			<Stains>
@@ -435,7 +435,7 @@ each particle ingested grants [amount] seconds of the status effect
 		
 			  <StatusEffects>
 			<Ingestion>
-				<StatusEffect type="HP_REGENERATION" amount="0.0025" /> <!--.25 seconds of regen per sip. not a lot, but it's easy to get, so deal with it.-->
+				<StatusEffect type="HP_REGENERATION" amount="0.005" /> <!--.5 seconds of regen per sip. not a lot, but it's easy to get, so deal with it.-->
 			</Ingestion>
 
 			<Stains>
@@ -470,7 +470,7 @@ each particle ingested grants [amount] seconds of the status effect
 		
 			  <StatusEffects>
 			<Ingestion>
-				<StatusEffect type="HP_REGENERATION" amount="0.005" /> <!--.5 seconds of regen per sip. a bit more.-->
+				<StatusEffect type="HP_REGENERATION" amount="0.010" /> <!--1.0 seconds of regen per sip. a bit more.-->
 			</Ingestion>
 
 			<Stains>
