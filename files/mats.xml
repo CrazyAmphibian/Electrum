@@ -803,6 +803,30 @@ each particle ingested grants [amount] seconds of the status effect
 	output_cell1="magic_liquid_berserk" output_cell2="coal" >
   </Reaction>  
 
+	
+	
+	<Reaction probability="100" 
+	input_cell1="el_stable"		input_cell2="el_chaotic"		input_cell3="el_unstable"
+	output_cell1="mimic_liquid"		output_cell2="mimic_liquid"		output_cell3="mimic_liquid">
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="mimic_liquid"		input_cell2="el_chaotic"
+	output_cell1="mimic_liquid"		output_cell2="mimic_liquid"
+	blob_radius2="1">
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="mimic_liquid"		input_cell2="el_stable"
+	output_cell1="mimic_liquid"		output_cell2="mimic_liquid"
+	blob_radius2="1">
+	</Reaction>  
+	
+	<Reaction probability="100" 
+	input_cell1="mimic_liquid"		input_cell2="el_unstable"
+	output_cell1="mimic_liquid"		output_cell2="mimic_liquid"
+	blob_radius2="1">
+	</Reaction>  
 
 </Materials>
 
