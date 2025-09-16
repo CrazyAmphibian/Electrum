@@ -500,7 +500,7 @@ table.insert( actions,
 {
 	id          = "EL_PURIFYBOLT",
 	name 		= "Purification Bolt",
-	description = "Removes the least-abundant material from an entity",
+	description = "Moves the least-abundant material from an entity into a separate item",
 	sprite 		= "mods/Electrum/files/actions/purification_bolt.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/purification_bolt.xml"},
@@ -509,7 +509,7 @@ table.insert( actions,
 	
 	price = 100,
 	mana = 50,
-	max_uses = -1,
+	max_uses = 15,
 	action 		= function()
 		add_projectile("mods/Electrum/files/actions/purification_bolt.xml", 1)
 		c.fire_rate_wait = c.fire_rate_wait + 60 --2 second
@@ -524,7 +524,7 @@ table.insert( actions,
 {
 	id          = "EL_SPLITBOLT",
 	name 		= "Splitting Bolt",
-	description = "Moves the least-abundant material from an entity into a new, separate potion.",
+	description = "Moves the most-abundant material from an entity into a separate item.",
 	sprite 		= "mods/Electrum/files/actions/splitting_bolt.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/splitting_bolt.xml"},
@@ -533,7 +533,7 @@ table.insert( actions,
 	
 	price = 250,
 	mana = 100,
-	max_uses = 12,
+	max_uses = 15,
 	action 		= function()
 		add_projectile("mods/Electrum/files/actions/splitting_bolt.xml", 1)
 		c.fire_rate_wait = c.fire_rate_wait + 120 --2 seconds

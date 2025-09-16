@@ -23,11 +23,11 @@ if invcomp then
 	end
 
 	if lowestid and matcount>1 then --ensure that it doesn't delete everything.
-		--print("removing",tostring(lowestid),tostring(mats[lowestid]) )
+		local newent=EntityLoad("mods/Electrum/files/entities/items/disposablepotion.xml",x+math.random(-10,10),y+math.random(3,5) )
+		AddMaterialInventoryMaterial(newent, CellFactory_GetName(lowestid-1) ,lowestcount) 
 		AddMaterialInventoryMaterial(ents[i], CellFactory_GetName(lowestid-1) ,0) 
 	end
 	
 	--print("ent")
 end
 end
-

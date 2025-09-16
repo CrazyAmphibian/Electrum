@@ -28,6 +28,33 @@
 	</Graphics>
   </CellData>
 
+  <CellData
+	name="el_paperskinglassbones_box2d"
+	ui_name="paperskinglassbones"
+	tags="[box2d]"
+	burnable="0"
+	density="5"
+	cell_type="solid"
+	wang_color="CF011102"
+	generates_smoke="0"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="50"
+	autoignition_temperature="999999"
+	solid_friction="0.7"
+	solid_static_type="0"
+	hp="0"
+	electrical_conductivity="0"
+	audio_physics_material_wall="rock"
+	audio_physics_material_solid="rock"
+	show_in_creative_mode="1"
+	>
+	<Graphics
+		color="FFA1A1A0"
+	>
+	</Graphics>
+  </CellData>
+
  <CellData
 	name="el_electrum"
 	ui_name="electrum"
@@ -826,6 +853,12 @@ each particle ingested grants [amount] seconds of the status effect
 	input_cell1="mimic_liquid"		input_cell2="el_unstable"
 	output_cell1="mimic_liquid"		output_cell2="mimic_liquid"
 	blob_radius2="1">
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="el_paperskinglassbones_box2d"		input_cell2="[any_liquid]"
+	output_cell1="smoke"		output_cell2="[any_liquid]"
+	>
 	</Reaction>  
 
 </Materials>
