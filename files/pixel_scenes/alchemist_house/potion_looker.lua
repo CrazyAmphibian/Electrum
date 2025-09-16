@@ -22,7 +22,7 @@ magic_liquid_unstable_polymorph = "CHAOS_POLYMORPH_FIELD",
 for i=1,#ents do
 	local entid=ents[i]
 	if EntityGetRootEntity(entid) == entid then
-		local invcomp=EntityGetFirstComponentIncludingDisabled(entid, "MaterialInventoryComponent")
+		local invcomp=EntityGetFirstComponent(entid, "MaterialInventoryComponent")
 		if invcomp and invcomp~=0 then
 			local mats=ComponentGetValue2(invcomp,"count_per_material_type")
 			for m=1,#(mats or {}) do
