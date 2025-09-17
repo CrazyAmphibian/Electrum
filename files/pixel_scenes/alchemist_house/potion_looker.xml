@@ -1,37 +1,10 @@
 <Entity>
 
-
-
-
 	<LuaComponent
 		script_source_file="mods/Electrum/files/pixel_scenes/alchemist_house/potion_looker.lua"
-		execute_every_n_frame="60"
+		execute_every_n_frame="120"
 		execute_on_added="1"
 		>
 	</LuaComponent>
-	
-	<!--
-	<AudioLoopComponent
-		_tags="enabled_by_liquid"
-		file="data/audio/Desktop/misc.bank"
-		event_name="misc/teleport_end_loop"
-		calculate_material_lowpass="0"
-		auto_play="0"
-		auto_play_if_enabled="1"
-		play_on_component_enable="1" >
-	</AudioLoopComponent>
-
-	<AudioLoopComponent
-		_tags="enabled_by_liquid"
-		file="data/audio/Desktop/misc.bank"
-		event_name="misc/teleport_end_emitter_loop"
-		calculate_material_lowpass="0"
-		auto_play="0"
-		auto_play_if_enabled="1"
-		play_on_component_enable="1" >
-	</AudioLoopComponent>
-
-
-	-->
 
 </Entity>
