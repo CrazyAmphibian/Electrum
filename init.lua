@@ -222,7 +222,13 @@ if content and append then
 end
 
 
-
+content = ModTextFileGetContent("data/scripts/newgame_plus.lua")
+if content then
+	content=content:gsub("SessionNumbersSetValue%( \"NEW_GAME_PLUS_COUNT\", newgame_n %)",
+	"SessionNumbersSetValue( \"NEW_GAME_PLUS_COUNT\", newgame_n )\n  GlobalsSetValue(\"Electurm_alchemyspellrewards\",\"\")\n  GlobalsSetValue(\"Electrum_alchemyspellrandomcalls\",\"\")\n if GameHasFlagRun(\"PERK_PICKED_EL_PERSONAL_LAB\") then EntityLoad(\"mods/Electrum/files/perks/portal_to_lab.xml\",860,-1220) end\n ",
+	1)
+	ModTextFileSetContent("data/scripts/newgame_plus.lua",content)
+end
 
 
 
