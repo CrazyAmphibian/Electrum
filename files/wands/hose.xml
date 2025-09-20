@@ -70,6 +70,13 @@
 		>
 	</LuaComponent>
 
+	<LuaComponent 
+		_tags="enabled_in_world"
+		script_source_file="mods/Electrum/files/wands/hose_swapper.lua" 
+		execute_every_n_frame="30"
+		>
+	</LuaComponent>
+
 	<Base file="data/entities/base_wand_pickup.xml" > <LuaComponent _enabled="0" script_item_picked_up="" /> </Base>
 
 </Entity>
