@@ -114,7 +114,7 @@ local _REWARDPOOL={
 ["water"]={"MATERIAL_WATER"},
 
 
-["mimic_liquid"]=_SPECIALREWARDSPELLPOOL, --mimicmic
+["mimic_liquid"]=_STDSPELLPOOL, --mimicmic
 
 --materials tagged [magic_liquid]
 ["magic_liquid_movement_faster"]=_STDSPELLPOOL, 
@@ -195,8 +195,8 @@ local _REWARDPOOL={
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
 _REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
-_REWARDPOOL["el_antipoly_liquid"]=_SPECIALREWARDSPELLPOOL
-_REWARDPOOL["el_electrum"]=_SPECIALREWARDSPELLPOOL
+_REWARDPOOL["el_antipoly_liquid"]=_STDSPELLPOOL
+_REWARDPOOL["el_electrum"]=_STDSPELLPOOL
 _REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
 _REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
 
