@@ -26,7 +26,7 @@ local out={}
 end
 
 local function pickrandomfromlist(list,numbercalls)
-	SetRandomSeed(StatsGetValue("world_seed"),0)
+	SetRandomSeed(StatsGetValue("world_seed"),0x46524F47)
 	local listcopy={}
 	for i=1,#list do listcopy[i]=list[i] end --shuffle the list depending on the world seed.
 	for i=1,#listcopy do
@@ -36,7 +36,7 @@ local function pickrandomfromlist(list,numbercalls)
 	
 	local r=numbercalls+StatsGetValue("world_seed")
 	local n= (r%(#list))+1
-	return list[n]
+	return listcopy[n]
 end
 
 concat=function(t,s)
@@ -196,7 +196,7 @@ local _REWARDPOOL={
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
 _REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
 _REWARDPOOL["el_antipoly_liquid"]=_SPECIALREWARDSPELLPOOL
-_REWARDPOOL["el_electrum"]=_STDSPELLPOOL
+_REWARDPOOL["el_electrum"]=_SPECIALREWARDSPELLPOOL
 _REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
 _REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
 
