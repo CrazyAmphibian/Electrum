@@ -24,12 +24,12 @@
 
 <div class="spellinfopannel">
 
-	<div id="spellinfotitle">Alchemistshot</div>
+	<div id="spellinfotitle">Alchemic Enhancer</div>
 	
-	<div id="spellinfoimg"> <img src="../../files/actions/alchemybuckshot.png"> <div id="spellinfodesc">Fires several projectiles which inflicts a debuff on hit.</div> </div>
-	<div id="spellinfotype"> <span class="infopannelleft">type:</span><span class="infopannelright">PROJECTILE</span> </div>
+	<div id="spellinfoimg"> <img src="../../files/actions/alchemydamageplus.png"> <div id="spellinfodesc">Makes a projectile deal more damage the more stains and status effects you have.</div> </div>
+	<div id="spellinfotype"> <span class="infopannelleft">type:</span><span class="infopannelright">MODIFIER</span> </div>
 	<div id="spellinfo"> <span class="infopannelleft">mana:</span><span class="infopannelright">20</span> </div>
-	<div id="spellinfo"> <span class="infopannelleft">cast delay:</span><span class="infopannelright">+0.25 seconds</span> </div>
+	<div id="spellinfo"> <span class="infopannelleft">cast delay:</span><span class="infopannelright">+0 seconds</span> </div>
 	<div id="spellinfo"> <span class="infopannelleft">recharge time:</span><span class="infopannelright">+0 seconds</span> </div>
 	<div id="spellinfo"> <span class="infopannelleft">charges:</span><span class="infopannelright" style="color:grey;">N/A</span> </div>
 	<div id="spellinforarity"> Spawning Rarity<table>
@@ -57,28 +57,12 @@
 		</tr>
 	</table> </div>
 	
-<div id="spellinfoid">EL_ALCHEMYBUCKSHOT</div>
+<div id="spellinfoid">EL_ALCHEMYDAMAGEPLUS</div>
 </div>
 
 
-Alchemistshot fires 5 purple projectiles. The projectiles do not deal any damage, however each projectile will apply a random debuff for 2 seconds.<br><br>
-effect pool:
-<ul>
-	<li>Electrocution</li>
-	<li>On Fire</li>
-	<li>Poison</li>
-	<li>Berserk</li>
-	<li>Choking and Bloated</li>
-	<li>Oily</li>
-	<li>Slimy</li>
-	<li>Worm Attractor</li>
-	<li>Food Poisoning</li>
-	<li>Chily</li>
-	<li>Internal Fire</li>
-	<li>Jarated</li>
-	<li>Slower Movment</li>
-	<li>Confusion</li>
-</ul>
+This spell adds curse damage that increases for each active stain and status effect that the caster has.<br>
+the increase is equal to 2^sqrt(n) damage, where n is the number of effects and stains.<br>
 <br>
 This spell can only be obtained from a wand dropped by Mestarien mestari.
 

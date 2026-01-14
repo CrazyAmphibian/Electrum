@@ -86,6 +86,12 @@ height: 2em;
 	background-color:#444;
 }
 
+.spell_modifier{
+	border:solid;
+	border-color:#3444F6;
+	border-width:4px;
+	background-color:#444;
+}
 
 #MODNOTE_graham{
 	vertical-align:super;
