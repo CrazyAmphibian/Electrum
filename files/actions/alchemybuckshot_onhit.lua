@@ -4,7 +4,6 @@ local picked_statuses={
 	"ON_FIRE",
 	"POISON",
 	"BERSERK",
-	"CHARM",
 	"MOVEMENT_SLOWER",
 	"DRUNK",
 	"RADIOACTIVE",
@@ -20,13 +19,13 @@ local picked_statuses={
 	--[[don't use the following effects because they're OP as FUCK:
 	WEAKNESS - it's just a flat 10x damage taken holy shit
 	FROZEN - if you kick something frozen it does bighuge damage and basically instakills
+	CHARM - this crashes the game if it is applied to kolmi
 	]]
 local picked_sprites={
 	"data/ui_gfx/status_indicators/electrocution.png",
 	"data/ui_gfx/status_indicators/on_fire.png",
 	"data/ui_gfx/status_indicators/poisoned.png",
 	"data/ui_gfx/status_indicators/berserk.png",
-	"data/ui_gfx/status_indicators/charm.png",
 	"data/ui_gfx/status_indicators/ingestion_movement_slower.png",
 	"data/ui_gfx/status_indicators/drunk.png",
 	"data/ui_gfx/status_indicators/radioactive.png",
