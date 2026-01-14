@@ -1,10 +1,8 @@
 <Mod
     name="Electrum"
-    description="Welcome to Electrum, a mod focused on the alchemy side of the game.
+    description="Welcome to Electrum, a mod focused on the alchemy side of the game. This mod aims to make the alchemy parts of the game both less tedious, and more rewarding.
 
-for bug reports, a more detailed description, and feature suggestions, go to the github page: https://github.com/CrazyAmphibian/Electrum
-
-Features:
+for bug reports, proper documentation, and feature suggestions, go to the github page: https://github.com/CrazyAmphibian/Electrum
 
 Overview:
 - integration with other mods
@@ -15,20 +13,30 @@ Overview:
 
 
 Spells:
-This mod adds spells that summon flasks and powder pouches, for your alchemical convenience. some of these spells even fill them up with your surroundings!
-It also adds several spells which help you acquire materials otherwise unobtainable via spells and alchemy.
-additionally, there's a few utility spells for you to use.
-And there's also gimmicky spells with no purpose other than for humor.
+	This mod adds spells that summon potions and new materials.
+	Additionally, there's added utility spells to help you along your alchemy journey
+	Some spells are a bit gimmicky, but can prove to be quite useful if used correctly.
+
 
 Materials:
-This mod adds a few precursors to more impactful materials.
-Why not relax with a nice flask of hot chocolate?
-or mix different blood types together to gain both powers!
-play your cards right, and you might even find a way to become immune to polymorphing... for a short time.
-There's also additional reactions to help you get more materials in the game, such as gunpowder and honey.
+	This mod adds a few precursors to more impactful materials.
+	Why not relax with a nice flask of hot chocolate?
+	play your cards right, and you might even find a way to become immune to polymorphing... for a short time.
+	There's also additional reactions to help you get more materials in the game, such as gunpowder and honey.
 
 
-mod interaction:
+Items:
+	An unbreakable flask helps ease worries with dangerous materials.
+	A new storage flask is tailored for aggressive play.
+	Some special wands will prove especially useful.
+
+
+Perk:
+	A new perk has been added that gives you a private alchemy lab, though it must be earned first.
+
+
+
+mod interactions:
 
 Graham's things:
 	adds 2 new spells
@@ -45,6 +53,6 @@ Anvil of Destiny
 	
     tags="alchemy,spells,gameplay"
     dont_upload_folders=".git,.github"
-    dont_upload_files="workshopimage.xcf"
+    dont_upload_files="workshopimage.xcf,.gitattributes"
 > 
 </Mod>
