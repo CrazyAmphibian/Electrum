@@ -1,0 +1,11 @@
+<Entity name="alchemybuckshot onhit">
+	
+	<LuaComponent
+		script_source_file="mods/Electrum/files/actions/alchemybuckshot_onhit.lua"
+		execute_every_n_frame=-1
+		execute_on_added=1
+		remove_after_executed=1
+		execute_times=1		/>
+	
+	<InheritTransformComponent/>
+</Entity>

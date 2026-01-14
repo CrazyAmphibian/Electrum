@@ -441,7 +441,7 @@ table.insert( actions,
 {
 	id          = "EL_ALCHEMYBUCKSHOT",
 	name 		= "Alchemistshot",
-	description = "Fires several projectiles. Does more damage the more stains and status effects you have.",
+	description = "Fires several projectiles which inflicts a debuff on hit.",
 	sprite 		= "mods/Electrum/files/actions/alchemybuckshot.png",
 	type 		= ACTION_TYPE_PROJECTILE,
 	related_projectiles	= {"mods/Electrum/files/actions/alchemybuckshot.xml"},
@@ -449,25 +449,35 @@ table.insert( actions,
 	spawn_probability                 = "",
 	spawn_requires_flag = "miniboss_wizard", --master blaster (from barter town)
 	price = 200,
-	mana = 30,
+	mana = 20,
 	max_uses = -1,
 	action 		= function()
-		local ONE_DAMAGE=0.04
-	
 		for _=1,5 do
 			add_projectile("mods/Electrum/files/actions/alchemybuckshot.xml", 1)
 		end
 		c.fire_rate_wait = c.fire_rate_wait + 15 --.25 seconds
 		c.spread_degrees = c.spread_degrees + 18.0
-		if not reflecting then
-		
-			local countofus=0
-			for i=1,#(hand or {}) do
-				local spell=hand[i]
-				countofus=countofus+ (spell.id=="EL_ALCHEMYBUCKSHOT" and 1 or 0)
-			end
-			if countofus>1 then return end --do not add damage if we are not first of multiple spells at once. this is because the damage will stack. not good :(
-		
+	end,
+} )
+
+
+
+table.insert( actions,
+{
+	id          = "EL_ALCHEMYDAMAGEPLUS",
+	name 		= "Alchemic Enhancer",
+	description = "Makes a projectile deal more damage the more stains and status effects you have.",
+	sprite 		= "mods/Electrum/files/actions/alchemydamageplus.png",
+	type 		= ACTION_TYPE_MODIFIER,
+	spawn_level                       = "",
+	spawn_probability                 = "",
+	spawn_requires_flag = "miniboss_wizard",
+	price = 200,
+	mana = 20,
+	max_uses = -1,
+	action 		= function()
+		local ONE_DAMAGE=0.04
+		if not reflecting then	
 			local caster_id = EntityGetRootEntity( GetUpdatedEntityID() )
 			
 			local statuses=EntityGetFirstComponentIncludingDisabled(caster_id,"StatusEffectDataComponent")
@@ -485,15 +495,14 @@ table.insert( actions,
 			
 
 			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
-			
-			c.damage_curse_add = c.damage_curse_add + enddmg - (ONE_DAMAGE*5.0) --the projectile comes with 5 damage. this is for 2 reasons. 1) so that other spells won't benefit as much from this, it's not a modifier. 2) so that the spell card displays 5 damage, which is what it should do at base if all pellets hit.
+			print(enddmg,enddmg/ONE_DAMAGE,c.damage_curse_add)
+			c.damage_curse_add = c.damage_curse_add + enddmg
 		else
-			--c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE
+			c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE --show 1 damage in the spell desc
 		end
-		
+		draw_actions( 1, true )
 	end,
-} )
-
+})
 
 
 table.insert( actions,

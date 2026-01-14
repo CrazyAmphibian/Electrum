@@ -36,19 +36,19 @@
         sprite_file="mods/Electrum/files/wands/leveraction.png"
         ui_name="Alchemical Scattergun"
         drop_as_item_on_death="0"
-        cooldown_frames="45"
+        cooldown_frames="0"
         entity_count="1"
         use_gun_script="1"
-		mana_charge_speed="80"
-		mana_max="40"
+		mana_charge_speed="160"
+		mana_max="80"
         >
         <gun_config 
             shuffle_deck_when_empty="0"
-            reload_time="90"
-            deck_capacity="5" >
+            reload_time="15"
+            deck_capacity="6" >
         </gun_config>
         <gunaction_config 
-            fire_rate_wait="15" >
+            fire_rate_wait="0" >
         </gunaction_config>
     </AbilityComponent>
 	
