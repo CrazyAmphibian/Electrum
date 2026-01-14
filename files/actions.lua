@@ -135,8 +135,8 @@ table.insert( actions,
 } )
 
 
-
-
+--removed: redundant
+--[[
 table.insert( actions,{
 	id          = "EL_TOUCH_AIR",
 	name 		= "Touch of Air",
@@ -153,6 +153,7 @@ table.insert( actions,{
 		add_projectile("mods/Electrum/files/actions/touch_air.xml")
 	end,
 })
+]]
 
 if not ModIsEnabled("material_spells") then --material spawner spells.
 
