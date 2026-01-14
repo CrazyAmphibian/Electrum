@@ -16,7 +16,7 @@ local picked_statuses={
 	"JARATE",
 	"MOVEMENT_SLOWER_2X",
 	"CONFUSION",}
-	--[[don't use the following effects because they're OP as FUCK:
+	--[[don't use the following effects because:
 	WEAKNESS - it's just a flat 10x damage taken holy shit
 	FROZEN - if you kick something frozen it does bighuge damage and basically instakills
 	CHARM - this crashes the game if it is applied to kolmi
