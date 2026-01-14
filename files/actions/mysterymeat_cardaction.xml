@@ -1,0 +1,40 @@
+<Entity>
+	
+	<Base file="data/entities/base_custom_card.xml" > 
+	    <ItemComponent
+	        _tags="enabled_in_world,enabled_in_hand,enabled_in_world"
+    		is_equipable_forced="1" >
+	    </ItemComponent>
+
+		<SpriteComponent 
+			image_file="mods/Electrum/files/actions/mysterymeat.png"
+		></SpriteComponent>
+		
+		<ItemActionComponent 
+			_tags="enabled_in_world"
+			action_id="EL_MYSTERYMEAT" >
+		</ItemActionComponent>
+	</Base>
+
+	<SpriteComponent
+		_tags="enabled_in_hand,not_enabled_in_wand"
+		_enabled="0"
+		offset_x="7"
+		offset_y="5"
+    	image_file="data/projectiles_gfx/sosig.png" >
+	</SpriteComponent>
+
+	<AbilityComponent
+		_tags="enabled_in_hand"
+		ui_name="Mystery Meat"
+		entity_file="mods/Electrum/files/actions/mysterymeat.xml"
+		throw_as_item="1" 
+		simulate_throw_as_item="1"
+		use_entity_file_as_projectile_info_proxy="1"
+	>
+	<gun_config
+		deck_capacity="0"
+	></gun_config>
+	</AbilityComponent>
+
+</Entity>

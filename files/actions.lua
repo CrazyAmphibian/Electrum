@@ -604,6 +604,34 @@ table.insert( actions,
 ]]
 
 
+
+
+table.insert( actions,
+{
+	id          = "EL_MYSTERYMEAT",
+	name 		= "Mystery Meat",
+	related_projectiles	= {"mods/Electrum/files/actions/mysterymeat.xml"},
+	description = "The favorite spell of necromancers and barbecue hosts alike.",
+	sprite 		= "mods/Electrum/files/actions/mysterymeat.png",
+	custom_xml_file = "mods/Electrum/files/actions/mysterymeat_cardaction.xml", --"data/entities/misc/custom_cards/summon_rock.xml", 
+	type 		= ACTION_TYPE_PROJECTILE,
+	spawn_level                       = "2,3,4,5,10",
+	spawn_probability                 = ".75,1,.75,1,.15",
+	price = 125,
+	mana = 75,
+	max_uses = 10,
+	action 		= function()
+		
+		c.fire_rate_wait = c.fire_rate_wait + 90 --1.5 seconds
+		add_projectile("mods/Electrum/files/actions/mysterymeat.xml")
+
+	end,
+} )
+
+
+
+
+
 if DebugGetIsDevBuild() then --debug, only spawn in dev build.
 
 table.insert( actions,
