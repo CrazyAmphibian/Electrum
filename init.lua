@@ -69,10 +69,12 @@ local function should_material_be_blacklisted(materialname,materialdata)
 	if materialname=="magic_liquid_hp_regeneration" then return true end
 	if materialname=="magic_gas_hp_regeneration" then return true end
 	
-	--electrum materials
+	--electrum materials (redundant, added [electrum_ignored] tag).
+	--[[
 	if materialname=="el_destabalized_polymorph" then return true end
 	if materialname=="el_antipoly_liquid" then return true end
 	if materialname=="el_healthpotion" then return true end
+	]]
 	
 	--graham's things.
 	if materialname=="graham_graymatter_liquid " then return true end

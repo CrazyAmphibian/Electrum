@@ -274,7 +274,7 @@ each particle ingested grants [amount] seconds of the status effect
  <CellData
 	name="el_destabalized_polymorph"
 	ui_name="destabalized polymorphine"
-  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid]"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored]"
 	wang_color="CFea6cd7"
 	burnable="0"
 	density="1"
@@ -310,7 +310,7 @@ each particle ingested grants [amount] seconds of the status effect
   <CellData
 	name="el_antipoly_liquid"
 	ui_name="antipolymorph fluid"
-  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid]"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored]"
 	wang_color="CF169f49"
 	burnable="0"
 	density="1.9"
@@ -475,7 +475,7 @@ each particle ingested grants [amount] seconds of the status effect
          <CellData
 	name="el_healthpotion"
 	ui_name="vigor"
-  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation]"
+  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation],[electrum_ignored]"
 	burnable="0"
 	density="1"
 	cell_type="liquid"
