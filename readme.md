@@ -13,3 +13,18 @@ features requests can be done by opening an issue and using the feature request 
 
 ### additions
 If you want to make changes to the mod, you first need to fork the repository, make changes on your branch, then open a pull request with those changes. Make sure to keep to the template. Features should be atomic, meaning they should only affect 1 thing at a time. if your PR changes several things at once, it will be closed. Additionally, the bare minimum of coding standards are expected. your code should be readable and easy to change later. comments are appreciated, but are not required.
+
+
+## For other modders
+
+### how do i destroy the Mestarialkemistipullo/Stasis beaker?
+First you must delete the `LuaComponent`s, then call `EntityKill`. you may want to empty the inventory components first.
+
+### how do i add a material to the material gathering quest?
+If your material is tagged with `[alchemy]`, `[magic_liquid]`, or `[chaotic_transmutation]`, it will automatically be added. you can also add the tag `[electrum_rewarding]` as well, or directly modify `files/temple_altar_alchemymaterialreward.lua` to add the material there, if you wish for the material to drop spells other than the standard spell pool.
+
+### how do i add a spell reward to the material gathering quest?
+locate `files/temple_altar_alchemymaterialreward.lua` and add a value to `_STDSPELLPOOL` or `_SPECIALREWARDSPELLPOOL`. if you wish to override a material's reward, you will have to modify the material's value in `_REWARDPOOL`, which associates a material name with spell list.
+
+### how do i disallow materials from being used by the mod?
+apply the `[electrum_ignored]` tag to your material. this will stop it from showing up in automatic material quest generation, transmutation bolt, and material quest reward chests.
