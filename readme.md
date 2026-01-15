@@ -27,4 +27,4 @@ If your material is tagged with `[alchemy]`, `[magic_liquid]`, or `[chaotic_tran
 locate `files/temple_altar_alchemymaterialreward.lua` and add a value to `_STDSPELLPOOL` or `_SPECIALREWARDSPELLPOOL`. if you wish to override a material's reward, you will have to modify the material's value in `_REWARDPOOL`, which associates a material name with spell list.
 
 ### how do i disallow materials from being used by the mod?
-apply the `[electrum_ignored]` tag to your material. this will stop it from showing up in automatic material quest generation, transmutation bolt, and material quest reward chests.
+apply the `[electrum_ignored]` tag to your material. this will stop it from showing up in automatic material quest generation, transmutation bolt, and material quest reward chests. Box2D materials are also ignored as well. the `[catastrophic]` tag added from graham's things similarly will also result in a material being ignored
