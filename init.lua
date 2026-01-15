@@ -281,17 +281,20 @@ function OnWorldInitialized()
 		
 		material_data=parse_materials_xml(txt)
 		local dump=""
+		local listall=""
 		for i,v in pairs(material_data) do
 			if should_material_be_blacklisted(i,v) then
 				material_data[i]=nil
 			else
 				dump=dump..i.."\x03"..table.concat(v,"\x1F").."\x04"
+				listall=listall..i.."\x1F"
 			end
 		end
 		
 		
 		
 		GlobalsSetValue("ELECTRUM_MASTER_MATERIALS_DATABASE", dump )
+		GlobalsSetValue("ELECTRUM_MATERIALS_DATABASE_LISTALL", listall )
 		
 		local material_data_by_tags={}
 		for mat,tags in pairs(material_data) do

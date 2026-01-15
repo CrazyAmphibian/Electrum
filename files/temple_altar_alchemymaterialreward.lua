@@ -318,15 +318,15 @@ if detectedflask then
 				if not GameHasFlagRun("PERK_PICKED_EL_PERSONAL_LAB") then
 					perk_spawn( x-20, y, "EL_PERSONAL_LAB" )
 				else
-					EntityRemoveTag(EntityLoad( "data/entities/items/pickup/chest_random_super.xml", x-20, y),"chest")
+					EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/greater_shitty_chest.xml", x-20, y),"chest")
 				end
 			elseif rcalls==33 then --also orbs.
-				EntityRemoveTag(EntityLoad( "data/entities/items/pickup/chest_random_super.xml", x-20, y),"chest")
+				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/greater_shitty_chest.xml", x-20, y),"chest")
 			elseif rcalls%7==0 then --every 7th, give a treasure chest, too. why 7th? spacing reasons.
-				EntityRemoveTag(EntityLoad( "data/entities/items/pickup/chest_random.xml", x-20, y),"chest")
+				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/less_shitty_chest.xml", x-20, y),"chest") 
 			end
 			GlobalsSetValue("Electrum_alchemyspellrandomcalls",tostring(rcalls))
-		end
+		end 
 		
 		CreateItemActionEntity(pickedspell,x,y)	
 	
