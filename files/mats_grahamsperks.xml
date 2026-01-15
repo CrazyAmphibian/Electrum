@@ -34,16 +34,16 @@ still it slows it down a bit-->
   
   <!--break statium down into more useful ambrosia, but of course there's more stuffs, too.-->
   <Reaction probability="90" 
-	input_cell1="el_aqua_regia" 		input_cell2="graham_statium" input_cell3="graham_statium" 
-	output_cell1="slime" 		output_cell2="magic_liquid_protection_all" output_cell3="poison" 
+	input_cell1="el_staticlite" 		input_cell2="graham_statium" input_cell3="graham_statium" 
+	output_cell1="el_staticlite" 		output_cell2="magic_liquid_protection_all" output_cell3="poison" 
 	blob_radius2="2"	blob_radius3="2">
   </Reaction> 
   
     <!--sure, do the same for odd mixture..-->
 
   <Reaction probability="90" 
-	input_cell1="el_aqua_regia" 		input_cell2="graham_confuse" input_cell3="graham_confuse"
-	 output_cell1="material_confusion" output_cell2="smoke" output_cell3="magic_liquid_movement_faster" 
+	input_cell1="el_staticlite" 		input_cell2="graham_confuse" input_cell3="graham_confuse"
+	 output_cell1="el_staticlite" output_cell2="material_confusion" output_cell3="magic_liquid_movement_faster" 
 >
   </Reaction> 
   

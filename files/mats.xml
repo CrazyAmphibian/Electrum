@@ -334,7 +334,7 @@ each particle ingested grants [amount] seconds of the status effect
 	  <StatusEffects>
 			<Ingestion>
 				<StatusEffect type="POISONED" amount="0.25" />
-				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.05" /> <!--5 seconds per sip. 50 per flask. 4 minute 10 seconds with secret item.-->
+				<StatusEffect type="PROTECTION_POLYMORPH" amount="0.05" /> <!--10 seconds per sip. 100 per flask. 8 minute 20 seconds with secret item.-->
 			</Ingestion>
 
 			<Stains>
@@ -507,6 +507,40 @@ each particle ingested grants [amount] seconds of the status effect
   </CellData>
   
   
+  
+  
+	<CellData
+	name="el_staticlite"
+	ui_name="Staticlite"
+  	tags="[liquid],[magic_liquid]"
+	burnable="0"
+	density="6.1"
+	cell_type="liquid"
+	wang_color="CFbb5844"
+	generates_smoke="0"
+	liquid_gravity="0.3"
+	liquid_sand="0"
+	liquid_flow_speed="0.5"
+	gfx_glow="100"
+	show_in_creative_mode="1"
+	liquid_stains="1"
+	>
+	    <Graphics
+			texture_file="mods/Electrum/files/materials_gfx/staticlite.png" 
+			color="EBbb5844" >
+    	</Graphics>
+
+	  <StatusEffects>
+			<Ingestion>
+				<StatusEffect type="FOOD_POISONING" amount="0.1" /> <!--why?-->
+				<StatusEffect type="INGESTION_FREEZING" amount="0.1" />
+			</Ingestion>
+
+			<Stains>
+				<StatusEffect type="INGESTION_FREEZING"/>
+			</Stains>
+		</StatusEffects>
+  </CellData>
   
   
 
@@ -861,6 +895,123 @@ each particle ingested grants [amount] seconds of the status effect
 	>
 	</Reaction>  
 
+
+
+	<!--staticlite reactions. production-->
+	<Reaction probability="100" 
+	input_cell1="el_electrum"		input_cell2="slime"
+	output_cell1="el_staticlite"		output_cell2="el_staticlite"
+	blob_radius2="1">
+	</Reaction>  
+	
+	<Reaction probability="10" 
+	input_cell1="el_staticlite"		input_cell2="slime"
+	output_cell1="el_staticlite"		output_cell2="el_staticlite"
+	blob_radius2="1">
+	</Reaction>  
+
+    <Reaction probability="90" 
+	input_cell1="el_aqua_regia" 		input_cell2="el_staticlite" 
+	output_cell1="el_metalmakerjuice" 		output_cell2="el_metalmakerjuice" >
+	</Reaction>
+
+	<!--use-->
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="gunpowder"		input_cell3="gunpowder" 
+	output_cell1="el_staticlite"		output_cell2="sulphur"	output_cell3="coal">
+	</Reaction>  
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="gunpowder_explosive"		input_cell3="gunpowder_explosive" 
+	output_cell1="el_staticlite"		output_cell2="sulphur"	output_cell3="coal">
+	</Reaction>  
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="gunpowder_unstable"		input_cell3="gunpowder_unstable" 
+	output_cell1="el_staticlite"		output_cell2="sulphur"	output_cell3="coal"> gunpowder_tnt
+	</Reaction> 
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="gunpowder_unstable_big"		input_cell3="gunpowder_unstable_big" 
+	output_cell1="el_staticlite"		output_cell2="sulphur"	output_cell3="coal"> gunpowder_tnt
+	</Reaction>  
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="gunpowder_tnt"		input_cell3="gunpowder_tnt" 
+	output_cell1="el_staticlite"		output_cell2="sulphur"	output_cell3="coal"> 
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="magic_liquid_faster_levitation_and_movement"		input_cell3="magic_liquid_faster_levitation_and_movement" 
+	output_cell1="el_staticlite"		output_cell2="magic_liquid_faster_levitation"	output_cell3="magic_liquid_movement_faster"> 
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="magic_liquid_worm_attractor"		input_cell3="magic_liquid_worm_attractor" 
+	output_cell1="el_staticlite"		output_cell2="magic_liquid_charm"	output_cell3="blood_worm"> 
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="water_salt"		input_cell3="water_salt" 
+	output_cell1="el_staticlite"		output_cell2="water"	output_cell3="salt"> 
+	</Reaction>  
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="salt"		input_cell3="salt" 
+	output_cell1="el_staticlite"		output_cell2="sodium"	output_cell3="radioactive_gas"> 
+	</Reaction> 
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="brass"		input_cell3="brass" 
+	output_cell1="el_staticlite"		output_cell2="copper"	output_cell3="metal_sand"> 
+	</Reaction> 
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="cement"		input_cell3="cement" 
+	output_cell1="el_staticlite"		output_cell2="sand"	output_cell3="water"> 
+	</Reaction> 
+
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="pea_soup"		input_cell3="pea_soup" 
+	output_cell1="el_staticlite"		output_cell2="spore"	output_cell3="water"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="magic_liquid_protection_all"		input_cell3="magic_liquid_protection_all" 
+	output_cell1="el_staticlite"		output_cell2="diamond"	output_cell3="honey"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="molut"		input_cell3="molut" 
+	output_cell1="el_staticlite"		output_cell2="milk"	output_cell3="beer"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="purifying_powder"		input_cell3="purifying_powder" 
+	output_cell1="el_staticlite"		output_cell2="brass"	output_cell3="diamond"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="radioactive_liquid"		input_cell3="radioactive_liquid" 
+	output_cell1="el_staticlite"		output_cell2="poison"	output_cell3="urine"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="fungi"		input_cell3="fungi" 
+	output_cell1="el_staticlite"		output_cell2="spore"	output_cell3="sand_herb"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="rotten_meat"		input_cell3="rotten_meat" 
+	output_cell1="el_staticlite"		output_cell2="coal"	output_cell3="blood"> 
+	</Reaction> 
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="peat"		input_cell3="peat" 
+	output_cell1="el_staticlite"		output_cell2="water"	output_cell3="spore"> 
+	</Reaction>
+	
+	<Reaction probability="100" 
+	input_cell1="el_staticlite"		input_cell2="vomit"		input_cell3="vomit" 
+	output_cell1="el_staticlite"		output_cell2="acid"	output_cell3="water"> 
+	</Reaction>
+	
 </Materials>
 
 
