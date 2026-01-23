@@ -187,6 +187,16 @@ local function get_rewards(x,y,entityid)
 				p[#p+1]="mods/grahamsperks/files/pickups/safe.xml"
 			end
 			
+			if ModIsEnabled("bags_of_many") then
+				if Random(1,2)==1 then
+					p[#p+1]="mods/bags_of_many/files/entities/bags/bag_universal_big.xml"
+					p[#p+1]="mods/bags_of_many/files/entities/bags/bag_potions_big.xml"
+				else
+					p[#p+1]="mods/bags_of_many/files/entities/bags/bag_universal_medium.xml"
+					p[#p+1]="mods/bags_of_many/files/entities/bags/bag_potions_medium.xml"
+				end
+			end
+			
 			EntityLoad(p[Random(1,#p)],x,y)
 		end
 	end

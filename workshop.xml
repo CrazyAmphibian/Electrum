@@ -54,5 +54,8 @@ Anvil of Destiny
     tags="alchemy,spells,gameplay"
     dont_upload_folders=".git,.github"
     dont_upload_files="workshopimage.xcf,.gitattributes"
+
+Bags of Many
+	Adds some items to this mod's item reward pool
 > 
 </Mod>
