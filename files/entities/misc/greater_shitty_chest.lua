@@ -127,14 +127,18 @@ local function get_rewards(x,y,entityid)
 		end
 		AddMaterialInventoryMaterial(nent, selectedmaterial ,1000)
 	elseif rng==7 or rng==8 then --wand
-		rng=Random(1,10)
-		if rng==1 then --10%
+		rng=Random(1,20)
+		if rng==1 then --5%
+			EntityLoad("data/entities/items/wand_unshuffle_05.xml",x,y)
+		elseif rng==2 then --5%
+			EntityLoad("data/entities/items/wand_level_05.xml",x,y)
+		elseif rng==3 or rng==4 then --10%
 			EntityLoad("data/entities/items/wand_unshuffle_04.xml",x,y)
-		elseif rng==2 then --10%
+		elseif rng==5 or rng==6 then --10%
 			EntityLoad("data/entities/items/wand_level_04.xml",x,y)
-		elseif rng<=6 then --40%
+		elseif rng<=13 then --35%
 			EntityLoad("data/entities/items/wand_unshuffle_03.xml",x,y)
-		else--40%
+		else--35%
 			EntityLoad("data/entities/items/wand_level_03.xml",x,y)
 		end
 	elseif rng==9 or rng==10 then --misc item
