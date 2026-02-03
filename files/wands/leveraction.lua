@@ -14,4 +14,9 @@ AddGunAction( entity_id, "EL_ALCHEMYBUCKSHOT" )
 
 
 AddGunActionPermanent( entity_id, "HITFX_CRITICAL_OIL" )
-AddGunActionPermanent( entity_id, "HITFX_CRITICAL_OIL" )
+
+if ModIsEnabled("grahamsperks") then
+	AddGunActionPermanent( entity_id, "GRAHAM_TOXIC_CRIT" )
+else
+	AddGunActionPermanent( entity_id, "HITFX_CRITICAL_OIL" )
+end
