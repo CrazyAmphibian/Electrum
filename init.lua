@@ -181,12 +181,12 @@ ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/fi
 
 ModLuaFileAppend("data/scripts/perks/perk_list.lua", "mods/Electrum/files/perks.lua")
 
-
-
+--this code used to make it so that personal lab portals spawned in each HM. no longer, since the whole thing was shifted to be around the mountain altar. this stuck around for a while for... some reason, i guess.
+--[[
 local ft=ModTextFileGetContent("data/entities/buildings/coop_respawn.xml")
 local labperkxml='<LuaComponent execute_on_added="1" execute_every_n_frame="30" script_source_file="mods/Electrum/files/perks/portal_spawner.lua" />'
 ModTextFileSetContent("data/entities/buildings/coop_respawn.xml",ft:gsub("</Entity>",labperkxml.."</Entity>"))
-
+]]
 
 local content = ModTextFileGetContent("data/entities/animals/boss_centipede/ending/ending_sampo_spot_mountain.xml")
 if content then
