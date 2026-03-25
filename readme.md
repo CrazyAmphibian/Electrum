@@ -14,6 +14,9 @@ features requests can be done by opening an issue and using the feature request 
 ### additions
 If you want to make changes to the mod, you first need to fork the repository, make changes on your branch, then open a pull request with those changes. Make sure to keep to the template. Features should be atomic, meaning they should only affect 1 thing at a time. if your PR changes several things at once, it will be closed. Additionally, the bare minimum of coding standards are expected. your code should be readable and easy to change later. comments are appreciated, but are not required.
 
+### creating a fork
+if you want to create a fork for redistribution instead of contributing upstream, you should first fork the repo as normal, and then remove workshop_id.txt (since that tells the steam workshop uploader where to upload). Additionally, you may want to change the mod_id.txt data to reflect a different mod id, if you want it to act as a standalone instead of a replacement.
+
 
 ## For other modders
 
