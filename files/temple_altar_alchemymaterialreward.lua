@@ -208,6 +208,8 @@ _REWARDPOOL["el_chaotic"]=_STDSPELLPOOL
 _REWARDPOOL["el_healthpotion"]=_STDSPELLPOOL
 _REWARDPOOL["el_weakhealthpotion"]=_STDSPELLPOOL
 
+_REWARDPOOL["el_staticlite"]=_STDSPELLPOOL
+
 	if not ModIsEnabled("material_spells") then 
 		_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"}
 		_REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
