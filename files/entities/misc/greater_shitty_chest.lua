@@ -208,6 +208,8 @@ function on_open( entity_item )
 	SetRandomSeed( x+y, (tonumber(GlobalsGetValue("Electrum_alchemyspellrandomcalls")) or 0)+StatsGetValue("world_seed") )
 
 	get_rewards(x,y,entity_item)
+	get_rewards(x,y,entity_item)
+	get_rewards(x,y,entity_item)
 
 	EntityLoad("data/entities/particles/image_emitters/chest_effect.xml", x, y)
 end
