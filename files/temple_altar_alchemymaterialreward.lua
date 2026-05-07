@@ -311,7 +311,7 @@ if detectedflask then
 			rcalls=rcalls+1
 			pickedspell=pickrandomfromlist(pickfrom,rcalls)
 	
-			if rcalls%5==0 then --every 5th submit give a bonus reward
+			if rcalls%4==0 then --every 4th submit give a bonus reward
 				local bonusspell=pickrandomfromlist(_SPECIALREWARDSPELLPOOL, math.floor(rcalls/5) )
 				CreateItemActionEntity(bonusspell,x+20,y)
 			end
@@ -323,7 +323,7 @@ if detectedflask then
 				end
 			elseif rcalls==33 then --also orbs.
 				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/greater_shitty_chest.xml", x-20, y),"chest")
-			elseif rcalls%7==0 then --every 7th, give a treasure chest, too. why 7th? spacing reasons.
+			elseif rcalls%5==0 then --every 5th, give a treasure chest, too. why 5th? spacing reasons.
 				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/less_shitty_chest.xml", x-20, y),"chest") 
 			end
 			GlobalsSetValue("Electrum_alchemyspellrandomcalls",tostring(rcalls))
