@@ -315,15 +315,14 @@ if detectedflask then
 				local bonusspell=pickrandomfromlist(_SPECIALREWARDSPELLPOOL, math.floor(rcalls/5) )
 				CreateItemActionEntity(bonusspell,x+20,y)
 			end
-			if rcalls==11 then --something something orbs.
+			if rcalls%11==0 then --something something orbs.
 				if not GameHasFlagRun("PERK_PICKED_EL_PERSONAL_LAB") then
 					perk_spawn( x-20, y, "EL_PERSONAL_LAB" )
 				else
 					EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/greater_shitty_chest.xml", x-20, y),"chest")
 				end
-			elseif rcalls==33 then --also orbs.
-				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/greater_shitty_chest.xml", x-20, y),"chest")
-			elseif rcalls%5==0 then --every 5th, give a treasure chest, too. why 5th? spacing reasons.
+			end
+			if rcalls%5==0 then --every 5th, give a treasure chest, too. why 5th? spacing reasons.
 				EntityRemoveTag(EntityLoad( "mods/Electrum/files/entities/misc/less_shitty_chest.xml", x-20, y),"chest") 
 			end
 			GlobalsSetValue("Electrum_alchemyspellrandomcalls",tostring(rcalls))
