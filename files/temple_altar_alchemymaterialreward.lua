@@ -312,7 +312,7 @@ if detectedflask then
 			pickedspell=pickrandomfromlist(pickfrom,rcalls)
 	
 			if rcalls%4==0 then --every 4th submit give a bonus reward
-				local bonusspell=pickrandomfromlist(_SPECIALREWARDSPELLPOOL, math.floor(rcalls/5) )
+				local bonusspell=pickrandomfromlist(_SPECIALREWARDSPELLPOOL, math.floor(rcalls/4) )
 				CreateItemActionEntity(bonusspell,x+20,y)
 			end
 			if rcalls%11==0 then --something something orbs.
