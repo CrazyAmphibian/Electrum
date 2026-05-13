@@ -248,7 +248,7 @@ for i=1,#searchtags do
 	for material_id in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do
 		--print(material_id.." "..tag)
 		if not _REWARDPOOL[material_id] then
-			print(material_id.." "..tag)
+			--print(material_id.." "..tag)
 			_REWARDPOOL[material_id]=_STDSPELLPOOL
 		end
 	end
