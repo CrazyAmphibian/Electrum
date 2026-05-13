@@ -246,7 +246,9 @@ local searchtags={"[alchemy]","[magic_liquid]","[chaotic_transmutation]","[elect
 for i=1,#searchtags do
 	local tag=searchtags[i]
 	for material_id in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do
+		--print(material_id.." "..tag)
 		if not _REWARDPOOL[material_id] then
+			print(material_id.." "..tag)
 			_REWARDPOOL[material_id]=_STDSPELLPOOL
 		end
 	end

@@ -9,7 +9,7 @@ if translations then
 end
 
 
-
+--[[
 local function parse_materials_xml(txt)
 	local material_tags_database={}
 
@@ -52,6 +52,21 @@ local function parse_materials_xml(txt)
 	end
 	return material_tags_database
 end
+]]
+
+local function parse_materials_cellfactory() --alternative method that should hopefully work with mods.
+	local material_tags_database={} -- [mat_id]={tag1,tag2,...}
+	local i=1
+	while true do
+		local cellname=CellFactory_GetName(i)
+		--print(cellname or "")
+		if cellname=="unknown" then break end
+		material_tags_database[cellname]=CellFactory_GetTags(i)
+		i=i+1
+	end
+	return material_tags_database
+end
+
 
 local function should_material_be_blacklisted(materialname,materialdata)
 	--destructive things that you definitely don't want to have appear.
@@ -277,53 +292,51 @@ end
 
 function OnWorldInitialized()
 	print("Electrum: beginning parsing of materials.xml")
-	local txt=ModTextFileGetContent("data/materials.xml")
-	if txt then
-		local _NUM_MATS,_NUM_TAGS =0,0
-		
-		material_data=parse_materials_xml(txt)
-		local dump=""
-		local listall=""
-		for i,v in pairs(material_data) do
-			if should_material_be_blacklisted(i,v) then
-				material_data[i]=nil
-			else
-				dump=dump..i.."\x03"..table.concat(v,"\x1F").."\x04"
-				listall=listall..i.."\x1F"
-			end
+	--local txt=ModTextFileGetContent("data/materials.xml")
+	--if txt then
+	local _NUM_MATS,_NUM_TAGS =0,0
+	
+	material_data=parse_materials_cellfactory()
+	local dump=""
+	local listall=""
+	for i,v in pairs(material_data) do
+		if should_material_be_blacklisted(i,v) then
+			material_data[i]=nil
+		else
+			dump=dump..i.."\x03"..table.concat(v,"\x1F").."\x04"
+			listall=listall..i.."\x1F"
 		end
-		
-		
-		
-		GlobalsSetValue("ELECTRUM_MASTER_MATERIALS_DATABASE", dump )
-		GlobalsSetValue("ELECTRUM_MATERIALS_DATABASE_LISTALL", listall )
-		
-		local material_data_by_tags={}
-		for mat,tags in pairs(material_data) do
-			_NUM_MATS=_NUM_MATS+1
-			for i=1,#tags do
-				local tag=tags[i]
-				if not material_data_by_tags[tag] then material_data_by_tags[tag]={} end
-				material_data_by_tags[tag][#material_data_by_tags[tag]+1]=mat
-			end
-		end
-		
-		for tag,materials in pairs(material_data_by_tags) do
-			_NUM_TAGS=_NUM_TAGS+1
-			GlobalsSetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag, table.concat(materials,"\x1F") )
-		end
-		print("Electrum: success. found ".._NUM_MATS.." materials and ".._NUM_TAGS.." tags.")
-	else
-		print("Electrum: failed to parse materials!")
 	end
+	
+	
+	
+	GlobalsSetValue("ELECTRUM_MASTER_MATERIALS_DATABASE", dump )
+	GlobalsSetValue("ELECTRUM_MATERIALS_DATABASE_LISTALL", listall )
+	
+	local material_data_by_tags={}
+	for mat,tags in pairs(material_data) do
+		_NUM_MATS=_NUM_MATS+1
+		for i=1,#tags do
+			local tag=tags[i]
+			if not material_data_by_tags[tag] then material_data_by_tags[tag]={} end
+			material_data_by_tags[tag][#material_data_by_tags[tag]+1]=mat
+		end
+	end
+	
+	for tag,materials in pairs(material_data_by_tags) do
+		_NUM_TAGS=_NUM_TAGS+1
+		GlobalsSetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag, table.concat(materials,"\x1F") )
+	end
+	print("Electrum: success. found ".._NUM_MATS.." materials and ".._NUM_TAGS.." tags.")
+	--else
+	--	print("Electrum: failed to parse materials!")
+	--end
 end
 
 
 
 function OnPlayerSpawned( player_entity ) -- This runs when player entity has been created
-
-	--EntitySetDamageFromMaterial(player_entity,"el_aqua-regia",".001") -- 1/5th as potent as acid.
-	--this is commented out because i'd like a way to apply it more universally.
+	
 end
 
 --print("Example mod init done")
