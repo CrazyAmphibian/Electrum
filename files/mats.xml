@@ -543,6 +543,31 @@ each particle ingested grants [amount] seconds of the status effect
   </CellData>
   
   
+   <CellData
+	name="el_yeast"
+	ui_name="yeast"
+  	tags="[sand_other],[corrodible],[alchemy],[food]"
+	wang_color="CFe8cf33"
+	burnable="0"
+	density="6"
+	cell_type="liquid"
+	gfx_glow="0"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="1"
+	durability="3"
+	on_fire="0"
+	requires_oxygen="1"
+	temperature_of_fire="10"
+	solid_friction="0.7"
+	hp="8000" 
+	electrical_conductivity="0"
+	show_in_creative_mode="1"
+	>
+	<Graphics 
+	color="FFe3cf76"> 
+    </Graphics>
+  </CellData>
 
 <!--convert back to base metals with aqua regia-->
  <Reaction probability="40" 
@@ -1020,6 +1045,145 @@ each particle ingested grants [amount] seconds of the status effect
 	<Reaction probability="100" 
 	input_cell1="el_staticlite"		input_cell2="soil_dark"		input_cell3="soil_dark" 
 	output_cell1="magic_liquid"		output_cell2="bone"	output_cell3="material_darkness"> 
+	</Reaction>
+	
+	
+	
+	<!--creating yeast-->
+	<Reaction probability="75" 
+	input_cell1="[plant]"		input_cell2="[magic_polymorph]"
+	output_cell1="el_yeast"		output_cell2="magic_liquid"
+	blob_radius1="2"> 
+	</Reaction>
+	<Reaction probability="75" 
+	input_cell1="[fungus]"		input_cell2="[magic_polymorph]"
+	output_cell1="el_yeast"		output_cell2="magic_liquid"
+	blob_radius1="2"> 
+	</Reaction>	
+	<Reaction probability="75" 
+	input_cell1="sand"		input_cell2="magic_liquid_mana_regeneration"
+	output_cell1="el_yeast"		output_cell2="material_darkness"
+	blob_radius1="2"> 
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="swamp"	input_cell3="swamp"
+	output_cell1="el_yeast"		output_cell2="el_yeast" output_cell3="water"> 
+	</Reaction>
+	
+	<!--destruction-->
+	<Reaction probability="75" 
+	input_cell1="el_yeast"		input_cell2="poison"
+	output_cell1="salt"		output_cell2="radioactive_liquid"
+	blob_radius1="3"> 
+	</Reaction>
+	<Reaction probability="75" 
+	input_cell1="el_yeast"		input_cell2="lava"
+	output_cell1="fire"		output_cell2="lava"> 
+	</Reaction>
+
+	<!--beer is general plant matter-->
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="[plant]"	input_cell3="water"
+	output_cell1="el_yeast"		output_cell2="beer"	output_cell3="beer"
+	blob_radius1="2" blob_radius3="2">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="[fungus]"	input_cell3="water"
+	output_cell1="el_yeast"		output_cell2="beer"	output_cell3="beer"
+	blob_radius1="2" blob_radius3="2">
+	</Reaction>
+	<!--sand-sand reactions are a pain in the ass, so this makes it a bit easier.-->
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="[plant]"
+	output_cell1="el_yeast"		output_cell2="beer">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="[fungus]"
+	output_cell1="el_yeast"		output_cell2="beer">
+	</Reaction>
+	
+	<!--whiskey, yum. shame that there's 50 billion wood variants-->
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood_static"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood_static"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood_wall"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood_wall"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood_static_vertical"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood_static_vertical"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood_tree"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood_tree"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood_prop"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood_prop"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="beer"	input_cell3="wood"
+	output_cell1="el_yeast"		output_cell2="alcohol"	output_cell3="wood"
+	blob_radius1="2" blob_radius2="3">
+	</Reaction>
+	
+	<!--sima comes from fruit-->
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="meat_fruit"	input_cell3="water"
+	output_cell1="el_yeast"		output_cell2="sima"	output_cell3="sima"
+	blob_radius1="2" blob_radius3="2">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="meat_pumpkin"	input_cell3="water"
+	output_cell1="el_yeast"		output_cell2="sima"	output_cell3="sima"
+	blob_radius1="2" blob_radius3="2">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="meat_fruit"
+	output_cell1="el_yeast"		output_cell2="sima">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="meat_pumpkin"
+	output_cell1="el_yeast"		output_cell2="sima">
+	</Reaction>
+	
+	<!--mead, tasty-->
+	<Reaction probability="100" 
+	input_cell1="el_yeast"		input_cell2="honey"	input_cell3="water"
+	output_cell1="el_yeast"		output_cell2="juhannussima"	output_cell3="juhannussima"
+	blob_radius1="2" blob_radius3="2">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_yeast"		input_cell2="honey"
+	output_cell1="el_yeast"		output_cell2="juhannussima">
+	</Reaction>
+	
+	<!--c h e e s e-->
+	<Reaction probability="3" 
+	input_cell1="el_yeast"		input_cell2="milk"
+	output_cell1="el_yeast"		output_cell2="cheese_static"
+	blob_radius2="4">
+	</Reaction>
+	
+	<!--misc stuff-->
+	<Reaction probability="33" 
+	input_cell1="el_yeast"		input_cell2="blood"
+	output_cell1="el_yeast"		output_cell2="pus">
+	</Reaction>
+	<Reaction probability="33" 
+	input_cell1="el_yeast"		input_cell2="blood_worm"
+	output_cell1="el_yeast"		output_cell2="vomit">
+	</Reaction>
+	<Reaction probability="33" 
+	input_cell1="el_yeast"		input_cell2="slime"
+	output_cell1="el_yeast"		output_cell2="water_salt">
 	</Reaction>
 	
 </Materials>
