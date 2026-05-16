@@ -496,7 +496,7 @@ table.insert( actions,
 			
 
 			local enddmg= ONE_DAMAGE*(1.63252691944^(total_effects^0.5)) --exponential scaling. makes it so that the damge will be double when you have 2 effects.
-			print(enddmg,enddmg/ONE_DAMAGE,c.damage_curse_add)
+			--print(enddmg,enddmg/ONE_DAMAGE,c.damage_curse_add)
 			c.damage_curse_add = c.damage_curse_add + enddmg
 		else
 			c.damage_curse_add = c.damage_curse_add + ONE_DAMAGE --show 1 damage in the spell desc
