@@ -49,13 +49,15 @@ Material Spells
 	this mod will not add touch of or sea of spells (except touch of air)
 	
 Anvil of Destiny
-	integrates several materials added from this mod to add spells when poured onto the anvil."
-	
-    tags="alchemy,spells,gameplay"
-    dont_upload_folders=".git,.github"
-    dont_upload_files="workshopimage.xcf,.gitattributes
+	integrates several materials added from this mod to add spells when poured onto the anvil.
 
 Bags of Many
 	Adds some items to this mod's item reward pool"
+	
+    tags="alchemy,spells,gameplay"
+    dont_upload_folders=".git,.github"
+    dont_upload_files="workshopimage.xcf,.gitattributes"
+
+
 > 
 </Mod>
