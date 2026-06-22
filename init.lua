@@ -287,6 +287,28 @@ function OnModPostInit()
 	end
 	
 	
+	
+	if ModIsEnabled("sandbox_mode") then
+	
+		ModTextFileSetContent("mods/sandbox_mode/files/ui/entity_list.lua",ModTextFileGetContent("mods/sandbox_mode/files/ui/entity_list.lua")..[[
+		add_entity_to_list("mods/Electrum/files/entities/items/masteralchemistflask.xml","Mestarialkemistipullo","items")
+		add_entity_to_list("mods/Electrum/files/entities/items/stasisbeaker.xml","Stasis beaker","items")
+		add_entity_to_list("mods/Electrum/files/entities/items/ampoule.xml","Ampoule","items")
+		add_entity_to_list("mods/Electrum/files/entities/items/book_alchemist_house.xml","Alchemist's Note (Electrum)","items")
+		
+		add_entity_to_list("mods/Electrum/files/entities/misc/less_shitty_chest.xml","Electrum reward chest","pickups")
+		add_entity_to_list("mods/Electrum/files/entities/misc/greater_shitty_chest.xml","Electrum greater reward chest","pickups")
+		
+		add_entity_to_list("mods/Electrum/files/wands/leveraction.xml","Alchemical Scattergun","wands")
+		add_entity_to_list("mods/Electrum/files/wands/hose.xml","Hose","wands")
+		]])
+		
+		ModTextFileSetContent("mods/sandbox_mode/files/ui/ui_main.lua",ModTextFileGetContent("mods/sandbox_mode/files/ui/ui_main.lua"):gsub("local ITEM_SPAWN_PATH=nil",[[
+		table.insert(itemtypes,{"Master flsk.","mods/Electrum/files/entities/items/masteralchemistflask.xml"})
+		table.insert(itemtypes,{"Stasis bkr.","mods/Electrum/files/entities/items/stasisbeaker.xml"})
+		]].."local ITEM_SPAWN_PATH=nil"))
+	end
+	
 end
 
 
