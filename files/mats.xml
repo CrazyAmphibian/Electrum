@@ -569,6 +569,45 @@ each particle ingested grants [amount] seconds of the status effect
     </Graphics>
   </CellData>
 
+
+
+ <CellData
+	name="el_superoxide"
+	ui_name="hypergolic oxidizer"
+  	tags="[alchemy],[liquid]"
+	wang_color="CF10FF71"
+	burnable="0"
+	density="1.1"
+	cell_type="liquid"
+	gfx_glow="63"
+	generates_smoke="0"
+	liquid_gravity="2"
+	liquid_sand="0"
+	durability="12"
+	requires_oxygen="0"
+	temperature_of_fire="20"
+	solid_friction="0.7"
+	audio_materialaudio_type="MAGICAL" 
+	on_fire="0"
+	always_ignites_damagemodel="1"
+	danger_fire="1"
+	hp="8000" 
+	electrical_conductivity="1"
+	show_in_creative_mode="1"
+	liquid_stains="1"
+	>
+	<Graphics 
+	color="3736DBF8"> 
+    </Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect type="INGESTION_ON_FIRE" amount="0.2" />
+		</Ingestion>
+	</StatusEffects>
+  </CellData>
+
+
+
 <!--convert back to base metals with aqua regia-->
  <Reaction probability="40" 
 	input_cell1="el_aqua_regia" 		input_cell2="el_electrum"  input_cell3="el_electrum" 
@@ -1186,9 +1225,259 @@ each particle ingested grants [amount] seconds of the status effect
 	output_cell1="el_yeast"		output_cell2="water_salt">
 	</Reaction>
 	
+	
+	
+	<!--superoxide-->
+	<Reaction probability="99" 
+	input_cell1="acid"		input_cell2="magic_liquid_berserk"
+	output_cell1="el_superoxide"		output_cell2="el_superoxide"
+	blob_radius1="3" blob_radius2="3">
+	</Reaction>
+	
+	<!--neutralize with water-->
+	<Reaction probability="50" 
+	input_cell1="el_superoxide"		input_cell2="water"
+	output_cell1="salt"		output_cell2="water_salt">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_superoxide"		input_cell2="water_salt"
+	output_cell1="salt"		output_cell2="salt">
+	</Reaction>
+	<Reaction probability="50" 
+	input_cell1="el_superoxide"		input_cell2="water_swamp"
+	output_cell1="salt"		output_cell2="coal">
+	</Reaction>
+	
+	
+	<!--sets things on fire-->
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="smoke"
+	output_cell1="el_superoxide"		output_cell2="fire"
+	blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="fire"
+	output_cell1="el_superoxide"		output_cell2="fire_blue"
+	blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="[burnable]"
+	output_cell1="fire"		output_cell2="fire">
+	</Reaction>
+	
+	
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="wood_static"
+	output_cell1="el_superoxide"		output_cell2="wood">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="wood_wall"
+	output_cell1="el_superoxide"		output_cell2="wood">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="wood_static_vertical"
+	output_cell1="el_superoxide"		output_cell2="wood">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="wood_tree"
+	output_cell1="el_superoxide"		output_cell2="wood">
+	</Reaction>
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="wood_prop"
+	output_cell1="el_superoxide"		output_cell2="wood">
+	</Reaction>
+	
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="[burnable_fast]"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="30"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="4"
+		cell_explosion_radius_max="6"
+		cell_explosion_probability="1.1"
+		create_cell_material="fire_blue"
+		ray_energy="50000">
+		</ExplosionConfig>
+	</Reaction>
+	
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="blood_cold"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="30"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="4"
+		cell_explosion_radius_max="6"
+		cell_explosion_probability="1.1"
+		create_cell_material="fire_blue"
+		ray_energy="50000">
+		</ExplosionConfig>
+	</Reaction>
+	
+		<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="blood_cold_vapour"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+	</Reaction>
+	
+	<!--breaks down organics-->
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="[soluble]"
+	output_cell1="radioactive_gas"		output_cell2="steam"
+	blob_radius2="3">
+	</Reaction>
+	
+	<Reaction probability="66" 
+	input_cell1="el_superoxide"		input_cell2="[food]"
+	output_cell1="radioactive_gas"		output_cell2="coal"
+	blob_radius2="3">
+	</Reaction>
+	
+	
+	<!--oxidizes metals-->
+	<Reaction probability="80"
+	input_cell1="[rust_oxide]" 			input_cell2="el_superoxide"
+	output_cell1="[rust_oxide]_oxide" 	output_cell2="radioactive_gas"
+	blob_radius1="3">
+	</Reaction>
+	
+	<Reaction probability="90"
+	input_cell1="[rust]" 			input_cell2="el_superoxide"
+	output_cell1="rust_static" 	output_cell2="radioactive_gas"
+	blob_radius1="3">
+	</Reaction>
+	
+	
+	
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="orb_powder"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="10"
+		cell_explosion_radius_max="15"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="burning_powder"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="10"
+		cell_explosion_radius_max="15"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+
+
+	<Reaction probability="70"
+	input_cell1="sulphur" 			input_cell2="el_superoxide"
+	output_cell1="fire" 	output_cell2="smoke" 
+	blob_radius1="1">
+	</Reaction>
+	
+	<Reaction probability="50"
+	input_cell1="[grows_grass]" 			input_cell2="el_superoxide"
+	output_cell1="sand" 	output_cell2="radioactive_gas" 
+	blob_radius1="1">
+	</Reaction>
+	
+	
+	
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="gunpowder"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="5"
+		cell_explosion_radius_max="10"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="gunpowder_explosive"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="5"
+		cell_explosion_radius_max="10"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="gunpowder_tnt"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="5"
+		cell_explosion_radius_max="10"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="gunpowder_unstable"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="5"
+		cell_explosion_radius_max="10"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="gunpowder_unstable_big"
+	output_cell1="fire_blue"		output_cell2="fire_blue">
+		<ExplosionConfig
+		cell_explosion_power="70"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="5"
+		cell_explosion_radius_max="10"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="60000">
+		</ExplosionConfig>
+	</Reaction>
+
+	<Reaction probability="70"
+	input_cell1="vomit" 			input_cell2="el_superoxide"
+	output_cell1="acid" 	output_cell2="radioactive_gas" 
+	blob_radius1="1">
+	</Reaction>
+
+
+	<Reaction probability="70"
+	input_cell1="coal_static" 			input_cell2="el_superoxide"
+	output_cell1="coal" 	output_cell2="radioactive_gas" 
+	blob_radius1="4">
+	</Reaction>
+
+
 </Materials>
 
 
 
 
 
+	

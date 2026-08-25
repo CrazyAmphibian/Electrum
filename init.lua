@@ -260,6 +260,21 @@ end
 
 
 
+--add materials to alchemist hiisi attack
+
+local content = ModTextFileGetContent("data/scripts/items/potion_aggressive.lua")
+if content then
+	content = content:gsub("},", [[
+	},
+	{
+		material="el_superoxide",
+		cost=400
+	},
+	
+	]],1)
+	ModTextFileSetContent("data/scripts/items/potion_aggressive.lua", content)
+end
+
 
 if ModIsEnabled("anvil_of_destiny") then
   ModLuaFileAppend("mods/anvil_of_destiny/files/scripts/modded_content.lua", "mods/Electrum/files/anvilofdestiny.lua")
