@@ -306,16 +306,16 @@ function OnModPostInit()
 	if ModIsEnabled("sandbox_mode") then
 	
 		ModTextFileSetContent("mods/sandbox_mode/files/ui/entity_list.lua",ModTextFileGetContent("mods/sandbox_mode/files/ui/entity_list.lua")..[[
-		add_entity_to_list("mods/Electrum/files/entities/items/masteralchemistflask.xml","Mestarialkemistipullo","items","mods/Electrum/files/items_gfx/pressure_bottle.png",16/12)
-		add_entity_to_list("mods/Electrum/files/entities/items/stasisbeaker.xml","Stasis beaker","items","mods/Electrum/files/items_gfx/pressure_bottle_noreact.png",16/12)
-		add_entity_to_list("mods/Electrum/files/entities/items/ampoule.xml","Ampoule","items","mods/Electrum/files/items_gfx/ampoule.png",16/8)
-		add_entity_to_list("mods/Electrum/files/entities/items/book_alchemist_house.xml","Alchemist's Note (Electrum)","items","data/items_gfx/book.png",16/16)
+		add_entity_to_list("mods/Electrum/files/entities/items/masteralchemistflask.xml","Mestarialkemistipullo","items","mods/Electrum/files/items_gfx/pressure_bottle.png")
+		add_entity_to_list("mods/Electrum/files/entities/items/stasisbeaker.xml","Stasis beaker","items","mods/Electrum/files/items_gfx/pressure_bottle_noreact.png")
+		add_entity_to_list("mods/Electrum/files/entities/items/ampoule.xml","Ampoule","items","mods/Electrum/files/items_gfx/ampoule.png")
+		add_entity_to_list("mods/Electrum/files/entities/items/book_alchemist_house.xml","Alchemist's Note (Electrum)","items","data/items_gfx/book.png")
 		
-		add_entity_to_list("mods/Electrum/files/entities/misc/less_shitty_chest.xml","Electrum reward chest","pickups","data/buildings_gfx/chest_random.png",16/18)
-		add_entity_to_list("mods/Electrum/files/entities/misc/greater_shitty_chest.xml","Electrum greater reward chest","pickups","data/buildings_gfx/chest_random_super.png",16/18)
+		add_entity_to_list("mods/Electrum/files/entities/misc/less_shitty_chest.xml","Electrum reward chest","pickups","data/buildings_gfx/chest_random.png")
+		add_entity_to_list("mods/Electrum/files/entities/misc/greater_shitty_chest.xml","Electrum greater reward chest","pickups","data/buildings_gfx/chest_random_super.png")
 		
-		add_entity_to_list("mods/Electrum/files/wands/leveraction.xml","Alchemical Scattergun","wands","mods/Electrum/files/wands/leveraction.png",16/16)
-		add_entity_to_list("mods/Electrum/files/wands/hose.xml","Hose","wands","mods/Electrum/files/wands/hose.png",16/12)
+		add_entity_to_list("mods/Electrum/files/wands/leveraction.xml","Alchemical Scattergun","wands","mods/Electrum/files/wands/leveraction.png")
+		add_entity_to_list("mods/Electrum/files/wands/hose.xml","Hose","wands","mods/Electrum/files/wands/hose.png")
 		]])
 		
 		ModTextFileSetContent("mods/sandbox_mode/files/ui/ui_main.lua",ModTextFileGetContent("mods/sandbox_mode/files/ui/ui_main.lua"):gsub("local ITEM_SPAWN_PATH=nil",[[
