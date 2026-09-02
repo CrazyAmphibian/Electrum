@@ -210,6 +210,10 @@ _REWARDPOOL["el_weakhealthpotion"]=_STDSPELLPOOL
 
 _REWARDPOOL["el_staticlite"]=_STDSPELLPOOL
 
+_REWARDPOOL["el_yeast"]=_STDSPELLPOOL
+
+_REWARDPOOL["el_superoxide"]=_STDSPELLPOOL
+
 	if not ModIsEnabled("material_spells") then 
 		--_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"} --spell is being deprecated, remove in like a few months.
 		_REWARDPOOL["magic_liquid_polymorph"]={"EL_MATERIAL_POLYMORPH"}
