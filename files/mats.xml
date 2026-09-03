@@ -546,7 +546,7 @@ each particle ingested grants [amount] seconds of the status effect
    <CellData
 	name="el_yeast"
 	ui_name="yeast"
-  	tags="[sand_other],[corrodible],[alchemy],[food]"
+  	tags="[sand_other],[corrodible],[alchemy],[solid],[food]"
 	wang_color="CFe8cf33"
 	burnable="0"
 	density="6"
@@ -567,6 +567,11 @@ each particle ingested grants [amount] seconds of the status effect
 	<Graphics 
 	color="FFe3cf76"> 
     </Graphics>
+	<StatusEffects>
+		<Ingestion>
+			<StatusEffect/>
+		</Ingestion>
+	</StatusEffects>
   </CellData>
 
 
@@ -1225,6 +1230,19 @@ each particle ingested grants [amount] seconds of the status effect
 	output_cell1="el_yeast"		output_cell2="water_salt">
 	</Reaction>
 	
+	<!--have you ever heard of jenkem?-->
+	<Reaction probability="15" 
+	input_cell1="el_yeast"		input_cell2="poo"
+	output_cell1="radioactive_liquid"		output_cell2="magic_gas_fungus">
+	</Reaction>
+	<Reaction probability="15" 
+	input_cell1="el_yeast"		input_cell2="mammi"
+	output_cell1="radioactive_liquid"		output_cell2="magic_gas_fungus">
+	</Reaction>
+	<Reaction probability="15" 
+	input_cell1="el_yeast"		input_cell2="urine"
+	output_cell1="radioactive_liquid"		output_cell2="magic_gas_fungus">
+	</Reaction>
 	
 	
 	<!--superoxide-->
@@ -1266,6 +1284,12 @@ each particle ingested grants [amount] seconds of the status effect
 	input_cell1="el_superoxide"		input_cell2="[burnable]"
 	output_cell1="fire"		output_cell2="fire">
 	</Reaction>
+	
+	<Reaction probability="100" 
+	input_cell1="el_superoxide"		input_cell2="alcohol"
+	output_cell1="fire"		output_cell2="fire">
+	</Reaction>
+	
 	
 	
 	<Reaction probability="100" 
@@ -1473,6 +1497,20 @@ each particle ingested grants [amount] seconds of the status effect
 	blob_radius1="4">
 	</Reaction>
 
+
+	<Reaction probability="80" 
+	input_cell1="el_superoxide"		input_cell2="magic_liquid_mana_regeneration"
+	output_cell1="magic_gas_polymorph"		output_cell2="magic_liquid_faster_levitation_and_movement">
+		<ExplosionConfig
+		cell_explosion_power="40"
+		cell_explosion_damage_required="3000"
+		cell_explosion_radius_min="1"
+		cell_explosion_radius_max="3"
+		cell_explosion_probability="1.5"
+		create_cell_material="fire_blue"
+		ray_energy="80000">
+		</ExplosionConfig>
+	</Reaction>
 
 </Materials>
 
