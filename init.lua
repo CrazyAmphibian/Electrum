@@ -87,7 +87,7 @@ local function should_material_be_blacklisted(materialname,materialdata)
 	for i=1,#materialdata do
 		local tag=materialdata[i]
 		if tag=="[box2d]" then return true end --this will cause many glitches
-		if tag=="[catastrophic]" then return true end --graham. redundant, but just in case another mod tags it with such.
+		if tag=="[catastrophic]" then return true end --graham. also in case another mod tags it with such.
 		if tag=="[antimatter]" then return true end --chemical curiosities
 		if tag=="[electrum_ignored]" then return true end
 	end
