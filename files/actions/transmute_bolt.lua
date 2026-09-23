@@ -33,19 +33,20 @@ local function transmute(mat_name)
 		local tags=database[mat_name]
 		for i=1,#tags do --for each tag our material has...
 			local tag=tags[i]
+			if tag~="[electrum_rewarding]" then
 			
-			local subset={}
-			for entry in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do
-				subset[#subset+1]=entry
-			end
-			
-			for n=1,#subset do --check every other material with that tag.
-				local thismat=subset[n]
-				if (not member_in_list(eligable,thismat) ) and list_shared_member_count(database[thismat],tags )>=math.floor(0.75*math.min(#database[thismat],#tags)) then --if they share at least 75% of their tags (communitive), rounded down to not punish materials with small amounts of tags.
-					eligable[#eligable+1]=subset[n]
+				local subset={} --get all materials with that tag
+				for entry in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do
+					subset[#subset+1]=entry
+				end
+				
+				for n=1,#subset do --and for each material that shares that tag...
+					local thismat=subset[n] --see how many tags we have in common with it
+					if (not member_in_list(eligable,thismat) ) and list_shared_member_count(database[thismat],tags )>=math.floor(0.75*math.min(#database[thismat],#tags)) then --if they share at least 75% of their tags (communitive), rounded down to not punish materials with small amounts of tags.
+						eligable[#eligable+1]=subset[n]
+					end
 				end
 			end
-			
 		end
 	end
 	
