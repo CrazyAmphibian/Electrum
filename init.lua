@@ -84,17 +84,6 @@ local function should_material_be_blacklisted(materialname,materialdata)
 	if materialname=="magic_liquid_hp_regeneration" then return true end
 	if materialname=="magic_gas_hp_regeneration" then return true end
 	
-	--electrum materials (redundant, added [electrum_ignored] tag).
-	--[[
-	if materialname=="el_destabalized_polymorph" then return true end
-	if materialname=="el_antipoly_liquid" then return true end
-	if materialname=="el_healthpotion" then return true end
-	]]
-	
-	--graham's things.
-	if materialname=="graham_graymatter_liquid " then return true end
-	if materialname=="graham_creepypoly" then return true end
-	
 	for i=1,#materialdata do
 		local tag=materialdata[i]
 		if tag=="[box2d]" then return true end --this will cause many glitches
