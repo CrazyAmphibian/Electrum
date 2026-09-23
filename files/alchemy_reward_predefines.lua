@@ -108,6 +108,12 @@ _STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_FLASK_SUMMON"
 _STDSPELLPOOL[#_STDSPELLPOOL+1]="EL_POUCH_SUMMON"
 end
 
+if ModIsEnabled("Hydroxide") then
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="CC_METAL_SEASONING"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="CC_LOCAL_SHIFT"
+_STDSPELLPOOL[#_STDSPELLPOOL+1]="AA_POTION_TO_GAS"
+end
+
 --===========================
 --defining what gives rewards
 --===========================
@@ -252,6 +258,9 @@ _REWARDPOOL["overcast_oxidizing_dust"]={"OVERCAST_MATERIAL_OXIDIZING"}
 _REWARDPOOL["sodium"]={"OVERCAST_MATERIAL_SODIUM"}
 end
 
+if ModIsEnabled("Hydroxide") then
+
+end
 
 --material auto-detection. you should still manually specify materials, but this should definitely help catch things that were missed, and offer an amount of automatic mod compatibility
 local searchtags={"[alchemy]","[magic_liquid]","[chaotic_transmutation]","[electrum_rewarding]"}
