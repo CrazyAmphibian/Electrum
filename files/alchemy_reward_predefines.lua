@@ -263,7 +263,7 @@ if ModIsEnabled("Hydroxide") then
 end
 
 --material auto-detection. you should still manually specify materials, but this should definitely help catch things that were missed, and offer an amount of automatic mod compatibility
-local searchtags={"[alchemy]","[magic_liquid]","[chaotic_transmutation]","[electrum_rewarding]"}
+local searchtags={"[magic_liquid]","[chaotic_transmutation]","[electrum_rewarding]"}
 for i=1,#searchtags do
 	local tag=searchtags[i]
 	for material_id in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do

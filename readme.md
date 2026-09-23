@@ -24,7 +24,7 @@ if you want to create a fork for redistribution instead of contributing upstream
 First you must delete the `LuaComponent`s, then call `EntityKill`. you may want to empty the inventory components first.
 
 ### how do i add a material to the material gathering quest?
-If your material is tagged with `[alchemy]`, `[magic_liquid]`, or `[chaotic_transmutation]`, it will automatically be added. you can also add the tag `[electrum_rewarding]` as well, or directly modify `files/temple_altar_alchemymaterialreward.lua` to add the material there, if you wish for the material to drop spells other than the standard spell pool.
+If your material is tagged with `[magic_liquid]`, or `[chaotic_transmutation]`, it will automatically be added. you can also add the tag `[electrum_rewarding]` as well, or directly modify `files/temple_altar_alchemymaterialreward.lua` to add the material there, if you wish for the material to drop spells other than the standard spell pool.
 
 ### how do i add a spell reward to the material gathering quest?
 locate `files/temple_altar_alchemymaterialreward.lua` and add a value to `_STDSPELLPOOL` or `_SPECIALREWARDSPELLPOOL`. if you wish to override a material's reward, you will have to modify the material's value in `_REWARDPOOL`, which associates a material name with spell list.
