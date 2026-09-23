@@ -58,7 +58,7 @@
  <CellData
 	name="el_electrum"
 	ui_name="electrum"
-  	tags="[sand_metal],[corrodible],[alchemy],[solid],[meltable]"
+  	tags="[sand_metal],[corrodible],[alchemy],[solid],[meltable],[electrum_rewarding]"
 	wang_color="CF9C8F31"
 	burnable="0"
 	density="5.5"
@@ -123,7 +123,7 @@
  <CellData
 	name="el_aqua_regia"
 	ui_name="Aqua Regia"
-  	tags="[liquid],[impure],[magic_liquid]"
+  	tags="[liquid],[impure],[magic_liquid],[electrum_rewarding]"
 	burnable="0"
 	density="5.75"
 	cell_type="liquid"
@@ -160,7 +160,7 @@
 <CellData
 	name="el_bloodmix"
 	ui_name="blood mixture"
-	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food]"
+	tags="[liquid],[corrodible],[soluble],[water],[blood],[impure],[liquid_common],[food],[electrum_rewarding]"
 	burnable="0"
 	density="5.9"    <!--should be heavier than aqua regia-->
 	cell_type="liquid"
@@ -203,7 +203,7 @@ each particle ingested grants [amount] seconds of the status effect
 <CellData
 	name="el_cocoa"
 	ui_name="hot chocolate"
-  	tags="[liquid],[corrodible],[impure],[liquid_common],[food]"
+  	tags="[liquid],[corrodible],[impure],[liquid_common],[food],[electrum_rewarding]"
 	burnable="0"
 	density="3"
 	cell_type="liquid"
@@ -238,7 +238,7 @@ each particle ingested grants [amount] seconds of the status effect
  <CellData
 	name="el_cocoa_dust"
 	ui_name="chocolate"
-  	tags="[sand_other],[corrodible],[alchemy],[solid],[food]"
+  	tags="[sand_other],[corrodible],[alchemy],[solid],[food],[electrum_rewarding]"
 	wang_color="CF73492c"
 	burnable="0"
 	density="4.5"
@@ -274,7 +274,7 @@ each particle ingested grants [amount] seconds of the status effect
  <CellData
 	name="el_destabalized_polymorph"
 	ui_name="destabalized polymorphine"
-  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored]"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored],[electrum_rewarding]"
 	wang_color="CFea6cd7"
 	burnable="0"
 	density="1"
@@ -310,7 +310,7 @@ each particle ingested grants [amount] seconds of the status effect
   <CellData
 	name="el_antipoly_liquid"
 	ui_name="antipolymorph fluid"
-  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored]"
+  	tags="[alchemy],[liquid],[corrodible],[impure],[magic_liquid],[electrum_ignored],[electrum_rewarding]"
 	wang_color="CF169f49"
 	burnable="0"
 	density="1.9"
@@ -347,7 +347,7 @@ each particle ingested grants [amount] seconds of the status effect
   <CellData
 	name="el_metalmakerjuice"
 	ui_name="reinforcement liquid"
-  	tags="[liquid]"
+  	tags="[liquid],[electrum_rewarding]"
 	burnable="0"
 	density="10"
 	cell_type="liquid"
@@ -372,7 +372,7 @@ each particle ingested grants [amount] seconds of the status effect
     <CellData
 	name="el_stable"
 	ui_name="alchemical stabilizer"
-  	tags="[liquid]"
+  	tags="[liquid],[magic_liquid],[electrum_rewarding]"
 	burnable="0"
 	density="6"
 	cell_type="liquid"
@@ -394,7 +394,7 @@ each particle ingested grants [amount] seconds of the status effect
       <CellData
 	name="el_unstable"
 	ui_name="alchemical destabilizer"
-  	tags="[liquid]"
+  	tags="[liquid],[magic_liquid],[electrum_rewarding]"
 	burnable="0"
 	density="6"
 	cell_type="liquid"
@@ -416,7 +416,7 @@ each particle ingested grants [amount] seconds of the status effect
         <CellData
 	name="el_chaotic"
 	ui_name="alchemical chaoticizer"
-  	tags="[liquid],[magic_liquid]"
+  	tags="[liquid],[magic_liquid],[electrum_rewarding]"
 	burnable="0"
 	density="6"
 	cell_type="liquid"
@@ -440,7 +440,7 @@ each particle ingested grants [amount] seconds of the status effect
        <CellData
 	name="el_weakhealthpotion"
 	ui_name="life essence"
-  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation]"
+  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation],[electrum_rewarding]"
 	burnable="0"
 	density="7"
 	cell_type="liquid"
@@ -475,7 +475,7 @@ each particle ingested grants [amount] seconds of the status effect
          <CellData
 	name="el_healthpotion"
 	ui_name="vigor"
-  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation],[electrum_ignored]"
+  	tags="[liquid],[liquid_common],[corrodible],[alchemy],[chaotic_transmutation],[electrum_ignored],[electrum_rewarding]"
 	burnable="0"
 	density="1"
 	cell_type="liquid"
@@ -512,7 +512,7 @@ each particle ingested grants [amount] seconds of the status effect
 	<CellData
 	name="el_staticlite"
 	ui_name="Staticlite"
-  	tags="[liquid],[magic_liquid]"
+  	tags="[liquid],[magic_liquid],[electrum_rewarding]"
 	burnable="0"
 	density="6.1"
 	cell_type="liquid"
@@ -546,7 +546,7 @@ each particle ingested grants [amount] seconds of the status effect
    <CellData
 	name="el_yeast"
 	ui_name="yeast"
-  	tags="[sand_other],[corrodible],[alchemy],[solid],[food]"
+  	tags="[sand_other],[corrodible],[alchemy],[solid],[food],[electrum_rewarding]"
 	wang_color="CFe8cf33"
 	burnable="0"
 	density="6"
@@ -579,7 +579,7 @@ each particle ingested grants [amount] seconds of the status effect
  <CellData
 	name="el_superoxide"
 	ui_name="hypergolic oxidizer"
-  	tags="[alchemy],[liquid]"
+  	tags="[alchemy],[liquid],[electrum_rewarding]"
 	wang_color="CF10FF71"
 	burnable="0"
 	density="1.1"

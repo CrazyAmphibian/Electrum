@@ -208,26 +208,27 @@ _REWARDPOOL={
 }
 
 if true then --electrum materials. but why would these not load in? eh, for the sake of consistency
-_REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
+--commented stuff out because switching to using the tag for detection now. except things that are ignored, of course.
+--_REWARDPOOL["el_metalmakerjuice"]=_STDSPELLPOOL
 _REWARDPOOL["el_antipoly_liquid"]=_STDSPELLPOOL
-_REWARDPOOL["el_electrum"]=_STDSPELLPOOL
-_REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
-_REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
+--_REWARDPOOL["el_electrum"]=_STDSPELLPOOL
+--_REWARDPOOL["el_aqua_regia"]=_STDSPELLPOOL
+--_REWARDPOOL["el_cocoa"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL
+--_REWARDPOOL["el_bloodmix"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_stable"]=_STDSPELLPOOL
-_REWARDPOOL["el_unstable"]=_STDSPELLPOOL
-_REWARDPOOL["el_chaotic"]=_STDSPELLPOOL
+--_REWARDPOOL["el_stable"]=_STDSPELLPOOL
+--_REWARDPOOL["el_unstable"]=_STDSPELLPOOL
+--_REWARDPOOL["el_chaotic"]=_STDSPELLPOOL
 
 _REWARDPOOL["el_healthpotion"]=_STDSPELLPOOL
-_REWARDPOOL["el_weakhealthpotion"]=_STDSPELLPOOL
+--_REWARDPOOL["el_weakhealthpotion"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_staticlite"]=_STDSPELLPOOL
+--_REWARDPOOL["el_staticlite"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_yeast"]=_STDSPELLPOOL
+--_REWARDPOOL["el_yeast"]=_STDSPELLPOOL
 
-_REWARDPOOL["el_superoxide"]=_STDSPELLPOOL
+--_REWARDPOOL["el_superoxide"]=_STDSPELLPOOL
 
 	if not ModIsEnabled("material_spells") then 
 		--_REWARDPOOL["magic_liquid_movement_faster"]={"EL_MATERIAL_ACCELERATIUM"} --spell is being deprecated, remove in like a few months.
