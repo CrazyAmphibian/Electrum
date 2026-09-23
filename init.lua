@@ -99,6 +99,7 @@ local function should_material_be_blacklisted(materialname,materialdata)
 		local tag=materialdata[i]
 		if tag=="[box2d]" then return true end --this will cause many glitches
 		if tag=="[catastrophic]" then return true end --graham. redundant, but just in case another mod tags it with such.
+		if tag=="[antimatter]" then return true end --chemical curiosities
 		if tag=="[electrum_ignored]" then return true end
 	end
 	
@@ -293,14 +294,18 @@ function OnModPostInit()
 	end
 	
 	if ModIsEnabled("cool_spell") then
-	--[[for OVERCAST:
-	adds reaction to make oxidizing powder
-	adds reaction to make toxic gold
-	]]
-	ModMaterialsFileAdd( "mods/Electrum/files/mats_cool_spell.xml" ) 
-	print("Electrum: added content from cool_spell")
+		--[[for OVERCAST:
+		adds reaction to make oxidizing powder
+		adds reaction to make toxic gold
+		]]
+		ModMaterialsFileAdd( "mods/Electrum/files/mats_cool_spell.xml" ) 
+		print("Electrum: added content from cool_spell")
 	end
 	
+	if ModIsEnabled("Hydroxide") then
+		ModMaterialsFileAdd( "mods/Electrum/files/mats_hydroxide.xml" ) 
+		print("Electrum: added content from Hydroxide")
+	end
 	
 	
 	if ModIsEnabled("sandbox_mode") then

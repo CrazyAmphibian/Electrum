@@ -1,0 +1,49 @@
+<Materials>
+
+<!--stability transmutations-->
+
+<Reaction probability="80" 
+	input_cell1="cc_unstable_metamorphine" 		input_cell2="el_stable" 
+	output_cell1="cc_metamorphine" 		output_cell2="smoke" >
+  </Reaction> 
+  
+<Reaction probability="80" 
+	input_cell1="cc_metamorphine" 		input_cell2="el_unstable" 
+	output_cell1="cc_unstable_metamorphine" 		output_cell2="smoke" >
+  </Reaction> 
+
+
+<Reaction probability="80" 
+	input_cell1="aa_pandorium" 		input_cell2="el_unstable" 
+	output_cell1="aa_unstable_pandorium" 		output_cell2="smoke" >
+  </Reaction>
+  
+<Reaction probability="80" 
+	input_cell1="aa_pandorium" 		input_cell2="el_chaotic" 
+	output_cell1="aa_chaotic_pandorium" 		output_cell2="smoke" >
+  </Reaction> 
+  
+<Reaction probability="80" 
+	input_cell1="aa_unstable_pandorium" 		input_cell2="el_stable" 
+	output_cell1="aa_pandorium" 		output_cell2="smoke" >
+  </Reaction> 
+  
+<Reaction probability="80" 
+	input_cell1="aa_unstable_pandorium" 		input_cell2="el_chaotic" 
+	output_cell1="aa_chaotic_pandorium" 		output_cell2="smoke" >
+  </Reaction> 
+  
+<Reaction probability="80" 
+	input_cell1="aa_chaotic_pandorium" 		input_cell2="el_stable" 
+	output_cell1="aa_pandorium" 		output_cell2="smoke" >
+  </Reaction> 
+  
+<Reaction probability="80" 
+	input_cell1="aa_chaotic_pandorium" 		input_cell2="el_unstable" 
+	output_cell1="aa_unstable_pandorium" 		output_cell2="smoke" >
+  </Reaction> 
+
+<!-- -->
+
+
+</Materials>
