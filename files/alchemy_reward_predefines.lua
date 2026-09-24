@@ -1,3 +1,5 @@
+dofile_once("mods/Electrum/material_database.lua")
+
 --================
 --helper functions
 --================
@@ -264,14 +266,19 @@ if ModIsEnabled("Hydroxide") then
 end
 
 --material auto-detection. you should still manually specify materials, but this should definitely help catch things that were missed, and offer an amount of automatic mod compatibility
-local searchtags={"[magic_liquid]","[chaotic_transmutation]","[electrum_rewarding]"}
-for i=1,#searchtags do
-	local tag=searchtags[i]
-	for material_id in GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_"..tag,""):gmatch("[^\x1F]+") do
-		--print(material_id.." "..tag)
-		if not _REWARDPOOL[material_id] then
-			--print(material_id.." "..tag)
-			_REWARDPOOL[material_id]=_STDSPELLPOOL
-		end
+local mats=get_materials_with_tags({"[magic_liquid]","[chaotic_transmutation]"})
+for i=1,#mats do
+	local material_id=mats[i]
+	if (not _REWARDPOOL[material_id]) and (not should_material_be_blacklisted(material_id,material_get_tags(material_id))) then
+		_REWARDPOOL[material_id]=_STDSPELLPOOL
+	end
+end
+
+--rewarding bypasses the blacklist. this is because if you mark this tag, you will want it to be rewarding, obviously.
+local mats=get_materials_with_tags({"[electrum_rewarding]"})
+for i=1,#mats do
+	local material_id=mats[i]
+	if not _REWARDPOOL[material_id] then
+		_REWARDPOOL[material_id]=_STDSPELLPOOL
 	end
 end
