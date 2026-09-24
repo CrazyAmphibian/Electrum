@@ -2,16 +2,20 @@
 
 <!--stability transmutations-->
 
+<!-- doesn't work correctly, since they will react together.
+
 <Reaction probability="80" 
 	input_cell1="cc_unstable_metamorphine" 		input_cell2="el_stable" 
-	output_cell1="cc_metamorphine" 		output_cell2="smoke" >
+	output_cell1="cc_metamorphine" 		output_cell2="smoke" 
+	blob_radius1="5">
   </Reaction> 
   
 <Reaction probability="80" 
 	input_cell1="cc_metamorphine" 		input_cell2="el_unstable" 
-	output_cell1="cc_unstable_metamorphine" 		output_cell2="smoke" >
+	output_cell1="cc_unstable_metamorphine" 		output_cell2="smoke"
+	blob_radius1="5">
   </Reaction> 
-
+-->
 
 <Reaction probability="80" 
 	input_cell1="aa_pandorium" 		input_cell2="el_unstable" 
@@ -43,7 +47,98 @@
 	output_cell1="aa_unstable_pandorium" 		output_cell2="smoke" >
   </Reaction> 
 
-<!-- -->
+<!-- misc -->
+<Reaction probability="80" 
+	input_cell1="el_superoxide" 		input_cell2="[hydroxide]" 
+	output_cell1="steam" 		output_cell2="steam" >
+ </Reaction> 
+ 
+<Reaction probability="85" 
+	input_cell1="[magic_polymorph]" 		input_cell2="[hydroxide]" 
+	output_cell1="el_aqua_regia" 		output_cell2="el_aqua_regia" >
+</Reaction> 
+ 
+ <Reaction probability="85" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="cc_morphine" 
+	output_cell1="el_healthpotion" 		output_cell2="cc_health_tonic" >
+</Reaction> 
+ 
+  <Reaction probability="85" 
+	input_cell1="water_salt" 		input_cell2="cc_morphine" 
+	output_cell1="el_cocoa" 		output_cell2="el_cocoa" >
+</Reaction> 
+ 
+ 
+   <Reaction probability="85" 
+	input_cell1="el_superoxide" 		input_cell2="cc_iron" 
+	output_cell1="cc_ferrine" 		output_cell2="sand" >
+</Reaction> 
+ 
+ <!-- electrum reactions -->
+ <Reaction probability="80" 
+	input_cell1="el_electrum" 		input_cell2="cc_alchemy_powder" 
+	output_cell1="cc_metamorphine" 		output_cell2="cc_metamorphine">
+ </Reaction> 
+ 
+  <Reaction probability="80" 
+	input_cell1="el_electrum" 		input_cell2="cc_radioactive_waste" 
+	output_cell1="cc_uranium" 		output_cell2="el_bloodmix">
+ </Reaction> 
+ 
+ 
+ <!-- aqua regia reactions -->
+<Reaction probability="80" 
+	input_cell1="el_aqua_regia" 		input_cell2="cc_devouring_moss" 
+	output_cell1="el_yeast" 		output_cell2="el_yeast" blob_radius2="2">
+ </Reaction> 
+ 
+ <Reaction probability="10" 
+	input_cell1="el_aqua_regia" 		input_cell2="el_healthpotion" 
+	output_cell1="cc_metastasizium" 		output_cell2="cc_health_tonic">
+ </Reaction> 
+ <Reaction probability="50" 
+	input_cell1="el_aqua_regia" 		input_cell2="cc_health_tonic" 
+	output_cell1="el_aqua_regia" 		output_cell2="el_healthpotion">
+ </Reaction> 
+ 
+  <Reaction probability="30" 
+	input_cell1="el_aqua_regia" 		input_cell2="aa_catalyst" 
+	output_cell1="aa_base_potion" 		output_cell2="aa_base_potion">
+ </Reaction> 
+ 
+ 
+<!-- staticlite reactions -->
 
+ <Reaction probability="100" 
+	input_cell1="cc_veilium" input_cell2="cc_veilium" 		input_cell2="el_staticlite" 
+	output_cell1="material_darkness" output_cell1="material_confusion" 		output_cell3="magic_liquid" >
+ </Reaction> 
+
+ <Reaction probability="100" 
+	input_cell1="cc_slicing_liquid" input_cell2="cc_slicing_liquid" 		input_cell2="el_staticlite" 
+	output_cell1="magic_liquid_unstable_teleportation" output_cell1="el_metalmakerjuice" 		output_cell3="magic_liquid" >
+ </Reaction> 
+ 
+  <Reaction probability="100" 
+	input_cell1="cc_explode_player" input_cell2="cc_explode_player" 		input_cell2="el_staticlite" 
+	output_cell1="magic_liquid_berserk" output_cell1="coal" 		output_cell3="magic_liquid" >
+ </Reaction> 
+ 
+  <Reaction probability="100" 
+	input_cell1="cc_dormant_crystal_molten" input_cell2="cc_dormant_crystal_molten" 		input_cell2="el_staticlite" 
+	output_cell1="cc_radioactive_waste" output_cell1="blood_cold" 		output_cell3="magic_liquid" >
+ </Reaction>  
+ 
+  <Reaction probability="100" 
+	input_cell1="cc_dormant_crystal" input_cell2="cc_dormant_crystal" 		input_cell2="el_staticlite" 
+	output_cell1="cc_uranium" output_cell1="magic_liquid_mana_regeneration" 		output_cell3="magic_liquid" >
+ </Reaction>   
+ 
+   <Reaction probability="100" 
+	input_cell1="cc_morphine" input_cell2="cc_morphine" 		input_cell2="el_staticlite" 
+	output_cell1="cc_persistine" output_cell1="el_cocoa_dust" 		output_cell3="magic_liquid" >
+ </Reaction>   
+ 
+ 
 
 </Materials>
