@@ -330,3 +330,15 @@ text-align:center;
 .reaction_matovercast{
 	color:#00cccc;
 }
+
+#reactionheader_chemcuri{
+	color:#33dd33;
+	background-color:#2c2c2c;
+}
+
+.reaction_chemcuri{
+	background-color:#2c2c2c;
+}
+.reaction_matchemcuri{
+	color:#33dd33;
+}
