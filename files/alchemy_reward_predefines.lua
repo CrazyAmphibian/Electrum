@@ -269,7 +269,7 @@ end
 local mats=get_materials_with_tags({"[magic_liquid]","[chaotic_transmutation]"})
 for i=1,#mats do
 	local material_id=mats[i]
-	if (not _REWARDPOOL[material_id]) and (not should_material_be_blacklisted(material_id,material_get_tags(material_id))) then
+	if (not _REWARDPOOL[material_id]) and (not isin("[electrum_ignored]",material_get_tags(material_id))) then
 		_REWARDPOOL[material_id]=_STDSPELLPOOL
 	end
 end
