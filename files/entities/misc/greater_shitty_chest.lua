@@ -1,7 +1,7 @@
 dofile_once("data/scripts/lib/utilities.lua")
 dofile_once( "data/scripts/gun/gun_actions.lua" )
 dofile_once( "data/scripts/game_helpers.lua" )
-
+dofile_once("mods/Electrum/material_database.lua")
 -------------------------------------------------------------------------------
 
 function make_random_card( x, y )
@@ -95,35 +95,33 @@ local function get_rewards(x,y,entityid)
 		end
 
 		local selectedmaterial
-		rng=Random(1,4)
-		if rng==1 then --truly random material (25%)
+		rng=Random(1,24)
+		for attempts=1,10 do
+		if rng<=6 then --truly random material (25%)
 			local matdb=GlobalsGetValue("ELECTRUM_MATERIALS_DATABASE_LISTALL")
 			local allmat={}
 			for m in matdb:gmatch("[^\x1F]+") do
 				allmat[#allmat+1]=m
 			end
 			selectedmaterial=allmat[Random(1,#allmat)]
-		elseif rng<=2 then -- alchemy (25%)
-			local matdb=GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_[alchemy]")
-			local allmat={}
-			for m in matdb:gmatch("[^\x1F]+") do
-				allmat[#allmat+1]=m
-			end
-			selectedmaterial=allmat[Random(1,#allmat)]
-		elseif rng<=3 then --magic_liquid (25%)
+		elseif rng<=15 then --magic_liquid (37.5%)
 			local matdb=GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_[magic_liquid]")
 			local allmat={}
 			for m in matdb:gmatch("[^\x1F]+") do
 				allmat[#allmat+1]=m
 			end
 			selectedmaterial=allmat[Random(1,#allmat)]
-		else --chaotic_transmutation (25%)
+		else --chaotic_transmutation (37.5%)
 			local matdb=GlobalsGetValue("ELECTRUM_MATERIAL_DATABASE_TAG_[chaotic_transmutation]")
 			local allmat={}
 			for m in matdb:gmatch("[^\x1F]+") do
 				allmat[#allmat+1]=m
 			end
 			selectedmaterial=allmat[Random(1,#allmat)]
+		end
+			if not should_material_be_blacklisted(selectedmaterial,material_get_tags(selectedmaterial)) then
+				break --re-roll blacklisted materials to avoid them.
+			end
 		end
 		AddMaterialInventoryMaterial(nent, selectedmaterial ,1000)
 	elseif rng==7 or rng==8 then --wand
