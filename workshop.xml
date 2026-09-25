@@ -7,7 +7,7 @@ for bug reports, proper documentation, and feature suggestions, go to the github
 Overview:
 - integration with other mods
 - 22 spells (2 more with other mods)
-- 15 materials
+- 16 materials
 - 5 new items
 - 1 new perk
 
@@ -35,15 +35,21 @@ Perk:
 
 mod interactions:
 
+Chemical Curiosities
+	adds alchemical reactions
+	integrates spells into reward pool
+
 Graham's things:
 	adds 2 new spells
 	adds alchemical reactions
+	integrates spells into reward pool
 
 OVERCAST:
 	adds alchemical reactions
+	integrates spells into reward pool
 
 Material Spells	
-	this mod will not add touch of or sea of spells (except touch of air)
+	this mod will not add touch of or sea of spells
 	
 Anvil of Destiny
 	integrates several materials added from this mod to add spells when poured onto the anvil.
