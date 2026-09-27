@@ -920,12 +920,20 @@ each particle ingested grants [amount] seconds of the status effect
 	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_invisibility"
 	output_cell1="el_healthpotion" output_cell2="steam" >
   </Reaction>  
-          <Reaction probability="50" 
+    <Reaction probability="50" 
 	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_charm"
 	output_cell1="el_healthpotion" output_cell2="steam" >
+  </Reaction>
+  
+	<Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="el_cocoa_dust"
+	output_cell1="el_healthpotion" output_cell2="el_healthpotion" >
   </Reaction>  
-  
-  
+   
+	<Reaction probability="50" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="el_cocoa"
+	output_cell1="el_healthpotion" output_cell2="smoke" >
+  </Reaction>   
 
   
     <Reaction probability="50" 

@@ -64,6 +64,11 @@
 </Reaction> 
  
   <Reaction probability="85" 
+	input_cell1="el_weakhealthpotion" 		input_cell2="cc_persistine" 
+	output_cell1="el_healthpotion" 		output_cell2="el_healthpotion" >
+</Reaction> 
+
+  <Reaction probability="85" 
 	input_cell1="water_salt" 		input_cell2="cc_morphine" 
 	output_cell1="el_cocoa" 		output_cell2="el_cocoa" >
 </Reaction> 
