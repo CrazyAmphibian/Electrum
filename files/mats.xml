@@ -719,6 +719,14 @@ each particle ingested grants [amount] seconds of the status effect
 	output_cell1="steam"  output_cell2="fungi">
   </Reaction>
 
+ <Reaction probability="5"
+	input_cell1="el_aqua_regia" 		input_cell2="coal" input_cell3="el_aqua_regia" 
+	output_cell1="oil" 		output_cell2="diamond" output_cell1="acid_gas" >
+  </Reaction>
+<Reaction probability="15"
+	input_cell1="el_aqua_regia" 		input_cell2="coal_static" input_cell3="el_aqua_regia" 
+	output_cell1="oil" 		output_cell2="diamond" output_cell1="acid_gas" >
+  </Reaction>
 
   <!--tasty...?-->
   <!--first make the dust-->
@@ -902,6 +910,14 @@ each particle ingested grants [amount] seconds of the status effect
 	input_cell1="[blood]" 		input_cell2="bone"
 	output_cell1="el_weakhealthpotion" output_cell2="poison_gas" >
   </Reaction>  
+     <Reaction probability="50" 
+	input_cell1="[blood]" 		input_cell2="bone_static" input_cell3="bone_static"
+	output_cell1="el_weakhealthpotion" output_cell2="poison_gas" output_cell3="poison_gas" >
+  </Reaction>   
+       <Reaction probability="50" 
+	input_cell1="[blood]" 		input_cell2="bone_box2d"
+	output_cell1="el_weakhealthpotion" output_cell2="el_weakhealthpotion" >
+  </Reaction>  
       <Reaction probability="50" 
 	input_cell1="el_weakhealthpotion" 		input_cell2="slime"
 	output_cell1="el_weakhealthpotion" output_cell2="steam" >
@@ -913,7 +929,7 @@ each particle ingested grants [amount] seconds of the status effect
   </Reaction>  
       <Reaction probability="50" 
 	input_cell1="el_weakhealthpotion" 		input_cell2="magic_liquid_protection_all"
-	output_cell1="el_healthpotion" output_cell2="steam" >
+	output_cell1="el_healthpotion" output_cell2="el_healthpotion" >
   </Reaction>  
   
         <Reaction probability="50" 
