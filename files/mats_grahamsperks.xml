@@ -122,6 +122,17 @@ still it slows it down a bit-->
 	output_cell1="graham_beans" 		output_cell2="el_aqua_regia" >
   </Reaction> 
   
+  
+     <Reaction probability="90" 
+	input_cell1="el_superoxide" 		input_cell2="graham_meathealthy" 
+	output_cell1="sand" 		output_cell2="magic_gas_hp_regeneration" >
+  </Reaction> 
+   
+     <Reaction probability="90" 
+	input_cell1="el_superoxide" 		input_cell2="graham_meatgreedy" 
+	output_cell1="sand" 		output_cell2="magic_gas_midas" >
+  </Reaction> 
+  
 </Materials>
 
 
