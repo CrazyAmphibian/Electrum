@@ -155,7 +155,7 @@
 
  <Reaction probability="100" 
 	input_cell1="cc_veilium" input_cell2="cc_veilium" 		input_cell2="el_staticlite" 
-	output_cell1="material_darkness" output_cell1="material_confusion" 		output_cell3="magic_liquid" >
+	output_cell1="material_darkness" output_cell1="material_confusion" 		output_cell3="el_staticlite" >
  </Reaction> 
 
  <Reaction probability="100" 
@@ -165,7 +165,7 @@
  
   <Reaction probability="100" 
 	input_cell1="cc_explode_player" input_cell2="cc_explode_player" 		input_cell2="el_staticlite" 
-	output_cell1="magic_liquid_berserk" output_cell1="coal" 		output_cell3="magic_liquid" >
+	output_cell1="magic_liquid_berserk" output_cell1="coal" 		output_cell3="el_staticlite" >
  </Reaction> 
  
   <Reaction probability="100" 
