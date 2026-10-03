@@ -16,6 +16,21 @@ table.insert(materials_magic, {
 })
 
 table.insert(materials_magic, {
+        material="el_metalmakerjuice",
+        cost=350,
+})
+
+table.insert(materials_magic, {
         material="el_weakhealthpotion",
+        cost=350,
+})
+
+table.insert(materials_magic, {
+        material="el_superoxide",
+        cost=300,
+})
+
+table.insert(materials_magic, {
+        material="el_staticlite",
         cost=350,
 })

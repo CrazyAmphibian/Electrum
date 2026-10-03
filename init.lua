@@ -139,7 +139,8 @@ end
 ModMaterialsFileAdd( "mods/Electrum/files/mats.xml" ) 
 ModLuaFileAppend( "data/scripts/gun/gun_actions.lua", "mods/Electrum/files/actions.lua" )
 ModLuaFileAppend( "data/scripts/status_effects/status_list.lua", "mods/Electrum/files/statuses.lua" )
-ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/Electrum/files/potion.lua" )
+ModLuaFileAppend( "data/scripts/items/potion.lua", "mods/Electrum/files/potion_append.lua" )
+ModLuaFileAppend( "data/scripts/items/powder_stash.lua", "mods/Electrum/files/powder_stash_append.lua" )
 
 
 ModLuaFileAppend( "data/scripts/magic/altar_tablet_magic.lua", "mods/Electrum/files/temple_altar_masteralchemistflask.lua")

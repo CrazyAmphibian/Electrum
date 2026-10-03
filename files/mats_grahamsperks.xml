@@ -107,19 +107,23 @@ still it slows it down a bit-->
   
    <Reaction probability="10" 
 	input_cell1="graham_coffee" 		input_cell2="el_aqua_regia" 
-	output_cell1="el_cocoa" 		output_cell2="el_aqua_regia" >
+	output_cell1="el_cocoa" 		output_cell2="el_aqua_regia"
+	blob_radius1="2">
   </Reaction> 
    <Reaction probability="10" 
 	input_cell1="graham_beans" 		input_cell2="el_aqua_regia" 
-	output_cell1="el_cocoa_dust" 		output_cell2="el_aqua_regia" >
+	output_cell1="el_cocoa_dust" 		output_cell2="el_aqua_regia"
+	blob_radius1="2">
   </Reaction> 
    <Reaction probability="10" 
 	input_cell1="el_cocoa" 		input_cell2="el_aqua_regia" 
-	output_cell1="graham_coffee" 		output_cell2="el_aqua_regia" >
+	output_cell1="graham_coffee" 		output_cell2="el_aqua_regia"
+	blob_radius1="2">
   </Reaction> 
    <Reaction probability="10" 
 	input_cell1="el_cocoa_dust" 		input_cell2="el_aqua_regia" 
-	output_cell1="graham_beans" 		output_cell2="el_aqua_regia" >
+	output_cell1="graham_beans" 		output_cell2="el_aqua_regia"
+	blob_radius1="2">
   </Reaction> 
   
   
